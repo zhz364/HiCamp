@@ -21,6 +21,4 @@ class Api::SessionsController < ApplicationController
         end
     end
 
-
-
 end
