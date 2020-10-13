@@ -28,37 +28,36 @@ class Signup extends React.Component{
 
     render(){
         return (
-            <div className="signup-form">
-                <h2>Sign Up</h2>
+            <div className="session-form">
+                <h2>Join Hicamp</h2>
+                <p>Discover the best camping near me</p>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label>First Name:
-                            <input type="text" placeholder="Enter first name" value={this.state.first_name} onChange={this.handleInput("first_name")}/>
+                    <div className="first-last-name">
+                        <label>
+                            <input type="text" placeholder="First name" value={this.state.first_name} onChange={this.handleInput("first_name")}/>
+                        </label>
+                        <label>
+                            <input type="text" placeholder="Last name" value={this.state.last_name} onChange={this.handleInput("last_name")}/>
                         </label>
                     </div>
                     <div>
-                        <label>Last Name:
-                            <input type="text" placeholder="Enter last name" value={this.state.last_name} onChange={this.handleInput("last_name")}/>
+                        <label>
+                            <input type="text" placeholder="User name" value={this.state.username} onChange={this.handleInput("username")}/>
                         </label>
                     </div>
                     <div>
-                        <label>Username:
-                            <input type="text" placeholder="Enter username for log in" value={this.state.username} onChange={this.handleInput("username")}/>
+                        <label>                  
+                            <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleInput("email")}/>
                         </label>
                     </div>
                     <div>
-                        <label>Email:                    
-                            <input type="text" placeholder="Enter email" value={this.state.email} onChange={this.handleInput("email")}/>
+                        <label>
+                            <input type="text" placeholder="Zip code" value={this.state.zip} onChange={this.handleInput("zip")}/>
                         </label>
                     </div>
                     <div>
-                        <label>Zip Code:
-                            <input type="text" placeholder="Enter zip code" value={this.state.zip} onChange={this.handleInput("zip")}/>
-                        </label>
-                    </div>
-                    <div>
-                        <label>Password:
-                            <input type="password" placeholder="Enter password" value={this.state.password} onChange={this.handleInput("password")}/>
+                        <label>
+                            <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput("password")}/>
                         </label>
                     </div>
                     <button type="submit">Sign Up</button>

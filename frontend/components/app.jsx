@@ -8,8 +8,8 @@ import NavBarContainer from "./nav_bar/nav_bar_container"
 const App =() =>{
     return(
         <div>
-            <Route path="/login" component={LoginContainer} />
             <Route path="/" component={NavBarContainer}/>
+            <Route path="/login" component={LoginContainer} />
             <Route path="/signup" component={SignupContainer}/>
         </div>
     )
