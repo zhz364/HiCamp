@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
   constructor(props) {
@@ -26,25 +27,29 @@ class Login extends React.Component {
   render() {
     // console.log(this.props);
     return (
-      <div className="session-form">
-        <h2>Log In!</h2>
+      <div className="login-form">
+        <h2>Welcome back!</h2>
+        <p>Let's get you outside.</p>
         <form>
-          <label>Username:
-          <input
+          <div>
+            <input
             type="text"
             value={this.state.username}
+            placeholder="User name"
             onChange={this.handleInput('username')}
           />
-          </label>
-
-          <label>Password:
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.handleInput('password')}
-          />
+          </div>  
+          
+          <div>
+            <input
+              type="password"
+              value={this.state.password}
+              placeholder="Password"
+              onChange={this.handleInput('password')}
+            />
+          </div>
             <button onClick={this.handleSubmit}>Log In!</button>
-          </label>
+            <div className="foot-sign up">Don't have a Hipcamp account? <Link to="signup">Sign up!</Link></div>
         </form>
       </div>
     );
