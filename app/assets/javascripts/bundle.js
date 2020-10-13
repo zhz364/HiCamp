@@ -104,7 +104,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signUp", function() { return signUp; });
-/* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
+/* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
 
 var RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 var LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
@@ -129,7 +129,7 @@ var receiveError = function receiveError(payload) {
 };
 var login = function login(user) {
   return function (dispatch) {
-    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_1__["login"](user).then(function (payload) {
+    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["login"](user).then(function (payload) {
       // debugger;
       return dispatch(receiveCurrentUser(payload));
     })["catch"](function (payload) {
@@ -140,7 +140,7 @@ var login = function login(user) {
 };
 var logout = function logout() {
   return function (dispatch) {
-    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_1__["logout"]().then(function () {
+    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["logout"]().then(function () {
       return dispatch(logoutCurrentUser());
     })["catch"](function (payload) {
       return dispatch(receiveError(payload));
@@ -149,7 +149,7 @@ var logout = function logout() {
 };
 var signUp = function signUp(user) {
   return function (dispatch) {
-    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_1__["signUp"](user).then(function (payload) {
+    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["signUp"](user).then(function (payload) {
       return dispatch(receiveCurrentUser(payload));
     })["catch"](function (payload) {
       return dispatch(receiveError(payload));
@@ -173,6 +173,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
  // test import
@@ -182,6 +184,12 @@ document.addEventListener("DOMContentLoaded", function () {
   var preloadedState = undefined;
   var store = Object(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])(preloadedState);
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to HiCamp"), root); // Test Section
+
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  window.signUp = _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["signUp"];
+  window.login = _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"];
+  window.logout = _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["logout"];
 });
 
 /***/ }),
