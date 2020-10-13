@@ -4,14 +4,14 @@ import {
 } from "../actions/session_actions";
 
 let _nullSession = {
-    id: null,
+    currentUser: null,
 };
 
 export default (state = _nullSession, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            return Object.assign({}, { id: action.payload.id });
+            return Object.assign({}, { currentUser: action.payload });
         case LOGOUT_CURRENT_USER:
             return _nullSession;
 
