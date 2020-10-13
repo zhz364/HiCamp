@@ -1,12 +1,15 @@
 import React from "react"
 import SignupContainer from "./session/signup_container"
+import LoginContainer from './session/login_container';
 import {Route,Link} from "react-router-dom"
+import NavBarContainer from "./nav_bar/nav_bar_container"
+
 
 const App =() =>{
     return(
         <div>
-            <h1>HiCamp</h1>
-            <Link to="/api/signup">Sign up</Link>
+            <Route path="/login" component={LoginContainer} />
+            <Route path="/" component={NavBarContainer}/>
             <Route path="/signup" component={SignupContainer}/>
         </div>
     )
