@@ -32,18 +32,26 @@ export const login = (user) => (dispatch) => {
         })
         .catch((payload) => {
             // debugger
-            dispatch(receiveError(payload));
+            return dispatch(receiveError(payload));
         });
 };
 
 export const logout = () => (dispatch) => {
     return SessionUtil.logout()
-        .then(() => dispatch(logoutCurrentUser()))
-        .catch((payload) => dispatch(receiveError(payload)));
+        .then(() => { 
+            return dispatch(logoutCurrentUser())
+        })
+        .catch((payload) => {
+            return dispatch(receiveError(payload))
+        });
 };
 
 export const signUp = (user) => (dispatch) => {
     return SessionUtil.signUp(user)
-        .then((payload) => dispatch(receiveCurrentUser(payload)))
-        .catch((payload) => dispatch(receiveError(payload)));
+        .then((payload) => {
+            return dispatch(receiveCurrentUser(payload))
+        })
+        .catch((payload) => {
+            return dispatch(receiveError(payload))
+        });
 };

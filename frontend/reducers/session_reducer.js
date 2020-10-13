@@ -14,7 +14,6 @@ export default (state = _nullSession, action) => {
             return Object.assign({}, { currentUser: action.payload });
         case LOGOUT_CURRENT_USER:
             return _nullSession;
-
         default:
             return state;
     }
