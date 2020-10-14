@@ -131,7 +131,7 @@ var login = function login(user) {
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["login"](user).then(function (payload) {
       // debugger;
       return dispatch(receiveCurrentUser(payload));
-    })["catch"](function (payload) {
+    }).fail(function (payload) {
       // debugger
       return dispatch(receiveError(payload));
     });
@@ -141,7 +141,7 @@ var logout = function logout() {
   return function (dispatch) {
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["logout"]().then(function () {
       return dispatch(logoutCurrentUser());
-    })["catch"](function (payload) {
+    }).fail(function (payload) {
       return dispatch(receiveError(payload));
     });
   };
@@ -150,7 +150,7 @@ var signUp = function signUp(user) {
   return function (dispatch) {
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["signUp"](user).then(function (payload) {
       return dispatch(receiveCurrentUser(payload));
-    })["catch"](function (payload) {
+    }).fail(function (payload) {
       return dispatch(receiveError(payload));
     });
   };
@@ -484,7 +484,7 @@ var Login = /*#__PURE__*/function (_React$Component) {
         onClick: this.handleDemo
       }, "Demo user"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "foot-signup"
-      }, "Don't have a Hipcamp account? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "Don't have a Hicamp account? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "signup"
       }, "Sign up!"))));
     }
