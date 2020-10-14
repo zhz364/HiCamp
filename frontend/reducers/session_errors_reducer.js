@@ -1,6 +1,7 @@
 import {
     RECEIVE_CURRENT_USER,
     RECEIVE_SESSION_ERRORS,
+    CLEAR_ERROR
 } from "../actions/session_actions";
 
 export default (state = [], action) => {
@@ -10,6 +11,8 @@ export default (state = [], action) => {
             return {};
         case RECEIVE_SESSION_ERRORS: 
             return action.payload.responseJSON;
+        case CLEAR_ERROR:
+            return [];
         default:
             return state;
     }

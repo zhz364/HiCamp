@@ -25,6 +25,10 @@ class Login extends React.Component {
       .then(() => this.props.history.push('/'));
   }
 
+  componentDidMount(){
+    this.props.clearErrors(); 
+  }
+
   handleDemo(e){
     e.preventDefault();
     let demoUser = {

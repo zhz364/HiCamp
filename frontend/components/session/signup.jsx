@@ -14,6 +14,10 @@ class Signup extends React.Component{
             zip: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        // this.renderErrors = this.renderErrors(this)
+    }
+    componentDidMount(){
+        this.props.clearErrors();
     }
 
     handleInput(type){
@@ -28,8 +32,14 @@ class Signup extends React.Component{
             .then(()=>this.props.history.push("/"))
     }
 
-    componentDidMount(){
-        
+    renderErrors(){
+        return (
+            <div className="signup-errors-div">   
+                    <ul>{this.props.errors.map((err,i)=>(
+                        <li key={i}> {err}</li>
+                    ))}</ul>
+            </div>
+        )
     }
 
     render(){
@@ -37,11 +47,7 @@ class Signup extends React.Component{
             <div className="signup-form">
                 <h2>Join Hicamp</h2>
                 <p>Discover the best camping near me</p>
-                <div className="signup-errors-div">   
-                    <ul>{this.props.errors.map(err=>(
-                        <li>{err}</li>
-                    ))}</ul>
-                </div>
+                {this.renderErrors()}
                 <form onSubmit={this.handleSubmit}>
                     <div className="first-last-name">
                         <label>

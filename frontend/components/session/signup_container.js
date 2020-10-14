@@ -1,9 +1,10 @@
 import {connect} from 'react-redux';
-import {signUp} from '../../actions/session_actions';
+import {signUp, clearErrors} from '../../actions/session_actions';
 import Signup from './signup'
 
 const mdtp = dispatch =>({
-    signup: user => dispatch(signUp(user))
+    signup: user => dispatch(signUp(user)),
+    clearErrors: () => dispatch(clearErrors())
 })
 
 const mstp = state =>({
