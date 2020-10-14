@@ -9,7 +9,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript">
       window.hicampLogo = "<%= image_url('hicamp2.PNG') %>";
+      window.favicon = "<%= image_url('favicon.png') %>";
     </script>
+    <link rel="shortcut icon" type="image/png" href="https://djqvcbmmgpti5.cloudfront.net/assets/favicon/hipcamp-apple-icon-77c3a7c86c7373902fa3b80081c977e7c66ea40c2e535b1918a8c6299aac1abe.png">
     <% if current_user %>
       <script>
         window.currentUser = { 
