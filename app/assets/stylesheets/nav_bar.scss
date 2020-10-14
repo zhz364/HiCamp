@@ -1,20 +1,35 @@
 .nav-bar{
-    background-color: red;
     display: flex;
     position: relative;
     justify-content: space-between;
 
 }
 .right-div{
-    background-color: yellow;
     position: relative; 
-    justify-content: space-between;
+    display: flex;
     top: 30px;
+    width: 150px;
 }
 
 .inner-right-div{
-    // position: absolute;
-    justify-content: space-between;
-    background-color: green;  
+    display: flex;
     top: -50px;
+    justify-content: space-around;
+}
+
+.empty{
+    width: 20px;
+}
+
+.btn{
+    text-decoration: none;
+}
+
+.right-signup:hover {
+    border-bottom: 3px solid #40d9ac;
+    height: 20px;
+}
+.right-login:hover {
+    border-bottom: 3px solid #40d9ac;
+    height: 20px;
 }
