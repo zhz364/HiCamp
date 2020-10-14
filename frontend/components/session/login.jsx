@@ -37,12 +37,17 @@ class Login extends React.Component {
   }
 
   render() {
-    // console.log(this.props);
+    // debugger
+    let errors = this.props.errors
+    if (errors.length === 0){
+      errors = []
+    }
     return (
       <div className="login-form">
         <h2>Welcome back!</h2>
         <p>Let's get you outside.</p>
         <form>
+          <p>{errors}</p>
           <div className="username-div">
             <input
             type="text"

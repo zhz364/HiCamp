@@ -6,4 +6,8 @@ const mdtp = dispatch =>({
     signup: user => dispatch(signUp(user))
 })
 
-export default connect(null,mdtp)(Signup)
+const mstp = state =>({
+    errors: state.errors.session.responseText
+})
+
+export default connect(mstp,mdtp)(Signup)
