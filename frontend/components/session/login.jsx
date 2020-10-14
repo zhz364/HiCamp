@@ -42,7 +42,7 @@ class Login extends React.Component {
         <h2>Welcome back!</h2>
         <p>Let's get you outside.</p>
         <form>
-          <div>
+          <div className="login-errors-div">
             <p>{this.props.errors}</p>
           </div>
           <div className="username-div">

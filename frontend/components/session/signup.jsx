@@ -34,7 +34,7 @@ class Signup extends React.Component{
             <div className="signup-form">
                 <h2>Join Hicamp</h2>
                 <p>Discover the best camping near me</p>
-                <div>   
+                <div className="signup-errors-div">   
                     <ul>{this.props.errors.map(err=>(
                         <li>{err}</li>
                     ))}</ul>
