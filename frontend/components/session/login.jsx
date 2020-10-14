@@ -10,6 +10,7 @@ class Login extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this)
   }
 
   handleInput(type) {
@@ -22,6 +23,17 @@ class Login extends React.Component {
     e.preventDefault();
     this.props.login(this.state)
       .then(() => this.props.history.push('/'));
+  }
+
+  handleDemo(e){
+    e.preventDefault();
+    let demoUser = {
+      username: "uzi",
+      password: "123456"
+    }
+
+    this.props.login(demoUser) 
+        .then(()=>this.props.history.push("/"))
   }
 
   render() {
@@ -48,7 +60,8 @@ class Login extends React.Component {
             />
           </div>
             <button onClick={this.handleSubmit}>Log In!</button>
-            <div className="foot-sign up">Don't have a Hipcamp account? <Link to="signup">Sign up!</Link></div>
+            <button onClick={this.handleDemo}>Demo user</button>
+            <div className="foot-signup">Don't have a Hipcamp account? <Link to="signup">Sign up!</Link></div>
         </form>
       </div>
     );

@@ -421,6 +421,7 @@ var Login = /*#__PURE__*/function (_React$Component) {
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleDemo = _this.handleDemo.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -441,6 +442,20 @@ var Login = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       this.props.login(this.state).then(function () {
         return _this3.props.history.push('/');
+      });
+    }
+  }, {
+    key: "handleDemo",
+    value: function handleDemo(e) {
+      var _this4 = this;
+
+      e.preventDefault();
+      var demoUser = {
+        username: "uzi",
+        password: "123456"
+      };
+      this.props.login(demoUser).then(function () {
+        return _this4.props.history.push("/");
       });
     }
   }, {
@@ -465,8 +480,10 @@ var Login = /*#__PURE__*/function (_React$Component) {
         onChange: this.handleInput('password')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleSubmit
-      }, "Log In!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "foot-sign up"
+      }, "Log In!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleDemo
+      }, "Demo user"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "foot-signup"
       }, "Don't have a Hipcamp account? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "signup"
       }, "Sign up!"))));
