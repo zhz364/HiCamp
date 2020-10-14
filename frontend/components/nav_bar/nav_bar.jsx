@@ -3,20 +3,24 @@ import { Link } from 'react-router-dom';
 
 export default ({ currentUser, logout }) => {
 const display = currentUser ? (
-    <div>
+    <div className="inner-right-div">
       <h3>Welcome {currentUser.username}!</h3>
       <button onClick={logout}>Logout</button>
     </div>
   ) : (
-    <div>
-      <Link className="btn" to="/signup">Sign Up</Link>
-      <Link className="btn" to="/login">Log In</Link>
+    <div className="inner-right-div">
+      <div className="right-signup">
+        <Link className="btn" to="/signup">Sign Up</Link>
+      </div>
+      <div className="right-login">
+        <Link className="btn" to="/login">Log In</Link>
+      </div>
     </div>
   );
   return (
     <header className="nav-bar">
-      <h1 className="logo">HiCamp</h1>
-      <div>
+      <img src={window.hicampLogo} />
+      <div className="right-div">
         {display}
       </div>
     </header>
