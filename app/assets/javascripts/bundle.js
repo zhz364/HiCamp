@@ -496,11 +496,11 @@ var Login = /*#__PURE__*/function (_React$Component) {
         onClick: this.handleSubmit
       }, "Log In!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleDemo
-      }, "Demo user"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Demo user")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "foot-signup"
       }, "Don't have a Hicamp account? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "signup"
-      }, "Sign up!"))));
+      }, "Sign up!")));
     }
   }]);
 
