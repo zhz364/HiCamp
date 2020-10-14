@@ -11,7 +11,7 @@ import { login, logout, signUp } from "./actions/session_actions";
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
     let preloadedState = undefined;
-    const store = configureStore(preloadedState);
+    
     if (window.currentUser) {
         preloadedState = {
           session: {
@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         };
     }
+    const store = configureStore(preloadedState);
+
     ReactDOM.render(<Root store={store}/>, root);
 
     // Test Section
