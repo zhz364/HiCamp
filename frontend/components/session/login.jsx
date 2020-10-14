@@ -31,7 +31,7 @@ class Login extends React.Component {
         <h2>Welcome back!</h2>
         <p>Let's get you outside.</p>
         <form>
-          <div>
+          <div className="username-div">
             <input
             type="text"
             value={this.state.username}
@@ -39,8 +39,7 @@ class Login extends React.Component {
             onChange={this.handleInput('username')}
           />
           </div>  
-          
-          <div>
+          <div className="password-div">
             <input
               type="password"
               value={this.state.password}
