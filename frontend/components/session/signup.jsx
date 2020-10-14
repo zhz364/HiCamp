@@ -28,6 +28,9 @@ class Signup extends React.Component{
             .then(()=>this.props.history.push("/"))
     }
 
+    componentDidMount(){
+        
+    }
 
     render(){
         return (

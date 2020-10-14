@@ -23,7 +23,10 @@
     height: 90vh;
     justify-content: center;
     align-items: center;
-    margin-top: -10px;
+    margin-top: -40px;
+  li{
+    list-style-type: none
+  }
   .link-div{
     color:black;
     font-weight:bold;
@@ -125,9 +128,14 @@
    }
   }
 
-  .signup-errors-div{
-    
+.signup-errors-div{
+  ul{
+    list-style-type: none
   }
+  li{
+  color: #c44841;
+  }
+}
 
 
   
