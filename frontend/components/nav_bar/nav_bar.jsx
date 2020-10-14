@@ -20,7 +20,7 @@ const display = currentUser ? (
   );
   return (
     <header className="nav-bar">
-      <img src={window.hicampLogo} />
+      <Link to="/"><img src={window.hicampLogo}/></Link>
       <div className="right-div">
         {display}
       </div>
