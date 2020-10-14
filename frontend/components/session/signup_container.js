@@ -7,7 +7,7 @@ const mdtp = dispatch =>({
 })
 
 const mstp = state =>({
-    errors: state.errors.session.responseText
+    errors: Object.values(state.errors.session)
 })
 
 export default connect(mstp,mdtp)(Signup)

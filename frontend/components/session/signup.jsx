@@ -34,6 +34,11 @@ class Signup extends React.Component{
             <div className="signup-form">
                 <h2>Join Hicamp</h2>
                 <p>Discover the best camping near me</p>
+                <div>   
+                    <ul>{this.props.errors.map(err=>(
+                        <li>{err}</li>
+                    ))}</ul>
+                </div>
                 <form onSubmit={this.handleSubmit}>
                     <div className="first-last-name">
                         <label>

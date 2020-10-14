@@ -42,7 +42,9 @@ class Login extends React.Component {
         <h2>Welcome back!</h2>
         <p>Let's get you outside.</p>
         <form>
-          <p>{this.props.errors}</p>
+          <div>
+            <p>{this.props.errors}</p>
+          </div>
           <div className="username-div">
             <input
             type="text"
