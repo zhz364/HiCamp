@@ -5,9 +5,14 @@
     position: relative;
     padding-left: 160px;
     padding-top: 15px;
-    // border: 1px solid silver;
+    border: 1px solid blue;
+    height: 500px;
+    
     .search-bar{
         display: block;
+        position: relative;
+        border: 1px solid green;
+        align-self: center;
     }
     .content-above{
         .intro{
@@ -33,15 +38,17 @@
     
     .search-div{
         display: flex;
-        position: relative;
+        // position: absolute;
         width: 905px;
         min-width: 450px;
         align-items: center;
         box-shadow: 1px 2px 5px 2px rgba(0,0,0,0.1);
         padding: 10px 10px 10px 10px;
+        border: 1px solid red;
     }
     .search-input{
         display: flex;
+        position: relative;
         height:65px;
         width:1000px;
         box-shadow: 1px 2px 5px 2px rgba(0,0,0,0.1);
@@ -72,6 +79,7 @@
             border-style: none;
             background-color: white;
             margin-left: 20px;
+            position: relative;
             // border: 1px solid red;
 
         }
@@ -79,7 +87,7 @@
     
     .type-div{
         // border: 1px solid red;
-        // position: absolute;
+        position: relative;
         height:65px;
         width: 140px;
         display: flex;
@@ -91,6 +99,7 @@
             border-style: none;
             background-color: white;
             margin-left: 15px;
+            position: relative;
 
         }
     }
@@ -101,6 +110,7 @@
         min-width: 450px;
         align-items: center;
         justify-content: space-evenly;
+        position: relative;
     }
 
     button {
