@@ -12,13 +12,11 @@ class CampsiteIndex extends React.Component{
 
     render(){
         return(
-            <body className="main-body">
-                <div className="spot-div">
-                    {this.props.campsites.map( campsite => (
-                        <CampsiteIndexItem key={campsite.id} campsite={campsite}/>
-                    ))}
-                </div>
-            </body>
+            <div className="campsites-index">
+                {this.props.campsites.map( campsite => (
+                    <CampsiteIndexItem key={campsite.id} campsite={campsite}/>
+                ))}
+            </div>
         )
     }
 }

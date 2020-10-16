@@ -9,7 +9,7 @@ class CampsiteIndexItem extends React.Component{
 
     render(){
         return(
-        <div> 
+        <div className="campsite-item"> 
             {this.props.campsite.title}
         </div>
         )

@@ -324,16 +324,14 @@ var CampsiteIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("body", {
-        className: "main-body"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "spot-div"
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "campsites-index"
       }, this.props.campsites.map(function (campsite) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_campsite_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
           key: campsite.id,
           campsite: campsite
         });
-      })));
+      }));
     }
   }]);
 
@@ -429,7 +427,9 @@ var CampsiteIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(CampsiteIndexItem, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.campsite.title);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "campsite-item"
+      }, this.props.campsite.title);
     }
   }]);
 
@@ -524,7 +524,7 @@ var MainBody = /*#__PURE__*/function (_React$Component) {
       }, "Glamping"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "RV_sites"
       }, "RV sites"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Search"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "spots-index"
+        className: "campsites-index-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_campsites_campsite_index_container__WEBPACK_IMPORTED_MODULE_1__["default"], null))));
     }
   }]);
