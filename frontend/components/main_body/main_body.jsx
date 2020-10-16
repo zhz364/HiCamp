@@ -42,8 +42,8 @@ class MainBody extends React.Component{
                 </form>
               </div>
             </div>
-            <div className="spotindex">
-              <SpotIndexContainer spots={this.props.spots}/>
+            <div className="spots-index">
+              <SpotIndexContainer />
             </div>
           </div>
       </body>

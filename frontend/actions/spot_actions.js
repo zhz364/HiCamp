@@ -18,7 +18,6 @@ export const receiveSpot = (spot) =>{
 }
 
 export const fetchSpots = () => dispath =>{
-    debugger
     return SpotUtil.fetchSpots()
         .then((spots)=>dispath(receiveAllSpots(spots)))
 }

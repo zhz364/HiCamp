@@ -7,20 +7,15 @@ class SpotIndex extends React.Component{
     }
 
     componentDidMount(){
-        debugger
         this.props.fetchSpots();
     }
 
     render(){
         return(
-            <div>
-                <div>
-                    {this.props.spots.map( spot => (
-                        <div> 
-                            <SpotIndexItem key={spot.id} spot={spot}/>
-                        </div>
-                    ))}
-                </div>
+            <div className="spot-div">
+                {this.props.spots.map( spot => (
+                    <SpotIndexItem key={spot.id} spot={spot}/>
+                ))}
             </div>
         )
     }

@@ -199,7 +199,6 @@ var receiveSpot = function receiveSpot(spot) {
 };
 var fetchSpots = function fetchSpots() {
   return function (dispath) {
-    debugger;
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchSpots"]().then(function (spots) {
       return dispath(receiveAllSpots(spots));
     });
@@ -347,10 +346,8 @@ var MainBody = /*#__PURE__*/function (_React$Component) {
       }, "Glamping"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "RV_sites"
       }, "RV sites"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Search"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "spotindex"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_spot_index_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        spots: this.props.spots
-      }))));
+        className: "spots-index"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_spot_index_container__WEBPACK_IMPORTED_MODULE_1__["default"], null))));
     }
   }]);
 
@@ -923,18 +920,19 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(SpotIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
       this.props.fetchSpots();
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.props.spots.map(function (spot) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_spot_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "spot-div"
+      }, this.props.spots.map(function (spot) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_spot_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
           key: spot.id,
           spot: spot
-        }));
-      })));
+        });
+      }));
     }
   }]);
 
@@ -1028,7 +1026,9 @@ var SpotIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(SpotIndexItem, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.spot.title);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spot-index-item"
+      }, this.props.spot.title);
     }
   }]);
 
