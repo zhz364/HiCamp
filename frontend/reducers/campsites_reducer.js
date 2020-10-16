@@ -1,13 +1,13 @@
-import {RECEIVE_ALL_CAMPSETS, RECEIVE_CAMPSET} from "../actions/campset_actions";
+import {RECEIVE_ALL_CAMPSITES, RECEIVE_CAMPSITE} from "../actions/campsite_actions";
 
 const campsitesReducer = (oldState = {}, action)=>{
   Object.freeze(oldState);
   let newState = Object.assign({},oldState);
   
   switch(action.type){
-    case RECEIVE_ALL_CAMPSETS:
+    case RECEIVE_ALL_CAMPSITES:
       return action.campsites
-    case RECEIVE_CAMPSET:
+    case RECEIVE_CAMPSITE:
       newState[action.campsite.id] = action.campsite
       return newState;
     default:
@@ -15,4 +15,4 @@ const campsitesReducer = (oldState = {}, action)=>{
   }
 }
 
-export default campsetsReducer
+export default campsitesReducer

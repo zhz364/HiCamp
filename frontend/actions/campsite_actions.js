@@ -1,7 +1,7 @@
 export const RECEIVE_ALL_CAMPSITES = "RECEIVE_ALL_CAMPSITES";
 export const RECEIVE_CAMPSITE = "RECEIVE_CAMPSITE";
 
-import * as CampsetUtil from "../util/campset_api_util"
+import * as CampsetUtil from "../util/campsite_api_util"
 
 export const receiveAllCampsites = (campsites) =>{
     return {
@@ -19,10 +19,10 @@ export const receiveCampsite = (campsite) =>{
 
 export const fetchCampsites = () => dispath =>{
     return CampsetUtil.fetchCampsites()
-        .then((campsites)=>dispath(receiveAllCampsets(campsites)))
+        .then((campsites)=>dispath(receiveAllCampsites(campsites)))
 }
 
 export const fetchCampsite = (id) => dispath =>{
     return CampsetUtil.fetchCampsite(id)
-        .then((campsite)=> dispath(receiveCampset(campsite)))
+        .then((campsite)=> dispath(receiveCampsite(campsite)))
 }

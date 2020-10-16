@@ -2,13 +2,13 @@
 export const fetchCampsites = () => {
     return $.ajax({
         method: 'GET',
-        url: 'api/campsets',
+        url: 'api/campsites',
         
     });
 }
 export const fetchCampsite = (campsiteId) => {
     return $.ajax({
         method: 'GET',
-        url: `api/campsets/${campsiteId}`,
+        url: `api/campsites/${campsiteId}`,
     });
 }

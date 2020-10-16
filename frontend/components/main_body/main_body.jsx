@@ -1,5 +1,5 @@
 import React from 'react';
-import SpotIndexContainer from "../spots/spot_index_container";
+import CampsiteIndexContainer from "../campsites/campsite_index_container";
   
 
 class MainBody extends React.Component{
@@ -45,7 +45,7 @@ class MainBody extends React.Component{
             </div>
             
             <div className="spots-index">
-              <SpotIndexContainer />
+              <CampsiteIndexContainer />
             </div>
           </div>
       </body>
