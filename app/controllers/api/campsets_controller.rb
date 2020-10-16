@@ -1,11 +1,11 @@
 class Api::CampsetsController < ApplicationController
     def index
-        @spots = Campsets.all
+        @campsets = Campsets.all
         render "api/campsets/index"
     end
 
     def show
-        @spot = Campsets.find(params[:id])
+        @campset = Campsets.find(params[:id])
         render "api/campsets/show"
     end
 
