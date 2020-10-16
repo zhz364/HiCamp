@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_16_212427) do
+ActiveRecord::Schema.define(version: 2020_10_16_222955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "campsets", force: :cascade do |t|
+  create_table "campsites", force: :cascade do |t|
     t.string "title", null: false
     t.string "img_url", null: false
     t.float "longitude", null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_212427) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["title"], name: "index_campsets_on_title"
+    t.index ["title"], name: "index_campsites_on_title"
   end
 
   create_table "users", force: :cascade do |t|
