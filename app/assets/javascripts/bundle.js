@@ -170,7 +170,7 @@ var signUp = function signUp(user) {
 /*!******************************************!*\
   !*** ./frontend/actions/spot_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_ALL_SPOTS, RECEIVE_SPOT, receiveAllSpots, receiveSpot, fetchSpots, ffetchSpot */
+/*! exports provided: RECEIVE_ALL_SPOTS, RECEIVE_SPOT, receiveAllSpots, receiveSpot, fetchSpots, fetchSpot */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -180,7 +180,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllSpots", function() { return receiveAllSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSpot", function() { return receiveSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpots", function() { return fetchSpots; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ffetchSpot", function() { return ffetchSpot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpot", function() { return fetchSpot; });
 /* harmony import */ var _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/spot_api_util */ "./frontend/util/spot_api_util.js");
 var RECEIVE_ALL_SPOTS = "RECEIVE_ALL_SPOTS";
 var RECEIVE_SPOT = "RECEIVESPOT";
@@ -199,12 +199,13 @@ var receiveSpot = function receiveSpot(spot) {
 };
 var fetchSpots = function fetchSpots() {
   return function (dispath) {
+    debugger;
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchSpots"]().then(function (spots) {
       return dispath(receiveAllSpots(spots));
     });
   };
 };
-var ffetchSpot = function ffetchSpot(id) {
+var fetchSpot = function fetchSpot(id) {
   return function (dispath) {
     return PostApiUtil.fetchSpot(id).then(function (spot) {
       return dispath(receiveSpot(spot));
@@ -230,7 +231,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _nav_bar_nav_bar_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./nav_bar/nav_bar_container */ "./frontend/components/nav_bar/nav_bar_container.jsx");
 /* harmony import */ var _main_body_main_body_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main_body/main_body_container */ "./frontend/components/main_body/main_body_container.jsx");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _spots_spot_index_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./spots/spot_index_container */ "./frontend/components/spots/spot_index_container.jsx");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+
 
 
 
@@ -247,10 +250,10 @@ var App = function App() {
     exact: true,
     path: "/",
     component: _main_body_main_body_container__WEBPACK_IMPORTED_MODULE_5__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_6__["AuthRoute"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
     path: "/signup",
     component: _session_signup_container__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_6__["AuthRoute"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
     path: "/login",
     component: _session_login_container__WEBPACK_IMPORTED_MODULE_2__["default"]
   }));
@@ -345,7 +348,9 @@ var MainBody = /*#__PURE__*/function (_React$Component) {
         value: "RV_sites"
       }, "RV sites"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Search"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spotindex"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_spot_index_container__WEBPACK_IMPORTED_MODULE_1__["default"], null))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_spot_index_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        spots: this.props.spots
+      }))));
     }
   }]);
 
@@ -918,6 +923,7 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(SpotIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      debugger;
       this.props.fetchSpots();
     }
   }, {
@@ -964,7 +970,7 @@ var mstp = function mstp(state) {
 var mdtp = function mdtp(dispatch) {
   return {
     fetchSpots: function fetchSpots() {
-      return dispatch(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpots"]);
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpots"])());
     }
   };
 };
@@ -1022,7 +1028,7 @@ var SpotIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(SpotIndexItem, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.spot);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.spot.title);
     }
   }]);
 
@@ -1426,14 +1432,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpot", function() { return fetchSpot; });
 var fetchSpots = function fetchSpots() {
   return $.ajax({
-    url: 'api/spots',
-    method: 'POST'
+    method: 'GET',
+    url: 'api/spots'
   });
 };
 var fetchSpot = function fetchSpot(spotId) {
   return $.ajax({
-    url: "api/spots/".concat(spotId),
-    method: 'POST'
+    method: 'GET',
+    url: "api/spots/".concat(spotId)
   });
 };
 

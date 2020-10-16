@@ -7,7 +7,7 @@ class SpotIndexItem extends React.Component{
 
     render(){
         return(
-        <div>{this.props.spot}</div>
+        <div>{this.props.spot.title}</div>
         )
     }
 }

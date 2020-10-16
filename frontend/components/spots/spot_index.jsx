@@ -7,6 +7,7 @@ class SpotIndex extends React.Component{
     }
 
     componentDidMount(){
+        debugger
         this.props.fetchSpots();
     }
 

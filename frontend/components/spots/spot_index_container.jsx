@@ -7,7 +7,7 @@ const mstp = state => ({
 })
 
 const mdtp = dispatch => ({
-    fetchSpots: () => dispatch(fetchSpots)
+    fetchSpots: () => dispatch(fetchSpots())
 })
 
 export default connect(mstp,mdtp)(SpotIndex);

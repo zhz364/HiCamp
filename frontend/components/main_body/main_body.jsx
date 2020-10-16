@@ -43,7 +43,7 @@ class MainBody extends React.Component{
               </div>
             </div>
             <div className="spotindex">
-              <SpotIndexContainer />
+              <SpotIndexContainer spots={this.props.spots}/>
             </div>
           </div>
       </body>

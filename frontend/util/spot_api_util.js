@@ -1,13 +1,14 @@
 
 export const fetchSpots = () => {
     return $.ajax({
+        method: 'GET',
         url: 'api/spots',
-        method: 'POST'
+        
     });
 }
 export const fetchSpot = (spotId) => {
     return $.ajax({
+        method: 'GET',
         url: `api/spots/${spotId}`,
-        method: 'POST'
     });
 }

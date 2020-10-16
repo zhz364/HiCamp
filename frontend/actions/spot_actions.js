@@ -18,11 +18,12 @@ export const receiveSpot = (spot) =>{
 }
 
 export const fetchSpots = () => dispath =>{
+    debugger
     return SpotUtil.fetchSpots()
         .then((spots)=>dispath(receiveAllSpots(spots)))
 }
 
-export const ffetchSpot = (id) => dispath =>{
+export const fetchSpot = (id) => dispath =>{
     return PostApiUtil.fetchSpot(id)
         .then(spot => dispath(receiveSpot(spot)))
 }
