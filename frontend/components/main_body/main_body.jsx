@@ -1,4 +1,5 @@
 import React from 'react';
+import SpotIndexContainer from "../spots/spot_index_container"
 
 class MainBody extends React.Component{
   constructor(props){
@@ -40,6 +41,9 @@ class MainBody extends React.Component{
                   </div>
                 </form>
               </div>
+            </div>
+            <div className="spotindex">
+              <SpotIndexContainer />
             </div>
           </div>
       </body>
