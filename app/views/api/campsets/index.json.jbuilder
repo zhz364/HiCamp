@@ -1,5 +1,5 @@
 @campsets.each do |camp|
     json.set! camp.id do
-      json.extract! camp, :title, :camp_type, :longitude,:latitude,:price,:capacity,:img_url
+      json.extract! camp, :title,:longitude,:latitude,:img_url
     end
 end
