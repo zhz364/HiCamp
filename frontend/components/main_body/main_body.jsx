@@ -1,6 +1,6 @@
 import React from 'react';
 import SpotIndexContainer from "../spots/spot_index_container";
-
+  
 
 class MainBody extends React.Component{
   constructor(props){

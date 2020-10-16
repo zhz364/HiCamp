@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_215220) do
+ActiveRecord::Schema.define(version: 2020_10_16_190827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "spots", force: :cascade do |t|
+  create_table "campsets", force: :cascade do |t|
     t.string "title", null: false
     t.string "camp_type", null: false
     t.string "img_url", null: false
@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 2020_10_15_215220) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["camp_type"], name: "index_spots_on_camp_type"
-    t.index ["host_id"], name: "index_spots_on_host_id"
-    t.index ["price"], name: "index_spots_on_price"
-    t.index ["title"], name: "index_spots_on_title"
+    t.index ["camp_type"], name: "index_campsets_on_camp_type"
+    t.index ["host_id"], name: "index_campsets_on_host_id"
+    t.index ["price"], name: "index_campsets_on_price"
+    t.index ["title"], name: "index_campsets_on_title"
   end
 
   create_table "users", force: :cascade do |t|
