@@ -1,5 +1,5 @@
-@.each do |spot|
+@spots.each do |spot|
     json.set! spot.id do
-      json.extract! spot, :title, :camp_type, :longitude,:latitude,:price,:capacity,:img_url
+      json.extract! spot, :name, :camp_type, :longitude,:latitude,:price,:capacity,:img_url, :description
     end
 end

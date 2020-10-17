@@ -1,1 +1,1 @@
-json.extract! @spot, :title, :id
+json.extract! @spot, :name, :id
