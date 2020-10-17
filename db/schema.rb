@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_16_222955) do
+ActiveRecord::Schema.define(version: 2020_10_17_000448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,29 @@ ActiveRecord::Schema.define(version: 2020_10_16_222955) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_campsites_on_title"
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "type", null: false
+    t.string "img_url", null: false
+    t.string "state_location", null: false
+    t.integer "host_id", null: false
+    t.integer "campsite_id", null: false
+    t.integer "price", null: false
+    t.integer "capacity", null: false
+    t.float "longitude", null: false
+    t.float "latitude", null: false
+    t.text "address"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campsite_id"], name: "index_spots_on_campsite_id", unique: true
+    t.index ["host_id"], name: "index_spots_on_host_id", unique: true
+    t.index ["latitude"], name: "index_spots_on_latitude"
+    t.index ["longitude"], name: "index_spots_on_longitude"
+    t.index ["name"], name: "index_spots_on_name", unique: true
+    t.index ["price"], name: "index_spots_on_price"
   end
 
   create_table "users", force: :cascade do |t|

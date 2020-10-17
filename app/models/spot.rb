@@ -1,0 +1,2 @@
+class Spott < ApplicationRecord
+end
