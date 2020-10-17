@@ -14,11 +14,14 @@ class CampsiteIndex extends React.Component{
 
     render(){
         return(
-            <div className="campsites-index">
-                {this.props.campsites.map( campsite => (
-                    <Link className="link" to="/spots"><CampsiteIndexItem key={campsite.id} campsite={campsite}/> </Link>
-                    
-                ))}
+            <div>
+                <h4>Find your next getaway</h4>
+                <div className="campsites-index">
+                    {this.props.campsites.map( campsite => (
+                        <Link className="link" to="/spots"><CampsiteIndexItem key={campsite.id} campsite={campsite}/> </Link>
+                        
+                    ))}
+                </div>
             </div>
         )
     }

@@ -384,7 +384,7 @@ var CampsiteIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h4", null, "Find your next getaway"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "campsites-index"
       }, this.props.campsites.map(function (campsite) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
@@ -394,7 +394,7 @@ var CampsiteIndex = /*#__PURE__*/function (_React$Component) {
           key: campsite.id,
           campsite: campsite
         }), " ");
-      }));
+      })));
     }
   }]);
 
