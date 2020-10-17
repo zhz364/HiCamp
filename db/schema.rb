@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_17_000952) do
+ActiveRecord::Schema.define(version: 2020_10_17_014737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2020_10_17_000952) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["campsite_id"], name: "index_spots_on_campsite_id", unique: true
-    t.index ["host_id"], name: "index_spots_on_host_id", unique: true
+    t.index ["campsite_id"], name: "index_spots_on_campsite_id"
+    t.index ["host_id"], name: "index_spots_on_host_id"
     t.index ["latitude"], name: "index_spots_on_latitude"
     t.index ["longitude"], name: "index_spots_on_longitude"
     t.index ["name"], name: "index_spots_on_name", unique: true

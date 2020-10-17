@@ -1,4 +1,4 @@
 class Spot < ApplicationRecord
-    validates :name, :campsite_id,:host_id, uniqueness:true
-    validates :name, :address, :longitude, :latitude, :camp_type, :img_url, :state_location,:host_id, presence: true
+    validates :name, uniqueness:true
+    validates :name, :longitude, :latitude, :camp_type, :img_url, :state_location,:host_id, :price, :capacity, presence: true
 end
