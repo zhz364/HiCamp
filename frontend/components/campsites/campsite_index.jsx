@@ -16,7 +16,7 @@ class CampsiteIndex extends React.Component{
         return(
             <div className="campsites-index">
                 {this.props.campsites.map( campsite => (
-                    <Link to="/spots"><CampsiteIndexItem key={campsite.id} campsite={campsite}/> </Link>
+                    <Link className="link" to="/spots"><CampsiteIndexItem key={campsite.id} campsite={campsite}/> </Link>
                     
                 ))}
             </div>

@@ -10,7 +10,17 @@ class CampsiteIndexItem extends React.Component{
     render(){
         return(
         <div className="campsite-item"> 
-            {this.props.campsite.title}
+            <div className="campsite-item-image-div">
+                this is campsite img
+            </div>
+            <div className="campsite-item-infor-div">
+                <div className="campsite-name">
+                    <span>{this.props.campsite.title}</span>
+                </div>
+                <p className="campsite-state">
+                    {this.props.campsite.description}
+                </p>
+            </div>
         </div>
         )
     }

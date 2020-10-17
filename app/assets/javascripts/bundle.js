@@ -388,6 +388,7 @@ var CampsiteIndex = /*#__PURE__*/function (_React$Component) {
         className: "campsites-index"
       }, this.props.campsites.map(function (campsite) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          className: "link",
           to: "/spots"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_campsite_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
           key: campsite.id,
@@ -491,7 +492,15 @@ var CampsiteIndexItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "campsite-item"
-      }, this.props.campsite.title);
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "campsite-item-image-div"
+      }, "this is campsite img"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "campsite-item-infor-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "campsite-name"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.campsite.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "campsite-state"
+      }, this.props.campsite.description)));
     }
   }]);
 

@@ -17,10 +17,48 @@
 }
 .campsite-item{
     display: flex;
-    border: 1px solid green;
+    border: 1px solid gray;
     width: 300px;
-    height: 275px;
-    align-content: center;
+    height: 350px;
+    // align-content: center;
+    // justify-content: center;
+    flex-direction: column;
     margin-top: 10px;
 
+    .campsite-item-image-div{
+        display: flex;
+        height: 80%;
+    }
+    .campsite-item-infor-div{
+        position: relative;
+        // display: block;
+        width: 100%;
+        font-size: 1.4rem;
+        font-weight: 690;
+        margin-bottom: 0;
+        color:#392f41;
+        
+        .campsite-name{
+            margin-top: 10px;
+            margin-left: 10px;
+            span{
+                
+            }
+        }
+        .campsite-state{
+            display: flex;
+            position: relative;
+            justify-content: baseline;
+            font-size: .9rem;
+            font-weight: 0px;
+            color:grey;
+            margin-top: 9px;
+            margin-left: 10px;
+        }
+    }
+}
+.campsite-item:hover .campsite-name span{
+    // transition: 0.5s;
+    
+    border-bottom: 1px solid black;
 }
