@@ -48,9 +48,9 @@ class MainBody extends React.Component{
               <CampsiteIndexContainer />
             </div>
 
-            <div>
+            {/* <div>
               <SpotIndexContainer />
-            </div>
+            </div> */}
           </div>
       </body>
     )

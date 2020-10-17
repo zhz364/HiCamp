@@ -1,5 +1,7 @@
-import CampsiteIndexItem from "./campsite_index_item"
-import React from "react"
+import CampsiteIndexItem from "./campsite_index_item";
+import React from "react";
+import { Link } from 'react-router-dom';
+
 
 class CampsiteIndex extends React.Component{
     constructor(props){
@@ -14,7 +16,8 @@ class CampsiteIndex extends React.Component{
         return(
             <div className="campsites-index">
                 {this.props.campsites.map( campsite => (
-                    <CampsiteIndexItem key={campsite.id} campsite={campsite}/>
+                    <Link to="/spots"><CampsiteIndexItem key={campsite.id} campsite={campsite}/> </Link>
+                    
                 ))}
             </div>
         )

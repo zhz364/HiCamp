@@ -5,9 +5,8 @@ import {Route,Link} from "react-router-dom"
 import NavBarContainer from "./nav_bar/nav_bar_container"
 import mainBodyContainer from "./main_body/main_body_container";
 import CampsiteIndexContainer from "./campsites/campsite_index_container";
-
-// import spotIndexContainer from"./spots/spot_index_container"
-// import SpotShowContainer from "./spots/spot_show_container"
+import SpotIndexContainer from "./spots/spot_index_container";
+import SpotShowContainer from "./spots/spot_show_container"
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
@@ -18,7 +17,8 @@ const App =() =>{
             <Route path="/" component={NavBarContainer}/>
             <Route exact path="/" component={mainBodyContainer}/>
             <Route exact path="/campsites" component={CampsiteIndexContainer}/>
-            {/* <React exact path="/spots/:spodId" component={SpotShowContainer}/> */}
+            <Route exact path="/spots/:spotId" component={SpotShowContainer} />
+            <Route exact path="/spots" component={SpotIndexContainer}/>
             <AuthRoute path="/signup" component={SignupContainer} />
             <AuthRoute path="/login" component={LoginContainer} />
             {/* <Route path="/login" component={LoginContainer} />
