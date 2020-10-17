@@ -1,6 +1,6 @@
 import React from 'react';
 import CampsiteIndexContainer from "../campsites/campsite_index_container";
-  
+import SpotIndexContainer from "../spots/spot_index_container";
 
 class MainBody extends React.Component{
   constructor(props){
@@ -46,6 +46,10 @@ class MainBody extends React.Component{
             
             <div className="campsites-index-div">
               <CampsiteIndexContainer />
+            </div>
+
+            <div>
+              <SpotIndexContainer />
             </div>
           </div>
       </body>
