@@ -496,7 +496,7 @@ var CampsiteIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "campsite-name"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.campsite.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "campsite-state"
-      }, this.props.campsite.description)));
+      }, this.props.campsite.address)));
     }
   }]);
 
@@ -1176,7 +1176,7 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
         className: "main-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spots-index"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-search-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-searchbar"
@@ -1218,9 +1218,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mstp = function mstp(state) {
+var mstp = function mstp(state, ownProps) {
   return {
-    spots: Object.values(state.spots)
+    spots: Object.values(state.spots),
+    campsite: ownProps.match.params.campsiteId
   };
 };
 
@@ -1311,7 +1312,7 @@ var SpotIndexItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://images.pexels.com/photos/20786/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slide"
+        className: "slide second"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

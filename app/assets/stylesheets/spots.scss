@@ -25,17 +25,20 @@
     width:100%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 
 .spot-index-item{
-    // border: 1px solid green;
-    // display: flex;
-    width: 33%;
+    // border: 1px solid red;
+    display: block;
+    width: 40%;
     height: 400px;
     -webkit-transition: all .5s ease-in-out;
+    box-shadow: 1px 2px 5px 2px rgba(0,0,0,0.1);
+    margin-top: 25px;
+
     // background-image: url("https://hipcamp-res.cloudinary.com/images/c_fill,f_auto,g_auto:subject,h_400,q_60,w_780/v1602804457/campground-photos/jdvjqakeams4jmpacpvv/caterra-c-s-land-1-paraiso-pavo-real-site-2.jpg");
     .spot-img-div{
         border-radius: 5px;
@@ -99,12 +102,32 @@
         }
 
         #radio21:checked ~.first{
-            margin-left: -60;
+            margin-left: 0;
         }
         #radio22:checked ~.first{
             margin-left: -20%;
         }
         #radio23:checked ~.first{
+            margin-left: -40%;
+        }
+
+        #radio31:checked ~.first{
+            margin-left: 0;
+        }
+        #radio32:checked ~.first{
+            margin-left: -20%;
+        }
+        #radio33:checked ~.first{
+            margin-left: -40%;
+        }
+
+        #radio41:checked ~.first{
+            margin-left: 0;
+        }
+        #radio42:checked ~.first{
+            margin-left: -20%;
+        }
+        #radio43:checked ~.first{
             margin-left: -40%;
         }
 
@@ -155,7 +178,7 @@
 }
 
 .spot-index-item:hover{
-    margin-top: -5px;
+    margin-top: -1px;
 }
 
 
@@ -164,23 +187,25 @@
     width: 40%;
     margin-left: 30px;
     border: 1px solid yellowgreen;
-    
+    margin-top: 25px;
 }
 
 .spot-index-item:hover .spot-foot-div{
-    background-color: #efefef;
+    background-color:rgba(0,0,0,0.1);
 }
 
 
 .spot-search-div{
     display: flex;
     margin-top: 20px;
-    width: 500px;
+    margin-left: 50px;
+    width: 400px;
+    // border: 1px solid rgba(0,0,0,0.1);
     box-shadow: 1px 2px 5px 2px rgba(0,0,0,0.1);
 }
 .spot-searchbar{
     display: flex;
-    width: 600px;
+    width: 400px;
     height: 70px;
     justify-content: space-around;
     align-items: center;
@@ -191,8 +216,9 @@
         align-items: center;
         // align-content: center;
         justify-content: space-around;
+        border: 1px solid rgba(0,0,0,0.1);
 
-        box-shadow: 1px 2px 5px 2px rgba(0,0,0,0.1);
+        // box-shadow: 1px 2px 5px 2px rgba(0,0,0,0.1);
         span{
             display: flex;
             align-items: center;  

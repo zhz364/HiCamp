@@ -18,7 +18,7 @@ class CampsiteIndexItem extends React.Component{
                     <span>{this.props.campsite.title}</span>
                 </div>
                 <p className="campsite-state">
-                    {this.props.campsite.description}
+                    {this.props.campsite.address}
                 </p>
             </div>
         </div>
