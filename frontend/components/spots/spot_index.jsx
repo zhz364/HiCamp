@@ -13,16 +13,30 @@ class SpotIndex extends React.Component{
     render(){
         return(
             <body className="main-body">
-                <div className="spot-search-div">
-                    This is search bar
-                </div>
-                <div className="spot-div">
-                    {this.props.spots.map( spot => (
-                        <SpotIndexItem key={spot.id} spot={spot}/>
-                    ))}
-                </div>
-                <div className="spot-map-div">
-                        This is map bar
+                <div className="spots-index">
+                    <div className="spot-search-div">
+                        <div className="spot-searchbar">
+                            <div>
+                                <span>Camping</span>
+                            </div>
+                            <div>
+                                <span>VR sites</span>
+                            </div>
+                            <div>
+                                <span>Glamping</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="spot-index-div"> 
+                        <div className="spot-div">
+                            {this.props.spots.map( spot => (
+                                <SpotIndexItem key={spot.id} spot={spot}/>
+                            ))}
+                        </div>
+                        <div className="spot-map-div">
+                                This is map bar
+                        </div>
+                    </div>
                 </div>
 
             </body>

@@ -1,40 +1,204 @@
 // Place all the styles related to the Spots controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .spots-index {
-    border: 1px solid red;
+    // border: 1px solid red;
     display: flex;
     // position: relative;
-    justify-content: space-evenly;
-    width:100%;
+    justify-content: center;
+    width:95%;
     height: 100%;    
+    flex-direction: column;
+    margin-left: 30px;
+    // font-family: Arial, Helvetica, sans-serif;
     
 }
+
+.spot-index-div{
+    display: flex;
+    margin-top: 10px;
+}
+
 .spot-div{
-    border: 1px solid blue;
+    // border: 1px solid blue;
     width:100%;
     height: 100%;
     display: flex;
-    // justify-content: space-between;
+    justify-content: space-between;
     flex-wrap: nowrap;
 }
 
 
 .spot-index-item{
-    border: 1px solid green;
-    display: flex;
+    // border: 1px solid green;
+    // display: flex;
     width: 33%;
-    height: 200px;
+    height: 400px;
     -webkit-transition: all .5s ease-in-out;
     // background-image: url("https://hipcamp-res.cloudinary.com/images/c_fill,f_auto,g_auto:subject,h_400,q_60,w_780/v1602804457/campground-photos/jdvjqakeams4jmpacpvv/caterra-c-s-land-1-paraiso-pavo-real-site-2.jpg");
+    .spot-img-div{
+        border-radius: 5px;
+        width: 100%;
+        height: 70%;
+        // border: 1px solid red;
+        overflow: hidden;
+        .slides{
+            width:500%;
+            height:500px;
+            display: flex;
+        }
+        .slides input {
+            display: none;
+        }
+        .slide{
+            width:20%;
+            transition: 2s;
+        }
+        .slide img{
+            width:100%;
+            height:100%;
+        }
 
+        //css for manual slide 
+
+        .navigation-manual{
+            position: absolute;
+            margin-top: -250px; 
+            margin-left: 160px; 
+            display: flex;
+            justify-content: center;
+        }
+
+        .manual-btn{
+            border:1px solid white;
+            padding:5px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 1s;
+            margin-right: 20px;
+
+        }
+
+        .manual-btn:not(:lastt-child){
+            margin-right: 40px;
+        }
+
+        .manual-btn:hover{
+            background:whitesmoke;
+        }
+
+        #radio11:checked ~.first{
+            margin-left: 0;
+        }
+        #radio12:checked ~.first{
+            margin-left: -20%;
+        }
+        #radio13:checked ~.first{
+            margin-left: -40%;
+        }
+
+        #radio21:checked ~.first{
+            margin-left: -60;
+        }
+        #radio22:checked ~.first{
+            margin-left: -20%;
+        }
+        #radio23:checked ~.first{
+            margin-left: -40%;
+        }
+
+    
+    }
+    .spot-foot-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 110px;
+        
+        .name-type-div{
+            display: flex;
+            justify-content: space-between;
+            .spot-name{
+                margin-top: 10px;
+                margin-left: 10px;
+                font-size: 1.4rem;
+                margin-bottom: 0;
+                color:#392f41;
+
+            }
+        }
+        .thumb-price-div{
+            display: flex;
+            justify-content: space-between;
+            vertical-align: bottom;
+            // border: 1px solid blue;
+            div{
+                // border: 1px solid blue;
+                display: flex;
+                align-items: center;
+            }
+            .thumbs-likes{
+                
+                .percentage{
+                    color:#40d9ac;
+                }
+            }
+        }
+    }
+
+    .thumbs-up-icon-div{
+        width: 17px;
+        height: 17px;
+        margin-top: 5px;
+    }
 }
 
 .spot-index-item:hover{
     margin-top: -5px;
 }
 
-// .spot-1 {
-//     display: flex;
-//     background-image: url("https://hipcamp-res.cloudinary.com/images/c_fill,f_auto,g_auto:subject,h_400,q_60,w_780/v1602804457/campground-photos/jdvjqakeams4jmpacpvv/caterra-c-s-land-1-paraiso-pavo-real-site-2.jpg");
-// }
+
+.spot-map-div{
+    display: flex;
+    width: 40%;
+    margin-left: 30px;
+    border: 1px solid yellowgreen;
+    
+}
+
+.spot-index-item:hover .spot-foot-div{
+    background-color: #efefef;
+}
+
+
+.spot-search-div{
+    display: flex;
+    margin-top: 20px;
+    width: 500px;
+    box-shadow: 1px 2px 5px 2px rgba(0,0,0,0.1);
+}
+.spot-searchbar{
+    display: flex;
+    width: 600px;
+    height: 70px;
+    justify-content: space-around;
+    align-items: center;
+    div{
+        display: flex;
+        width: 100px;
+        height: 50px;
+        align-items: center;
+        // align-content: center;
+        justify-content: space-around;
+
+        box-shadow: 1px 2px 5px 2px rgba(0,0,0,0.1);
+        span{
+            display: flex;
+            align-items: center;  
+            // border: 1px solid red;
+
+        }
+    }
+
+}
