@@ -4,7 +4,7 @@ import SpotIndex from "./spot_index"
 
 const mstp = (state, ownProps) => ({
     spots: Object.values(state.spots),
-    campsite: ownProps.match.params.campsiteId
+    
 })
 
 const mdtp = dispatch => ({

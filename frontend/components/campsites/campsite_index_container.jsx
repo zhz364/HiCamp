@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import {fetchCampsites} from "../../actions/campsite_actions"
 import CampsiteIndex from "./campsite_index"
 
-const mstp = state => ({
+const mstp = (state,ownProps) => ({
     campsites: Object.values(state.campsites)
 })
 
