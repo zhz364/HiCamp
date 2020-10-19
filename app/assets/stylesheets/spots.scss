@@ -253,6 +253,7 @@
         flex-direction: column;
         // border: 1px solid royalblue;
         width: 1000px;
+        // height: 1000px;
         // position: sticky;
         .thumb-div{
             display: flex;
@@ -349,19 +350,35 @@
   
     
 }
-body{
+.div-after-img{
+    display: flex;
+    justify-content: space-around;
+    width: 1300px;
+    // background-color: green;
+    .side-booking-div{
 
-    .booking-div{
-        display: flex;
-        flex-direction: column;
-        position: sticky;
-        // position: fixed;
-        width: 200px;
-        height: 200px;
-        border: 1px solid red;
-        // background-color: red;
-        // margin-top: 10px;
-        // top:100px;
+
+        position: relative;
+        z-index: 10000;
         
+        .booking-div{
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            // position: fixed;
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            // background-color: red;
+            // margin-top: 10px;
+            top:0px;
+            // left:1100px;
+            // z-index:1000;
+            
+        }
     }
+}
+
+.spot-reviews-div{
+    // background-color: green;
 }
