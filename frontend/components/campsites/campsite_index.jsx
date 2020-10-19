@@ -9,10 +9,12 @@ class CampsiteIndex extends React.Component{
     }
 
     componentDidMount(){
+        debugger
         this.props.fetchCampsites();
     }
 
     render(){
+        debugger
         return(
             <div>
                 <h4>Find your next getaway</h4>

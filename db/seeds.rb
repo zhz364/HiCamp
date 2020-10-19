@@ -36,12 +36,12 @@ campsite6 = Campsite.create(title:"Big Bend",img_url:"amazon", latitude:44.46, l
                             anyone who appreciates Mother Nature’s bounty. Artifacts as old as 9,000 years old are regularly found in the park, as well. With over 1,000 miles of international boundary shared with Mexico along the Rio Grande River, Big Bend National Park exists also a symbol of how the outdoors can bring nations together.
                             Big Bend is particularly exciting for hikers and backpackers, who can choose between Chimneys Trail, Marufo Vega Trail.", state:"Texas")
 
-campsite1.photo.attach(io: open("/mnt/z/Desktop/hipcamp_img/campsite_rock_mountain.jpg"), filename:"campsite_rock_mountain.jpg")
-campsite2.photo.attach(io: open("/mnt/z/Desktop/hipcamp_img/campsite_white_mountains.jpg"), filename:"campsite_white_mountains.jpg")
-campsite3.photo.attach(io: open("/mnt/z/Desktop/hipcamp_img/campsite_yosemite.jpg"), filename:"campsite_yosemite.jpg")
-campsite4.photo.attach(io: open("/mnt/z/Desktop/hipcamp_img/campsite_great_smoky_mountain.jpg"), filename:"campsite_great_smoky_mountain.jpg")
-campsite5.photo.attach(io: open("/mnt/z/Desktop/hipcamp_img/campsite_the_catskills.jpg"), filename:"campsite_the_catskills.jpg")
-campsite6.photo.attach(io: open("/mnt/z/Desktop/hipcamp_img/campsite_big_bend.jpg"), filename:"campsite_big_bend.jpg")
+campsite1.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_rock_mountain.jpg"), filename:"campsite_rock_mountain.jpg")
+campsite2.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_white_mountains.jpg"), filename:"campsite_white_mountains.jpg")
+campsite3.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_yosemite.jpg"), filename:"campsite_yosemite.jpg")
+campsite4.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_great_smoky_mountain.jpg"), filename:"campsite_great_smoky_mountain.jpg")
+campsite5.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_the_catskills.jpg"), filename:"campsite_the_catskills.jpg")
+campsite6.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_big_bend.jpg"), filename:"campsite_big_bend.jpg")
 
 
 
