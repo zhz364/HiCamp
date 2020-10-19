@@ -36,6 +36,16 @@ campsite6 = Campsite.create(title:"Big Bend",img_url:"amazon", latitude:44.46, l
                             anyone who appreciates Mother Nature’s bounty. Artifacts as old as 9,000 years old are regularly found in the park, as well. With over 1,000 miles of international boundary shared with Mexico along the Rio Grande River, Big Bend National Park exists also a symbol of how the outdoors can bring nations together.
                             Big Bend is particularly exciting for hikers and backpackers, who can choose between Chimneys Trail, Marufo Vega Trail.", state:"Texas")
 
+campsite1.photo.attach(io: open("/mnt/z/Desktop/hipcamp_img/campsite_rock_mountain.jpg"), filename:"campsite_rock_mountain.jpg")
+campsite2.photo.attach(io: open("/mnt/z/Desktop/hipcamp_img/campsite_white_mountains.jpg"), filename:"campsite_white_mountains.jpg")
+campsite3.photo.attach(io: open("/mnt/z/Desktop/hipcamp_img/campsite_yosemite.jpg"), filename:"campsite_yosemite.jpg")
+campsite4.photo.attach(io: open("/mnt/z/Desktop/hipcamp_img/campsite_great_smoky_mountain.jpg"), filename:"campsite_great_smoky_mountain.jpg")
+campsite5.photo.attach(io: open("/mnt/z/Desktop/hipcamp_img/campsite_the_catskills.jpg"), filename:"campsite_the_catskills.jpg")
+campsite6.photo.attach(io: open("/mnt/z/Desktop/hipcamp_img/campsite_big_bend.jpg"), filename:"campsite_big_bend.jpg")
+
+
+
+
 
 spot1 = Spot.create(name:"Creekside Paradise", camp_type:"camping",img_url:"amazon", state_location:"Colorado",host_id:demoUser.id,campsite_id:campsite1.id,price:11,capacity:5,longitude:1.11,latitude:13.14,description:"42 acres of land with a creek running through it surrounded by National Forest 20 minutes from Boulder or Nederland, 30 minutes from Estes Park and Rocky Mountain National park.")
 spot2 = Spot.create(name:"Quiet Mountain Forest Near Boulder", camp_type:"camping",img_url:"amazon", state_location:"Colorado",host_id:demoUser.id,campsite_id:campsite1.id,price:11,capacity:5,longitude:1.11,latitude:13.14,description:"Enjoy a beautiful, peaceful, quiet 40 acres in the mountains just 20 minutes from Boulder. The land includes grassy meadows, rock outcroppings, cliffs (with rock climbing),
