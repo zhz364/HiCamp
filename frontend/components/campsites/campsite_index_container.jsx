@@ -3,7 +3,6 @@ import {fetchCampsites} from "../../actions/campsite_actions"
 import CampsiteIndex from "./campsite_index"
 
 const mstp = function(state,ownProps) {
-    debugger
     return{
     campsites: Object.values(state.campsites)
     }

@@ -27,6 +27,12 @@
     .campsite-item-image-div{
         display: flex;
         height: 80%;
+        // border: 1px solid red;
+        img{
+            width: 298px;
+            height: 278px;
+        }
+
     }
     .campsite-item-infor-div{
         position: relative;

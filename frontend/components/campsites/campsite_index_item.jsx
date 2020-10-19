@@ -8,7 +8,6 @@ class CampsiteIndexItem extends React.Component{
     }
 
     render(){
-        debugger
         return(
         <div className="campsite-item"> 
             <div className="campsite-item-image-div">
