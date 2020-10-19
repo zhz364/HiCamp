@@ -25,7 +25,7 @@ class SpotIndexItem extends React.Component{
                     <div className="slide">
                         <img src="https://images.pexels.com/photos/20785/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"></img>
                     </div>
-                </div>
+            </div>
                 <div className="navigation-manual">
                     <label for={`radio${this.props.spot.id}1`} className="manual-btn"></label>
                     <label for={`radio${this.props.spot.id}2`} className="manual-btn"></label>
