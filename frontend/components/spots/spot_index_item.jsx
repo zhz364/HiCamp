@@ -41,7 +41,11 @@ class SpotIndexItem extends React.Component{
                     </div>
                     <div className="thumb-price-div">
                         <div className="thumb">
-                            <div className="thumbs-likes"><img className="thumbs-up-icon-div" src="https://cabins-seeds.s3.amazonaws.com/thumbs-up-green.svg" />   <span className="percentage">100%</span> - 777 Reviews</div>
+                            <div className="thumbs-likes">
+                                <img className="thumbs-up-icon-div" src="https://cabins-seeds.s3.amazonaws.com/thumbs-up-green.svg" />   
+                                <div className="percentage">100% </div> 
+                                <div className="reviews">777 Reviews </div>
+                            </div>
                         </div>
                         <div className="spot-price"><span>${this.props.spot.price} / Night</span></div>
                     </div>
