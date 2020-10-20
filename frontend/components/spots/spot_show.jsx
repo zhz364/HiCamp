@@ -47,31 +47,29 @@ class SpotShow extends React.Component{
                                     <div>
                                         <span><h3>Campsite area</h3></span>
                                             <ul>
-                                                <li>Bring your own tent</li>
-                                                <li>vans and truck camper</li>
-                                                <li>1 sit</li>
-                                                <li>Up to 7 guests per site</li>
-                                                <li>Park at listin</li>
-                                                <li>No ADA acces</li>
+                                                <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/byo.png"></img>Bring your own tent</li>
+                                                <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/vtc.png"></img>vans and truck camper</li>
+                                                <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/sit.png"></img>1 sit</li>
+                                                <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/gps.png"></img>Up to 7 guests per site</li>
+                                                <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/gps.png"></img>Park at listin</li>
                                             </ul>
                                     </div>
                                     <div>
                                         <span><h3>Essentials</h3></span>
                                         <ul>
-                                            <li>Campfires allowed</li>
-                                            <li>Toilet available</li>
-                                            <li>Toilet available</li>
+                                            <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/cf.png"></img>Campfires allowed</li>
+                                            <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/toiletpaper.png"></img>Toilet available</li>
+                                            <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/pet.png"></img>Pets allowed</li>
                                         </ul>
                                     </div>
                                     <div>
                                         <span><h3>Amenities</h3></span>
                                         <ul>
-                                            <li>Kitchen available</li>
-                                            <li>Showers available</li>
-                                            <li>Picnic table available</li>
-                                            <li>Bins available</li>
-                                            <li>No potable water</li>
-                                            <li>No wifi</li>
+                                            <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/kitchen.png"></img>Kitchen available</li>
+                                            <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/shower_a.png"></img>Showers available</li>
+                                            <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/bins_a.png"></img>Bins available</li>
+                                            <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/no_potable_w.png"></img>No potable water</li>
+                                            <li><img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/no_wifi.png"></img>No wifi</li>
                                         </ul>
                                     </div>
                                 </div>
