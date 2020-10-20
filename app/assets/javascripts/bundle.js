@@ -1193,10 +1193,11 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
         className: "spot-index-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-div"
-      }, this.props.spots.map(function (spot) {
+      }, this.props.spots.map(function (spot, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_spot_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
           key: spot.id,
-          spot: spot
+          spot: spot,
+          idx: idx + 1
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-map-div"
@@ -1306,15 +1307,15 @@ var SpotIndexItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         name: "".concat(this.props.spot.id, "-radio-btn"),
-        id: "radio".concat(this.props.spot.id, "1")
+        id: "radio".concat(this.props.idx, "1")
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         name: "".concat(this.props.spot.id, "-radio-btn"),
-        id: "radio".concat(this.props.spot.id, "2")
+        id: "radio".concat(this.props.idx, "2")
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         name: "".concat(this.props.spot.id, "-radio-btn"),
-        id: "radio".concat(this.props.spot.id, "3")
+        id: "radio".concat(this.props.idx, "3")
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slide first"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1330,13 +1331,13 @@ var SpotIndexItem = /*#__PURE__*/function (_React$Component) {
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "navigation-manual"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "radio".concat(this.props.spot.id, "1"),
+        "for": "radio".concat(this.props.idx, "1"),
         className: "manual-btn"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "radio".concat(this.props.spot.id, "2"),
+        "for": "radio".concat(this.props.idx, "2"),
         className: "manual-btn"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "radio".concat(this.props.spot.id, "3"),
+        "for": "radio".concat(this.props.idx, "3"),
         className: "manual-btn"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "link",

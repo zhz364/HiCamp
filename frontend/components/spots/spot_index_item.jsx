@@ -13,9 +13,9 @@ class SpotIndexItem extends React.Component{
         <div className="spot-index-item" > 
             <div className="spot-img-div">
                 <div className="slides">
-                    <input type="radio" name={`${this.props.spot.id}-radio-btn`} id={`radio${this.props.spot.id}1`}/> 
-                    <input type="radio" name={`${this.props.spot.id}-radio-btn`} id={`radio${this.props.spot.id}2`}/>
-                    <input type="radio" name={`${this.props.spot.id}-radio-btn`} id={`radio${this.props.spot.id}3`}/> 
+                    <input type="radio" name={`${this.props.spot.id}-radio-btn`} id={`radio${this.props.idx}1`}/> 
+                    <input type="radio" name={`${this.props.spot.id}-radio-btn`} id={`radio${this.props.idx}2`}/>
+                    <input type="radio" name={`${this.props.spot.id}-radio-btn`} id={`radio${this.props.idx}3`}/> 
                     <div className="slide first">
                         <img src={this.props.spot.photoUrl[0].photo}></img>
                     </div>
@@ -27,9 +27,9 @@ class SpotIndexItem extends React.Component{
                     </div>
                 </div>
                 <div className="navigation-manual">
-                    <label for={`radio${this.props.spot.id}1`} className="manual-btn"></label>
-                    <label for={`radio${this.props.spot.id}2`} className="manual-btn"></label>
-                    <label for={`radio${this.props.spot.id}3`} className="manual-btn"></label>
+                    <label for={`radio${this.props.idx}1`} className="manual-btn"></label>
+                    <label for={`radio${this.props.idx}2`} className="manual-btn"></label>
+                    <label for={`radio${this.props.idx}3`} className="manual-btn"></label>
                 </div>
             </div>
             
