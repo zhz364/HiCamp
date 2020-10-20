@@ -1,4 +1,5 @@
 import React from "react"
+import SpotMap from "./spot_map"
 
 class SpotShow extends React.Component{
     constructor(props){
@@ -98,7 +99,7 @@ class SpotShow extends React.Component{
                         </div>
                          
                         <div className="spot-map-div">
-                                <h1>This is map</h1>
+                            <SpotMap spot={this.props.spot}/>
                         </div>
 
                     </div>

@@ -48,7 +48,7 @@ campsite6.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/
 
 
 
-spot1 = Spot.create(name:"Creekside Paradise", camp_type:"camping",img_url:"amazon", state_location:"Colorado",host_id:demoUser.id,campsite_id:campsite1.id,price:11,capacity:5,longitude:1.11,latitude:13.14,description:"42 acres of land with a creek running through it surrounded by National Forest 20 minutes from Boulder or Nederland, 30 minutes from Estes Park and Rocky Mountain National park.")
+spot1 = Spot.create(name:"Creekside Paradise", camp_type:"camping",img_url:"amazon", state_location:"Colorado",host_id:demoUser.id,campsite_id:campsite1.id,price:11,capacity:5,longitude:44.2643,latitude:109.7870,description:"42 acres of land with a creek running through it surrounded by National Forest 20 minutes from Boulder or Nederland, 30 minutes from Estes Park and Rocky Mountain National park.")
 spot2 = Spot.create(name:"Quiet Mountain Forest Near Boulder", camp_type:"camping",img_url:"amazon", state_location:"Colorado",host_id:demoUser.id,campsite_id:campsite1.id,price:11,capacity:5,longitude:1.11,latitude:13.14,description:"Enjoy a beautiful, peaceful, quiet 40 acres in the mountains just 20 minutes from Boulder. The land includes grassy meadows, rock outcroppings, cliffs (with rock climbing),
                     breathtaking views, seasonal creeks, mature forests, and many opportunities for peace and seclusion.")
 spot3 = Spot.create(name:"Folly Farm", camp_type:"camping",img_url:"amazon", state_location:"Colorado",host_id:demoUser.id,campsite_id:campsite1.id,price:11,capacity:5,longitude:1.11,latitude:13.14,description:"WELCOME TO FOLLY FARM... Boulder County's finest glamping experience!
