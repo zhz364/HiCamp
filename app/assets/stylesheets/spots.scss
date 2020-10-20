@@ -142,10 +142,12 @@
         .name-type-div{
             display: flex;
             justify-content: space-between;
+            // border: 1px solid red;
+            align-items: center;
             .spot-name{
                 margin-top: 10px;
                 margin-left: 10px;
-                font-size: 1.4rem;
+                font-size: 1.3rem;
                 margin-bottom: 0;
                 color:#392f41;
 
@@ -156,20 +158,34 @@
 
 }
 .thumbs-up-icon-div{
+    display: flex;
+    flex-direction: row;
     width: 17px;
     height: 17px;
-    margin-top: 5px;
+    margin-left: 10px;
 }
-
+.spot-icon{
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
 .thumb-price-div{
     display: flex;
     justify-content: space-between;
     vertical-align: bottom;
     // border: 1px solid blue;
+    .thumb{
+        display: flex;
+        align-items: baseline;
+        // border: 1px solid blue;
+
+    }
     div{
         // border: 1px solid blue;
         display: flex;
         align-items: center;
+        font-size: 17px;
     }
     .thumbs-likes{
         
@@ -192,10 +208,19 @@
     margin-top: 25px;
 }
 
-.spot-index-item:hover .spot-foot-div{
-    background-color:rgba(0,0,0,0.1);
+.spot-index-item:hover {
+    // background-color:rgba(0,0,0,0.1);
+    border: 1px solid #40d9ac;
+    border-radius: 5px;
+
 }
 
+.spot-price{
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+}
 
 .spot-search-div{
     display: flex;
