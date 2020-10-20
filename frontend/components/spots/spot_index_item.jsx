@@ -17,13 +17,13 @@ class SpotIndexItem extends React.Component{
                     <input type="radio" name={`${this.props.spot.id}-radio-btn`} id={`radio${this.props.spot.id}2`}/>
                     <input type="radio" name={`${this.props.spot.id}-radio-btn`} id={`radio${this.props.spot.id}3`}/> 
                     <div className="slide first">
-                        <img src={`https://hicamp-seed.s3-us-west-1.amazonaws.com/spot${this.props.spot.id}1.jpg`}></img>
+                        <img src={this.props.spot.photoUrl[0].photo}></img>
                     </div>
                     <div className="slide">
-                        <img src={`https://hicamp-seed.s3-us-west-1.amazonaws.com/spot${this.props.spot.id}2.jpg`}></img>
+                        <img src={this.props.spot.photoUrl[1].photo}></img>
                     </div>
                     <div className="slide">
-                        <img src={`https://hicamp-seed.s3-us-west-1.amazonaws.com/spot${this.props.spot.id}3.jpg`}></img>
+                        <img src={this.props.spot.photoUrl[2].photo}></img>
                     </div>
                 </div>
                 <div className="navigation-manual">

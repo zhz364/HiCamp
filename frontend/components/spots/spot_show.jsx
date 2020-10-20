@@ -15,24 +15,16 @@ class SpotShow extends React.Component{
                 <body>
                     <div className="spot-show-div">
                         <div className="spot-show-img-div">
-                            <div className="slides">
-                                <input type="radio" name={`${this.props.spot.id}-radio-btn`} id={`radio${this.props.spot.id}1`}/> 
-                                <input type="radio" name={`${this.props.spot.id}-radio-btn`} id={`radio${this.props.spot.id}2`}/>
-                                <input type="radio" name={`${this.props.spot.id}-radio-btn`} id={`radio${this.props.spot.id}3`}/> 
-                                <div className="slide first">
-                                    <img src={`https://hicamp-seed.s3-us-west-1.amazonaws.com/spot${this.props.spot.id}1.jpg`}></img>
-                                </div>
-                                <div className="slide">
-                                    <img src={`https://hicamp-seed.s3-us-west-1.amazonaws.com/spot${this.props.spot.id}2.jpg`}></img>
-                                </div>
-                                <div className="slide">
-                                    <img src={`https://hicamp-seed.s3-us-west-1.amazonaws.com/spot${this.props.spot.id}3.jpg`}></img>
-                                </div>
+                            <div>
+                                <img className="first_pic" src={this.props.spot.photoUrl[0].photo}></img>
                             </div>
-                            <div className="navigation-manual">
-                                <label for={`radio${this.props.spot.id}1`} className="manual-btn"></label>
-                                <label for={`radio${this.props.spot.id}2`} className="manual-btn"></label>
-                                <label for={`radio${this.props.spot.id}3`} className="manual-btn"></label>
+                            <div className="second-img-div">
+                                <div>
+                                    <img className="sec-first" src={this.props.spot.photoUrl[1].photo}></img>
+                                </div>
+                                <div>
+                                    <img className="sec-sec" src={this.props.spot.photoUrl[2].photo}></img>
+                                </div>
                             </div>
                         </div>
                         <div className="div-after-img">
