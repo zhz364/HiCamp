@@ -19,7 +19,11 @@ export const receiveCampsite = (campsite) =>{
 
 export const fetchCampsites = () => dispath =>{
     return CampsetUtil.fetchCampsites()
-        .then((campsites)=>dispath(receiveAllCampsites(campsites)))
+        .then((campsites)=>{
+            debugger
+            dispath(receiveAllCampsites(campsites))
+        })
+
 }
 
 export const fetchCampsite = (id) => dispath =>{

@@ -36,7 +36,7 @@ campsite6 = Campsite.create(title:"Big Bend",img_url:"amazon", latitude:44.46, l
                             anyone who appreciates Mother Nature’s bounty. Artifacts as old as 9,000 years old are regularly found in the park, as well. With over 1,000 miles of international boundary shared with Mexico along the Rio Grande River, Big Bend National Park exists also a symbol of how the outdoors can bring nations together.
                             Big Bend is particularly exciting for hikers and backpackers, who can choose between Chimneys Trail, Marufo Vega Trail.", state:"Texas")
 
-campsite1.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_rock_mountain.jpg"), filename:"campsite_rock_mountain.jpg")
+campsite1.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_white_mountains.jpg"), filename:"campsite_white_mountains.jpg")
 campsite2.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_white_mountains.jpg"), filename:"campsite_white_mountains.jpg")
 campsite3.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_yosemite.jpg"), filename:"campsite_yosemite.jpg")
 campsite4.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_great_smoky_mountain.jpg"), filename:"campsite_great_smoky_mountain.jpg")
@@ -56,3 +56,19 @@ spot3 = Spot.create(name:"Folly Farm", camp_type:"camping",img_url:"amazon", sta
 spot4 = Spot.create(name:"Cute Renovated Camper", camp_type:"camping",img_url:"amazon", state_location:"Colorado",host_id:demoUser.id,campsite_id:campsite1.id,price:11,capacity:5,longitude:1.11,latitude:13.14,description:"This recently renovated camper will be the perfect spot to escape the city, rest and camp out while still 
                     being close to accessible roads, restaurants, gas stations, coffee shops, etc. 15 minutes from Gross Reservoir, where you can paddle board (available for small rental fee from owners), kayak, canoe, fish and soak up the sun. 10 minutes from the amazing Walker ranch trail.")
 
+
+spot1.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot11.jpg"), filename:"spot11.jpg")
+spot1.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot12.jpg"), filename:"spot12.jpg")
+spot1.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot13.jpg"), filename:"spot13.jpg")
+
+spot2.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot21.jpg"), filename:"spot21.jpg")
+spot2.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot22.jpg"), filename:"spot22.jpg")
+spot2.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot23.jpg"), filename:"spot23.jpg")
+
+spot3.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot31.jpg"), filename:"spot31.jpg")
+spot3.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot32.jpg"), filename:"spot32.jpg")
+spot3.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot33.jpg"), filename:"spot33.jpg")
+
+spot4.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot41.jpg"), filename:"spot41.jpg")
+spot4.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot42.jpg"), filename:"spot42.jpg")
+spot4.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot43.jpg"), filename:"spot43.jpg")

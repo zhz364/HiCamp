@@ -19,13 +19,13 @@ class SpotIndex extends React.Component{
                     </div>
                     <div className="spot-search-div">
                         <div className="spot-searchbar">
-                            <div>
+                            <div className="inner-div">
                                 <span>Camping</span>
                             </div>
-                            <div>
+                            <div className="inner-div">
                                 <span>VR sites</span>
                             </div>
-                            <div>
+                            <div className="inner-div">
                                 <span>Glamping</span>
                             </div>
                         </div>
