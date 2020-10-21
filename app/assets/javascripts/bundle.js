@@ -383,13 +383,10 @@ var CampsiteIndex = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h4", null, "Find your next getaway"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "campsites-index"
       }, this.props.campsites.map(function (campsite) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-          className: "link",
-          to: "/spots"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_campsite_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_campsite_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
           key: campsite.id,
           campsite: campsite
-        }), " ");
+        });
       })));
     }
   }]);
@@ -486,7 +483,10 @@ var CampsiteIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(CampsiteIndexItem, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "link",
+        to: "/spots"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "campsite-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "campsite-item-image-div"
@@ -498,7 +498,7 @@ var CampsiteIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "campsite-name"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.campsite.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "campsite-state"
-      }, this.props.campsite.address)));
+      }, this.props.campsite.address))));
     }
   }]);
 
@@ -630,7 +630,7 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(_main_body__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, null)(_main_body__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 

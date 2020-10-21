@@ -6,4 +6,4 @@ const mapStateToProps = (state) => ({
   user: state.session.currentUser
 });
 
-export default connect(mapStateToProps)(MainBody);
+export default connect(mapStateToProps,null)(MainBody);

@@ -9,7 +9,7 @@ class CampsiteIndexItem extends React.Component{
 
     render(){
         return(
-        <div className="campsite-item"> 
+        <Link className="link" to="/spots"><div className="campsite-item"> 
             <div className="campsite-item-image-div">
                 <img src={this.props.campsite.photoUrl}></img>
             </div>
@@ -21,7 +21,7 @@ class CampsiteIndexItem extends React.Component{
                     {this.props.campsite.address}
                 </p>
             </div>
-        </div>
+        </div></Link>
         )
     }
 }
