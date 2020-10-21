@@ -86,6 +86,72 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/booking_actions.js":
+/*!*********************************************!*\
+  !*** ./frontend/actions/booking_actions.js ***!
+  \*********************************************/
+/*! exports provided: RECEIVE_BOOKING, DELETE_BOOKING, RECEIVE_ALL_BOOKING, fetchBookings, createBooking, deleteBooking */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BOOKING", function() { return RECEIVE_BOOKING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_BOOKING", function() { return DELETE_BOOKING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_BOOKING", function() { return RECEIVE_ALL_BOOKING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBookings", function() { return fetchBookings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBooking", function() { return createBooking; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBooking", function() { return deleteBooking; });
+/* harmony import */ var _util_booking_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/booking_api_util */ "./frontend/util/booking_api_util.js");
+
+var RECEIVE_BOOKING = "RECEIVE_BOOKING";
+var DELETE_BOOKING = "DELETE_BOOKING";
+var RECEIVE_ALL_BOOKING = "RECEIVE_ALL_BOOKING";
+
+var receiveAllBookings = function receiveAllBookings(bookings) {
+  return {
+    type: RECEIVE_ALL_BOOKING,
+    bookings: bookings
+  };
+};
+
+var receiveBooking = function receiveBooking(booking) {
+  return {
+    type: RECEIVE_BOOKING,
+    booking: booking
+  };
+};
+
+var removeBooking = function removeBooking(bookingId) {
+  return {
+    type: DELETE_BOOKING,
+    bookingId: bookingId
+  };
+};
+
+var fetchBookings = function fetchBookings(userId) {
+  return function (dispath) {
+    return _util_booking_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBookings"](userId).then(function (bookings) {
+      dispath(receiveAllBookings(bookings));
+    });
+  };
+};
+var createBooking = function createBooking(booking) {
+  return function (dispath) {
+    return _util_booking_api_util__WEBPACK_IMPORTED_MODULE_0__["createBooking"](booking).then(function (booking) {
+      dispath(receiveBooking(booking));
+    });
+  };
+};
+var deleteBooking = function deleteBooking(bookingId) {
+  return function (dispath) {
+    return _util_booking_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteBooking"](bookingId).then(function () {
+      dispath(removeBooking(booking));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/campsite_actions.js":
 /*!**********************************************!*\
   !*** ./frontend/actions/campsite_actions.js ***!
@@ -1860,6 +1926,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
+/***/ "./frontend/reducers/bookings_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/bookings_reducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/booking_actions */ "./frontend/actions/booking_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var bookingsReducer = function bookingsReducer() {
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldState);
+  var newState = Object.assign({}, oldState);
+
+  switch (action.type) {
+    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_BOOKING"]:
+      action.bookings;
+
+    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BOOKING"]:
+      newState = Object.assign({}, oldState, _defineProperty({}, action.booking.id, action.booking));
+      return newState;
+
+    case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_BOOKING"]:
+      delete newState[action.bookingId];
+      return newState;
+
+    default:
+      return oldState;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (bookingsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/campsites_reducer.js":
 /*!************************************************!*\
   !*** ./frontend/reducers/campsites_reducer.js ***!
@@ -1906,10 +2013,13 @@ var campsitesReducer = function campsitesReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _bookings_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bookings_reducer */ "./frontend/reducers/bookings_reducer.js");
+
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  bookings: _bookings_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -2130,6 +2240,42 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/booking_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/booking_api_util.js ***!
+  \*******************************************/
+/*! exports provided: fetchBookings, createBooking, deleteBooking */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBookings", function() { return fetchBookings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBooking", function() { return createBooking; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBooking", function() { return deleteBooking; });
+var fetchBookings = function fetchBookings(userId) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/users/".concat(userId, "/bookings")
+  });
+};
+var createBooking = function createBooking(booking) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/bookings',
+    data: {
+      booking: booking
+    }
+  });
+};
+var deleteBooking = function deleteBooking(bookingId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "api/bookings/".concat(bookingId)
+  });
+};
 
 /***/ }),
 
