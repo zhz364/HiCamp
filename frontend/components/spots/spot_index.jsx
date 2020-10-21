@@ -36,8 +36,8 @@ class SpotIndex extends React.Component{
                                 <SpotIndexItem key={spot.id} spot={spot} idx={idx+1}/>
                             ))}
                         </div>
-                        <div className="spot-map-div">
-                                This is map bar
+                        <div className="spot-index-map-div">
+                                
                         </div>
                     </div>
                 </div>

@@ -1199,8 +1199,8 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
           idx: idx + 1
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "spot-map-div"
-      }, "This is map bar"))));
+        className: "spot-index-map-div"
+      }))));
     }
   }]);
 
@@ -1426,8 +1426,8 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var center = {
-        lat: 44.2643,
-        lng: -109.7870
+        lat: this.props.spot.latitude,
+        lng: this.props.spot.longitude
       }; // const map = this.refs.map;
 
       var mapOptions = {
@@ -1437,11 +1437,32 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
       }; // this.map = new google.maps.Map(map, mapOptions);
 
       this.map = new google.maps.Map(this.mapNode, mapOptions);
-      debugger;
       var point = new google.maps.Circle({
         center: center,
         map: this.map,
-        radius: 1000
+        radius: 1000,
+        strokeColor: "#40d9ac",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#40d9ac",
+        fillOpacity: 0.35
+      });
+      var marker = new google.maps.Marker({
+        position: center,
+        map: this.map,
+        title: this.props.spot.name,
+        animation: google.maps.Animation.DROP
+      });
+      var imgStyle = {
+        width: "200px",
+        height: "100px"
+      };
+      var spotInfor = "<div > \n                                <div>\n                                   <img style={".concat(imgStyle, "} src='").concat(this.props.spot.photoUrl[0].photo, "'></img>    \n                                   <h4>").concat(this.props.spot.name, "</h4>\n                                </div> \n                          </div>");
+      var infowindow = new google.maps.InfoWindow({
+        content: spotInfor
+      });
+      marker.addListener("click", function () {
+        infowindow.open(map, marker);
       });
     }
   }, {
@@ -1449,7 +1470,6 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      // debugger
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "map"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
