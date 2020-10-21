@@ -9,7 +9,7 @@ class MainBody extends React.Component{
 
   render(){
     return (
-      <body>
+      // <body>
           <div className="main-body">
             <div className="search-bar">
               <div className="content-above">
@@ -52,7 +52,7 @@ class MainBody extends React.Component{
               <SpotIndexContainer />
             </div> */}
           </div>
-      </body>
+      // </body>
     )
   }
 }
