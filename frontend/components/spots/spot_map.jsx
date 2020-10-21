@@ -37,13 +37,10 @@ class SpotMap extends React.Component{
             title: this.props.spot.name,
             animation: google.maps.Animation.DROP,
         })
-        const imgStyle = {
-            width:"200px",
-            height: "100px"
-        }
+        
         const spotInfor = `<div > 
                                 <div>
-                                   <img style={${imgStyle}} src='${this.props.spot.photoUrl[0].photo}'></img>    
+                                   <img class="infor-img" src='${this.props.spot.photoUrl[0].photo}'></img>    
                                    <h4>${this.props.spot.name}</h4>
                                 </div> 
                           </div>`

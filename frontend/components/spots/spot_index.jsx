@@ -1,5 +1,6 @@
 import SpotIndexItem from "./spot_index_item"
 import React from "react"
+import SpotsMap from "./spots_map"
 
 class SpotIndex extends React.Component{
     constructor(props){
@@ -12,7 +13,7 @@ class SpotIndex extends React.Component{
 
     render(){
         return(
-            <body className="main-body">
+            <div className="main-body">
                 <div className="spots-index">
                     <div>
                         
@@ -36,13 +37,13 @@ class SpotIndex extends React.Component{
                                 <SpotIndexItem key={spot.id} spot={spot} idx={idx+1}/>
                             ))}
                         </div>
-                        <div className="spot-index-map-div">
-                                
+                        <div className="spots-index-map-div">
+                            <SpotsMap spots={this.props.spots}/>
                         </div>
                     </div>
                 </div>
 
-            </body>
+            </div>
         )
     }
 }

@@ -1130,6 +1130,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _spot_index_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./spot_index_item */ "./frontend/components/spots/spot_index_item.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _spots_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spots_map */ "./frontend/components/spots/spots_map.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1155,6 +1156,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var SpotIndex = /*#__PURE__*/function (_React$Component) {
   _inherits(SpotIndex, _React$Component);
 
@@ -1174,7 +1176,7 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("body", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "main-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spots-index"
@@ -1199,8 +1201,10 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
           idx: idx + 1
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "spot-index-map-div"
-      }))));
+        className: "spots-index-map-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_spots_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        spots: this.props.spots
+      })))));
     }
   }]);
 
@@ -1453,11 +1457,7 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
         title: this.props.spot.name,
         animation: google.maps.Animation.DROP
       });
-      var imgStyle = {
-        width: "200px",
-        height: "100px"
-      };
-      var spotInfor = "<div > \n                                <div>\n                                   <img style={".concat(imgStyle, "} src='").concat(this.props.spot.photoUrl[0].photo, "'></img>    \n                                   <h4>").concat(this.props.spot.name, "</h4>\n                                </div> \n                          </div>");
+      var spotInfor = "<div > \n                                <div>\n                                   <img class=\"infor-img\" src='".concat(this.props.spot.photoUrl[0].photo, "'></img>    \n                                   <h4>").concat(this.props.spot.name, "</h4>\n                                </div> \n                          </div>");
       var infowindow = new google.maps.InfoWindow({
         content: spotInfor
       });
@@ -1670,6 +1670,121 @@ var mdtp = function mdtp(dispath) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_spot_show__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/spots/spots_map.jsx":
+/*!*************************************************!*\
+  !*** ./frontend/components/spots/spots_map.jsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var SpotsMap = /*#__PURE__*/function (_React$Component) {
+  _inherits(SpotsMap, _React$Component);
+
+  var _super = _createSuper(SpotsMap);
+
+  function SpotsMap(props) {
+    _classCallCheck(this, SpotsMap);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(SpotsMap, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var center = {
+        lat: 0,
+        lng: 0
+      };
+      var mapOptions = {
+        center: center,
+        mapTypeId: 'terrain',
+        zoom: 13
+      }; // this.map = new google.maps.Map(map, mapOptions);
+      // this.map = new google.maps.Map(this.mapNode);
+      // let point = new google.maps.Circle({
+      //     center,
+      //     map: this.map,
+      //     radius: 1000,
+      //     strokeColor: "#40d9ac",
+      //     strokeOpacity: 0.8,
+      //     strokeWeight: 2,
+      //     fillColor: "#40d9ac",
+      //     fillOpacity: 0.35,
+      // })
+      // let marker = new google.maps.Marker({
+      //     position: center,
+      //     map: this.map,
+      //     // title: this.props.spot.name,
+      //     animation: google.maps.Animation.DROP,
+      // })
+      // const imgStyle = {
+      //     width:"200px",
+      //     height: "100px"
+      // }
+      // const spotInfor = `<div > 
+      //                         <div>
+      //                            <img style={${imgStyle}} src='${this.props.spot.photoUrl[0].photo}'></img>    
+      //                            <h4>${this.props.spot.name}</h4>
+      //                         </div> 
+      //                   </div>`
+      // const infowindow = new google.maps.InfoWindow({
+      //     content: spotInfor,
+      // });
+      // marker.addListener("click", () => {
+      //     infowindow.open(map, marker);
+      // });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "map"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "spots-map-box",
+        ref: function ref(map) {
+          return _this.mapNode = map;
+        }
+      }));
+    }
+  }]);
+
+  return SpotsMap;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (SpotsMap);
 
 /***/ }),
 
