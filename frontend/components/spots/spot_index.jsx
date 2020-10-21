@@ -12,6 +12,9 @@ class SpotIndex extends React.Component{
     }
 
     render(){
+        if (this.props.spots.length ===0 ){
+            return null
+        }
         return(
             <div className="main-body">
                 <div className="spots-index">

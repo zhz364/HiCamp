@@ -1176,6 +1176,10 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      if (this.props.spots.length === 0) {
+        return null;
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "main-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -1232,6 +1236,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mstp = function mstp(state, ownProps) {
+  // debugger
   return {
     spots: Object.values(state.spots)
   };
@@ -1714,68 +1719,82 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(SpotsMap);
 
   function SpotsMap(props) {
+    var _this;
+
     _classCallCheck(this, SpotsMap);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.makePin = _this.makePin.bind(_assertThisInitialized(_this));
+    _this.centerSpot = _this.centerSpot.bind(_assertThisInitialized(_this));
+    _this.spotInfor = _this.spotInfor.bind(_assertThisInitialized(_this));
+    _this.createInforWindow = _this.createInforWindow.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(SpotsMap, [{
+    key: "makePin",
+    value: function makePin(pos) {
+      var marker = new google.maps.Marker({
+        position: pos,
+        map: this.map,
+        animation: google.maps.Animation.DROP
+      });
+      return marker;
+    }
+  }, {
+    key: "centerSpot",
+    value: function centerSpot() {
+      var _this2 = this;
+
+      this.props.spots.map(function (spot) {
+        _this2.createInforWindow(_this2.spotInfor(spot.photoUrl[0].photo, spot.name), _this2.makePin({
+          lat: spot.latitude,
+          lng: spot.longitude
+        }));
+      });
+    }
+  }, {
+    key: "spotInfor",
+    value: function spotInfor(photo, name) {
+      var spotInfor = "<div > \n                                <div>\n                                   <img class=\"infor-img\" src='".concat(photo, "'></img>    \n                                   <h4>").concat(name, "</h4>\n                                </div> \n                          </div>");
+      return spotInfor;
+    }
+  }, {
+    key: "createInforWindow",
+    value: function createInforWindow(spotInfor, marker) {
+      var infowindow = new google.maps.InfoWindow({
+        content: spotInfor
+      });
+      marker.addListener("click", function () {
+        infowindow.open(map, marker);
+      });
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var center = {
-        lat: 0,
-        lng: 0
+        lat: 40.3428,
+        lng: -95.6836
       };
       var mapOptions = {
         center: center,
         mapTypeId: 'terrain',
-        zoom: 13
-      }; // this.map = new google.maps.Map(map, mapOptions);
-      // this.map = new google.maps.Map(this.mapNode);
-      // let point = new google.maps.Circle({
-      //     center,
-      //     map: this.map,
-      //     radius: 1000,
-      //     strokeColor: "#40d9ac",
-      //     strokeOpacity: 0.8,
-      //     strokeWeight: 2,
-      //     fillColor: "#40d9ac",
-      //     fillOpacity: 0.35,
-      // })
-      // let marker = new google.maps.Marker({
-      //     position: center,
-      //     map: this.map,
-      //     // title: this.props.spot.name,
-      //     animation: google.maps.Animation.DROP,
-      // })
-      // const imgStyle = {
-      //     width:"200px",
-      //     height: "100px"
-      // }
-      // const spotInfor = `<div > 
-      //                         <div>
-      //                            <img style={${imgStyle}} src='${this.props.spot.photoUrl[0].photo}'></img>    
-      //                            <h4>${this.props.spot.name}</h4>
-      //                         </div> 
-      //                   </div>`
-      // const infowindow = new google.maps.InfoWindow({
-      //     content: spotInfor,
-      // });
-      // marker.addListener("click", () => {
-      //     infowindow.open(map, marker);
-      // });
+        zoom: 3
+      };
+      this.map = new google.maps.Map(this.mapNode, mapOptions);
+      this.centerSpot();
     }
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this3 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "map"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "spots-map-box",
         ref: function ref(map) {
-          return _this.mapNode = map;
+          return _this3.mapNode = map;
         }
       }));
     }
