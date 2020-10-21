@@ -5,7 +5,11 @@ Rails.application.routes.draw do
     resource :session, only: %i[destroy create]
     resources :spots, only: [:show, :index]
     resources :campsites, only: [:show, :index]
-    resources :users
+    resources :users, only: [:index, :create] do
+        resources :bookings, only: [:index]
+    end
+
+    resources :bookings, only: [:create, :destroy]
   end
 
 end
