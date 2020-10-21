@@ -1423,9 +1423,41 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(SpotMap, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var center = {
+        lat: 44.2643,
+        lng: -109.7870
+      }; // const map = this.refs.map;
+
+      var mapOptions = {
+        center: center,
+        mapTypeId: 'terrain',
+        zoom: 13
+      }; // this.map = new google.maps.Map(map, mapOptions);
+
+      this.map = new google.maps.Map(this.mapNode, mapOptions);
+      debugger;
+      var point = new google.maps.Circle({
+        center: center,
+        map: this.map,
+        radius: 1000
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is map "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.spot.longitude), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.spot.latitude));
+      var _this = this;
+
+      // debugger
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "map"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "map-box",
+        ref: function ref(map) {
+          return _this.mapNode = map;
+        }
+      }));
     }
   }]);
 

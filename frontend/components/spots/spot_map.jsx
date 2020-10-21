@@ -5,12 +5,34 @@ class SpotMap extends React.Component{
         super(props)
     }
 
+    componentDidMount(){
+        const center = {
+            lat: 44.2643,
+            lng: -109.7870
+        }
+
+        // const map = this.refs.map;
+        const mapOptions = {
+            center,
+            mapTypeId: 'terrain',
+            zoom:13
+        };
+        // this.map = new google.maps.Map(map, mapOptions);
+        this.map = new google.maps.Map(this.mapNode, mapOptions);
+        debugger
+        let point = new google.maps.Circle({
+            center,
+            map: this.map,
+            radius: 1000,
+        
+        })
+    }
+
     render(){
+        // debugger
         return(
-            <div>
-                <h1>This is map </h1>
-                <h1>{this.props.spot.longitude}</h1>
-                <h1>{this.props.spot.latitude}</h1>
+            <div id="map">
+                <div id="map-box" ref={map => this.mapNode = map}></div>
             </div>
         )
     }
