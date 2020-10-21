@@ -10,6 +10,7 @@ class Api::BookingsController < ApplicationController
             render "api/bookings/show"
         else
             render json: @booking.errors.full_messages, status:401
+        end
     end
 
     def destroy
@@ -20,7 +21,7 @@ class Api::BookingsController < ApplicationController
 
     private
     def booking_params
-        params.require(:booking).permit(:user_id, :spot_id,:checkin_date, :checkout_date,:nums_guest,:total_price)
+        params.require(:booking).permit(:user_id,:spot_id,:checkin_date,:checkout_date,:nums_guest,:total_price)
     end
     
 end

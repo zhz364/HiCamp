@@ -8,6 +8,8 @@
 User.destroy_all
 Campsite.destroy_all
 Spot.destroy_all
+Booking.destroy_all
+
 demoUser = User.create(first_name:"zihao", last_name:"jian", username:"uzi", password:"123456", zip:1, email:"uzi@lpl.com" )
 user1 = User.create(first_name:"zhang", last_name:"zhang", username:"z", password:"123456", zip:1, email:"z" )
 
@@ -72,3 +74,8 @@ spot3.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spo
 spot4.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot41.jpg"), filename:"spot41.jpg")
 spot4.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot42.jpg"), filename:"spot42.jpg")
 spot4.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot43.jpg"), filename:"spot43.jpg")
+
+checkin = DateTime.new(2020,7,27)
+checkout = DateTime.new(2020,7,28)
+
+Booking.create(user_id: demoUser.id, spot_id: spot1.id, checkin_date: checkin, checkout_date: checkout, nums_guest: 1, total_price: 20)
