@@ -7,7 +7,7 @@ class Api::BookingsController < ApplicationController
     def create
         @booking = Booking.new(booking_params)
         if @booking.save
-            render "api/bookings/index"
+            render "api/bookings/show"
         else
             render json: @booking.errors.full_messages, status:401
     end
