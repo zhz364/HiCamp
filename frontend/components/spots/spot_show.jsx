@@ -1,5 +1,6 @@
 import React from "react"
 import SpotMap from "./spot_map"
+import BookingFormContainer from "../bookings/booking_form_container"
 
 class SpotShow extends React.Component{
     constructor(props){
@@ -93,7 +94,7 @@ class SpotShow extends React.Component{
 
                             <div className="side-booking-div">
                                 <div className="booking-div">
-                                    <h1>booking form</h1>
+                                    <BookingFormContainer spot={this.props.spot}/>
                                 </div>
                             </div>
                         </div>
