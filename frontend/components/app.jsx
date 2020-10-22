@@ -14,8 +14,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App =() =>{
     return(
         <div>
-            <Route path="/users/:userId/bookings" component={BookingIndexContainer}/>
             <Route path="/" component={NavBarContainer}/>
+            <Route exact path="/users/:userId/bookings" component={BookingIndexContainer}/>
             <Route exact path="/" component={mainBodyContainer}/>
             <Route exact path="/spots/:spotId" component={SpotShowContainer} />
             {/* <Route exact path="/campsites/:campsiteId" component={SpotIndexContainer}/> */}
