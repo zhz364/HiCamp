@@ -1,9 +1,10 @@
 import {connect} from 'react-redux';
 import {createBooking} from "../../actions/booking_actions"
+import {withRouter} from 'react-router-dom'
 import BookingForm from "./booking_form";
 
 const mstp = (state) =>{
-    if (state.currentUser === null){
+    if (state.session.currentUser === null){
         return {
             currentUserId: undefined
         }
@@ -19,4 +20,4 @@ const mdtp = (dispatch) =>{
     }
 }
 
-export default connect(mstp,mdtp)(BookingForm)
+export default withRouter(connect(mstp,mdtp)(BookingForm))

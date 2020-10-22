@@ -475,25 +475,13 @@
     // background-color: green;
     .side-booking-div{
 
-
-        position: relative;
+        display: flex;
+        position: sticky;
         z-index: 10000;
-        
-        .booking-div{
-            display: flex;
-            flex-direction: column;
-            position: sticky;
-            // position: fixed;
-            width: 200px;
-            height: 200px;
-            border: 1px solid red;
-            // background-color: red;
-            // margin-top: 10px;
-            top:0px;
-            // left:1100px;
-            // z-index:1000;
-            
-        }
+        border: 1px solid red;
+        width: 300px;
+        height: 300px;
+        top:0px;
     }
 }
 

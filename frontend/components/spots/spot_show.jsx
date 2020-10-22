@@ -93,9 +93,7 @@ class SpotShow extends React.Component{
                             </div>
 
                             <div className="side-booking-div">
-                                <div className="booking-div">
-                                    <BookingFormContainer spot={this.props.spot}/>
-                                </div>
+                                <BookingFormContainer spot={this.props.spot}/>
                             </div>
                         </div>
                          
