@@ -1,1 +1,1 @@
-json.partial! 'booking', booking: booking
+json.partial! 'booking', booking: @booking

@@ -60,18 +60,11 @@ class BookingForm extends React.Component{
                 let end = this.state.checkout_date.split("-")
                 const temp = this.calDays(end,start) * this.props.spot.price
                 this.setState({total_price: temp})
+            
+                const newState = Object.assign({},this.state)
+                this.props.createBooking(newState)
+                    .then(()=> this.props.history.push(`/users/${this.props.currentUserId}/bookings`))
             }
-            const newState = Object.assign({},this.state)
-            this.props.createBooking(newState)
-                .then(()=> this.props.history.push("/login"))
-        }
-        if (!this.state.checkin_date || !this.state.checkout_date){
-            this.error = (
-                <div>
-                    Please select valid check in and check out dates
-                </div>
-            )
-        
         }
     }
 

@@ -38,7 +38,7 @@ campsite6 = Campsite.create(title:"Big Bend",img_url:"amazon", latitude:44.46, l
                             anyone who appreciates Mother Nature’s bounty. Artifacts as old as 9,000 years old are regularly found in the park, as well. With over 1,000 miles of international boundary shared with Mexico along the Rio Grande River, Big Bend National Park exists also a symbol of how the outdoors can bring nations together.
                             Big Bend is particularly exciting for hikers and backpackers, who can choose between Chimneys Trail, Marufo Vega Trail.", state:"Texas")
 
-campsite1.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_white_mountains.jpg"), filename:"campsite_white_mountains.jpg")
+campsite1.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_rock_mountain.jpg"), filename:"campsite_rock_mountain.jpg")
 campsite2.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_white_mountains.jpg"), filename:"campsite_white_mountains.jpg")
 campsite3.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_yosemite.jpg"), filename:"campsite_yosemite.jpg")
 campsite4.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/campsite_great_smoky_mountain.jpg"), filename:"campsite_great_smoky_mountain.jpg")
@@ -50,12 +50,12 @@ campsite6.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/
 
 
 
-spot1 = Spot.create(name:"Creekside Paradise", camp_type:"camping",img_url:"amazon", state_location:"Colorado",host_id:demoUser.id,campsite_id:campsite1.id,price:11,capacity:5,longitude:-105.6836,latitude:40.3428, description:"42 acres of land with a creek running through it surrounded by National Forest 20 minutes from Boulder or Nederland, 30 minutes from Estes Park and Rocky Mountain National park.")
-spot2 = Spot.create(name:"Quiet Mountain Forest Near Boulder", camp_type:"camping",img_url:"amazon", state_location:"California",host_id:demoUser.id,campsite_id:campsite1.id,price:11,capacity:5,longitude:-118.007027,latitude: 37.021469,description:"Enjoy a beautiful, peaceful, quiet 40 acres in the mountains just 20 minutes from Boulder. The land includes grassy meadows, rock outcroppings, cliffs (with rock climbing),
+spot1 = Spot.create(name:"Creekside Paradise", camp_type:"camping",img_url:"amazon", state_location:"Colorado",host_id:demoUser.id,campsite_id:campsite1.id,price:50,capacity:5,longitude:-105.6836,latitude:40.3428, description:"42 acres of land with a creek running through it surrounded by National Forest 20 minutes from Boulder or Nederland, 30 minutes from Estes Park and Rocky Mountain National park.")
+spot2 = Spot.create(name:"Quiet Mountain Forest Near Boulder", camp_type:"camping",img_url:"amazon", state_location:"California",host_id:demoUser.id,campsite_id:campsite1.id,price:72,capacity:3,longitude:-118.007027,latitude: 37.021469,description:"Enjoy a beautiful, peaceful, quiet 40 acres in the mountains just 20 minutes from Boulder. The land includes grassy meadows, rock outcroppings, cliffs (with rock climbing),
                     breathtaking views, seasonal creeks, mature forests, and many opportunities for peace and seclusion.")
-spot3 = Spot.create(name:"Folly Farm", camp_type:"camping",img_url:"amazon", state_location:"Oregon",host_id:demoUser.id,campsite_id:campsite1.id,price:11,capacity:5,longitude:-76.8808,latitude:39.4340,description:"WELCOME TO FOLLY FARM... Boulder County's finest glamping experience!
+spot3 = Spot.create(name:"Folly Farm", camp_type:"camping",img_url:"amazon", state_location:"Oregon",host_id:demoUser.id,campsite_id:campsite1.id,price:106,capacity:4,longitude:-76.8808,latitude:39.4340,description:"WELCOME TO FOLLY FARM... Boulder County's finest glamping experience!
                     Located just 25 miles from world famous Rocky Mountain National Park, 16 miles from #1 ranked town Boulder, and a quick three minute drive from quaint Lyons, home to two world famous music festivals: Rocky Grass and Rocky Mountain Folk Festival. Don't forget to bring your fly rod's and grab a tube.")
-spot4 = Spot.create(name:"Cute Renovated Camper", camp_type:"camping",img_url:"amazon", state_location:"California",host_id:demoUser.id,campsite_id:campsite1.id,price:11,capacity:5,longitude:-110.5885,latitude:44.4280,description:"This recently renovated camper will be the perfect spot to escape the city, rest and camp out while still 
+spot4 = Spot.create(name:"Cute Renovated Camper", camp_type:"camping",img_url:"amazon", state_location:"California",host_id:demoUser.id,campsite_id:campsite1.id,price:65,capacity:2,longitude:-110.5885,latitude:44.4280,description:"This recently renovated camper will be the perfect spot to escape the city, rest and camp out while still 
                     being close to accessible roads, restaurants, gas stations, coffee shops, etc. 15 minutes from Gross Reservoir, where you can paddle board (available for small rental fee from owners), kayak, canoe, fish and soak up the sun. 10 minutes from the amazing Walker ranch trail.")
 
 
