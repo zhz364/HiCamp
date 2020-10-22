@@ -685,6 +685,11 @@ var BookingIndex = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(BookingIndex, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchBookings(this.props.currentUserId);
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.bookings.map(function (booking, idx) {
@@ -2372,7 +2377,7 @@ var bookingsReducer = function bookingsReducer() {
 
   switch (action.type) {
     case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_BOOKING"]:
-      action.bookings;
+      return action.bookings;
 
     case _actions_booking_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BOOKING"]:
       newState = Object.assign({}, oldState, _defineProperty({}, action.booking.id, action.booking));
