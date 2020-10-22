@@ -13,8 +13,9 @@ class BookingForm extends React.Component{
             nums_guest: 1,
             total_price: this.props.spot.price
         }
-        this.handleDate = this.handleDate.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleDate = this.handleDate.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.calDays = this.calDays.bind(this);
     }
 
     handleDate(type){
@@ -60,20 +61,48 @@ class BookingForm extends React.Component{
             }
             const newState = Object.assign({},this.state)
             this.props.createBooking(newState)
-                .then(()=> this.props.history.push("/"))
+                .then(()=> this.props.history.push("/login"))
         }
 
     }
 
+    componentDidMount(){
+        this.error = null
+    }
   
     render(){
-    
-       
+        let currPrice = null;
+        this.error = null
+        if (this.state.checkin_date && this.state.checkout_date){
+            if((Number(this.state.checkout_date.split("-").join("")) - Number(this.state.checkin_date.split("-").join(""))) < 0
+                || this.state.checkout_date === this.state.checkin_date){
+                this.error = (
+                    <div>
+                        Please select valid checkout date
+                    </div>
+                )
+            }else{
+                let start = this.state.checkin_date.split("-")
+                let end = this.state.checkout_date.split("-")
+                const subTotal = this.calDays(end,start) * this.props.spot.price
+                currPrice = (
+                    <div style={{width:"100px"},{height:"50px"},{border:"1px solid red"}}className="currPrice">
+                        <div style={{border:"1px solid blue"},{width:"50px"},{height:"50px"}} className="subtotal">
+                            Subtotal: 
+                        </div>
+                        <div>
+                            {subTotal}
+                        </div>
+                    </div>
+                )
+            }
+        }
+
         return (
             <div className="booking-form-div">
                 <div className="price-div">
-                    <div>{this.props.spot.price}</div>
-                    <div>per night</div>
+                    <div className="price"><h4>${this.props.spot.price}</h4></div>
+                    <div className="per-night">per night</div>
                 </div>
 
                 <div className="booking-infor-div">
@@ -86,14 +115,17 @@ class BookingForm extends React.Component{
 
                     <div className="guests-div">
                         <div>Guests</div>
-                        <button className="decrease" onClick={this.handleGuest("decrease")}><i>-</i></button>
-                        <span>{this.state.nums_guest}</span>
-                        <button className="increase" onClick={this.handleGuest("increase")}><i>+</i></button>
+                        <div>
+                            <button className="decrease" onClick={this.handleGuest("decrease")}><i>-</i></button>
+                            <span>{this.state.nums_guest}</span>
+                            <button className="increase" onClick={this.handleGuest("increase")}><i>+</i></button>
+                        </div>
                     </div>
                     
                 </div>
-
-                <div><button onClick={this.handleSubmit}>Book</button></div>
+                {currPrice}
+                <div className="sub-button-div"><button className="sub-button" onClick={this.handleSubmit}>Book</button></div>
+                {this.error}
             </div>
         )
     }

@@ -449,6 +449,7 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
     };
     _this.handleDate = _this.handleDate.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.calDays = _this.calDays.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -510,18 +511,59 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
 
         var newState = Object.assign({}, this.state);
         this.props.createBooking(newState).then(function () {
-          return _this4.props.history.push("/");
+          return _this4.props.history.push("/login");
         });
       }
     }
   }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.error = null;
+    }
+  }, {
     key: "render",
     value: function render() {
+      var currPrice = null;
+      this.error = null;
+
+      if (this.state.checkin_date && this.state.checkout_date) {
+        if (Number(this.state.checkout_date.split("-").join("")) - Number(this.state.checkin_date.split("-").join("")) < 0 || this.state.checkout_date === this.state.checkin_date) {
+          this.error = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Please select valid checkout date");
+        } else {
+          var start = this.state.checkin_date.split("-");
+          var end = this.state.checkout_date.split("-");
+          var subTotal = this.calDays(end, start) * this.props.spot.price;
+          currPrice = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            style: ({
+              width: "100px"
+            }, {
+              height: "50px"
+            }, {
+              border: "1px solid red"
+            }),
+            className: "currPrice"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            style: ({
+              border: "1px solid blue"
+            }, {
+              width: "50px"
+            }, {
+              height: "50px"
+            }),
+            className: "subtotal"
+          }, "Subtotal:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, subTotal));
+        }
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "booking-form-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "price-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.spot.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "per night")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "price"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "$", this.props.spot.price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "per-night"
+      }, "per night")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "booking-infor-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "checkin-div"
@@ -539,15 +581,18 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.handleDate("checkout_date")
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "guests-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Guests"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Guests"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "decrease",
         onClick: this.handleGuest("decrease")
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", null, "-")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.nums_guest), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "increase",
         onClick: this.handleGuest("increase")
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", null, "+")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", null, "+"))))), currPrice, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sub-button-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "sub-button",
         onClick: this.handleSubmit
-      }, "Book")));
+      }, "Book")), this.error);
     }
   }]);
 
