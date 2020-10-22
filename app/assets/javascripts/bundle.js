@@ -449,7 +449,8 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
     };
     _this.handleDate = _this.handleDate.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.calDays = _this.calDays.bind(_assertThisInitialized(_this));
+    _this.calDays = _this.calDays.bind(_assertThisInitialized(_this)); // this.today = this.today.bind(this)
+
     return _this;
   }
 
@@ -514,6 +515,10 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
           return _this4.props.history.push("/login");
         });
       }
+
+      if (!this.state.checkin_date || !this.state.checkout_date) {
+        this.error = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Please select valid check in and check out dates");
+      }
     }
   }, {
     key: "componentDidMount",
@@ -528,30 +533,18 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
 
       if (this.state.checkin_date && this.state.checkout_date) {
         if (Number(this.state.checkout_date.split("-").join("")) - Number(this.state.checkin_date.split("-").join("")) < 0 || this.state.checkout_date === this.state.checkin_date) {
-          this.error = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Please select valid checkout date");
+          this.error = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            id: "error"
+          }, "Please select valid checkout date");
         } else {
           var start = this.state.checkin_date.split("-");
           var end = this.state.checkout_date.split("-");
           var subTotal = this.calDays(end, start) * this.props.spot.price;
           currPrice = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            style: ({
-              width: "100px"
-            }, {
-              height: "50px"
-            }, {
-              border: "1px solid red"
-            }),
-            className: "currPrice"
+            id: "currPrice"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            style: ({
-              border: "1px solid blue"
-            }, {
-              width: "50px"
-            }, {
-              height: "50px"
-            }),
-            className: "subtotal"
-          }, "Subtotal:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, subTotal));
+            id: "subtotal"
+          }, "Subtotal:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "$", subTotal));
         }
       }
 
@@ -570,7 +563,7 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "date",
         className: "day-input",
-        placeholder: "Check in",
+        min: 0,
         onChange: this.handleDate("checkin_date")
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "checkout-div"

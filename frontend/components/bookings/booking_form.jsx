@@ -2,6 +2,7 @@ import React from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput"
 // import 'react-day-picker/lib/style.css';
 
+
 class BookingForm extends React.Component{
     constructor(props){
         super(props)
@@ -16,6 +17,7 @@ class BookingForm extends React.Component{
         this.handleDate = this.handleDate.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.calDays = this.calDays.bind(this);
+        // this.today = this.today.bind(this)
     }
 
     handleDate(type){
@@ -63,21 +65,31 @@ class BookingForm extends React.Component{
             this.props.createBooking(newState)
                 .then(()=> this.props.history.push("/login"))
         }
-
+        if (!this.state.checkin_date || !this.state.checkout_date){
+            this.error = (
+                <div>
+                    Please select valid check in and check out dates
+                </div>
+            )
+        
+        }
     }
 
+    
+    
     componentDidMount(){
         this.error = null
     }
   
     render(){
+        
         let currPrice = null;
         this.error = null
         if (this.state.checkin_date && this.state.checkout_date){
             if((Number(this.state.checkout_date.split("-").join("")) - Number(this.state.checkin_date.split("-").join(""))) < 0
                 || this.state.checkout_date === this.state.checkin_date){
                 this.error = (
-                    <div>
+                    <div id="error">
                         Please select valid checkout date
                     </div>
                 )
@@ -86,12 +98,14 @@ class BookingForm extends React.Component{
                 let end = this.state.checkout_date.split("-")
                 const subTotal = this.calDays(end,start) * this.props.spot.price
                 currPrice = (
-                    <div style={{width:"100px"},{height:"50px"},{border:"1px solid red"}}className="currPrice">
-                        <div style={{border:"1px solid blue"},{width:"50px"},{height:"50px"}} className="subtotal">
+                    <div id="currPrice">
+                        <div id="subtotal">
                             Subtotal: 
                         </div>
+                        <div></div>
+                        <div></div>
                         <div>
-                            {subTotal}
+                            ${subTotal}
                         </div>
                     </div>
                 )
@@ -107,7 +121,7 @@ class BookingForm extends React.Component{
 
                 <div className="booking-infor-div">
                     <div className="checkin-div">
-                        <input type="date" className="day-input" placeholder="Check in" onChange={this.handleDate("checkin_date")}/>
+                        <input type="date" className="day-input" min={0} onChange={this.handleDate("checkin_date")}/>
                     </div>
                     <div className="checkout-div">
                         <input type="date" className="day-input" placeholder="Check out" onChange={this.handleDate("checkout_date")}/>
