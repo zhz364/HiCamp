@@ -2278,7 +2278,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
           src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/no_wifi.png"
         }), "No wifi")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "spot-reviews-div"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is reviews"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "side-booking-div"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_bookings_booking_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
           spot: this.props.spot

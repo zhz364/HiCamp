@@ -87,7 +87,7 @@ class SpotShow extends React.Component{
                                 </div>
 
                                 <div className="spot-reviews-div">
-                                    <h1>This is reviews</h1>
+                                    {/* <h1>This is reviews</h1> */}
                                 </div>
 
                             </div>
