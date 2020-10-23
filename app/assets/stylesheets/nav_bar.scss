@@ -24,13 +24,21 @@
     top: -50px;
     justify-content: space-between;
     align-items: center;
+    // width: 300px;
+    // height: 100px;
+    // border: 1px solid red;
     .user-dropdown{
       position: relative;
       display: inline-block;
       width: 40px;
       // z-index: -10;
-      height: 30px;
+      height: 56px;
+      margin-top: 25px;
+      // border: 1px solid red;
+      align-items: center;
+      justify-content: center;
     }
+
     .user-dropdown-content{
       display: none;
       position: absolute;
@@ -41,6 +49,7 @@
       align-items: center;
       justify-content: center;
       background-color: white;
+      margin-top: -3px;
     }
     .user-dropdown:hover .user-dropdown-content{
       transition: 0.5s;
@@ -63,10 +72,9 @@
     }
 
     h3{
-        color:black;
-        font-weight: bold;
+        color:#392f41;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        margin-left: -100px;
+        margin-left: -130px;
     }
     button {
         display: block;
