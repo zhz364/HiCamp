@@ -41,6 +41,11 @@ HiCamp a full stack <a href="https://www.hipcamp.com"> Hipcamp </a> clone. It is
 ### Campsites
 
 <div>
-    <img width="75%" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/Campsites.gif">
+  <video width="75%" src="/app/assets/images/Campsites.gif"></video>
 </div>
+
+### Bookings
+
+## Future Directions
+
 
