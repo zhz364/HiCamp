@@ -1,6 +1,7 @@
 import CampsiteIndexItem from "./campsite_index_item";
 import React from "react";
 import { Link } from 'react-router-dom';
+import Footer from "../footer";
 
 
 class CampsiteIndex extends React.Component{

@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CampsiteIndexContainer from "../campsites/campsite_index_container";
 import SpotIndexContainer from "../spots/spot_index_container";
+import Footer from "../footer"
 
 class MainBody extends React.Component{
   constructor(props){
@@ -38,7 +40,7 @@ class MainBody extends React.Component{
                         <option value="RV_sites">RV sites</option>
                       </select>
                     </div>
-                    <button>Search</button>
+                    <Link to="/spots" className="link"><button>Search</button></Link>
                   </div>
                 </form>
               </div>
@@ -47,10 +49,7 @@ class MainBody extends React.Component{
             <div className="campsites-index-div">
               <CampsiteIndexContainer />
             </div>
-
-            {/* <div>
-              <SpotIndexContainer />
-            </div> */}
+            {/* <Footer/> */}
           </div>
       // </body>
     )

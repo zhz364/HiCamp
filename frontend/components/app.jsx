@@ -8,6 +8,7 @@ import BookingIndexContainer from "./bookings/booking_index_container";
 import SpotIndexContainer from "./spots/spot_index_container";
 import SpotShowContainer from "./spots/spot_show_container"
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Footer from "./footer"
 
 
 
@@ -22,6 +23,7 @@ const App =() =>{
             <Route exact path="/spots" component={SpotIndexContainer}/>
             <AuthRoute path="/signup" component={SignupContainer} />
             <AuthRoute path="/login" component={LoginContainer} />
+            <Footer/>
         </div>
     )
     
