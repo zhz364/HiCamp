@@ -1,4 +1,4 @@
-<p align="center"><img img width="450" height="90" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/hicamp2.PNG"></p>
+<p align="center"><img width="450" height="90" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/hicamp2.PNG"></p>
 
 HiCamp is a cool website for people who like camping and exploring a new spot before anyone else. <a href="https://hicamp-zz.herokuapp.com/#/">Click here for live demo.</a>
 
@@ -8,8 +8,8 @@ HiCamp a full stack <a href="https://www.hipcamp.com"> Hipcamp </a> clone. It is
 - [Technologies](#technologies)
 - [Languages](#languages)
 - [Features](#features)
-  * [Authentication](#user-authentication)
-  * [Showing all campsites](#Showing all campsites)
+  * [Authentication](#authentication)
+  * [Campsites](#campsites)
   * [Bookings](#bookings)
 - [Future Directions](#future-directions)
 
@@ -29,8 +29,18 @@ HiCamp a full stack <a href="https://www.hipcamp.com"> Hipcamp </a> clone. It is
 ## Features
 
 ### Authentication
+
 <div>
-    <video>
-        <source type="video/mp4" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/firsttry.mp4" >
-    </video>
+    <img width="75%" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/Login.gif">
 </div>
+
+- User can log in with exist account
+- User can has option log in by clicking "demo user"
+- User can sign up a new account by input information
+
+### Campsites
+
+<div>
+    <img width="75%" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/Campsites.gif">
+</div>
+
