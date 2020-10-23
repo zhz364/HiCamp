@@ -12,9 +12,9 @@ const bookingsReducer = (oldState={}, action) =>{
             return newState;
         case DELETE_BOOKING:
             delete newState[action.bookingId];
-            return newState
+            return newState;
         default:
-            return oldState
+            return oldState;
     }
 }
 

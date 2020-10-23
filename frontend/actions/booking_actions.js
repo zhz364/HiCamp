@@ -37,6 +37,6 @@ export const createBooking = (booking) => dispath =>{
 export const deleteBooking = (bookingId) => dispath =>{
     return BookingUtil.deleteBooking(bookingId)
         .then(()=>{
-            dispath(removeBooking(booking))
+            dispath(removeBooking(bookingId))
         })
 }

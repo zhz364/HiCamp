@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class BookingIndexItem extends React.Component{
     constructor(props){
@@ -7,29 +8,26 @@ class BookingIndexItem extends React.Component{
     }
 
     componentDidMount(){
-        debugger
         this.props.fetchSpot(this.props.booking.spot_id)
     }
     
     handleSubmit(e){
-        e.preventDefault();
         this.props.deleteBooking(this.props.booking.id)
     }
-
+    
     render(){
-        debugger
         if (!this.props.spots[this.props.booking.spot_id]){
             return null;
         }
         let spot = this.props.spots[this.props.booking.spot_id]
         return (
-            <div>
+            <div className="booking-index-item">
                 <div>
-                    {spot.name}
+                    <h4>{spot.name}</h4>
                 </div>
-                <div>
+                <div className="booking-index-item-infor">
                     <div>
-                        <img src={spot.photoUrl[0].photo}></img>
+                        <Link to={`/spots/${spot.id}`} ><img src={spot.photoUrl[0].photo}></img></Link>
                     </div>
                     <div>
                         <div>
@@ -45,7 +43,8 @@ class BookingIndexItem extends React.Component{
                             Total price: {this.props.booking.total_price}
                         </div>
                     </div>
-                    <div>
+                    <div className="cancel-btn-div">
+                        <div></div>
                         <button onClick={this.handleSubmit}>Cancel Booking</button>
                     </div>
                 </div>
