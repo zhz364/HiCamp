@@ -78,14 +78,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    margin-left: 200px;
+    // margin-left: 200px;
     margin-top: 20px;
     .nums_booking{
         border-bottom: 3px solid #40d9ac;
-        width: 90px;
+        width: 150px;
         // margin-left: -220px;
+       
     }
+
     .empty{
         border: 1px solid red;
     }
+}
+
+.no-bookings{
+    width: 300px;
 }

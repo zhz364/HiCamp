@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom";
 import BookingIndexItem from "./booking_index_item"
 
 class BookingIndex extends React.Component{
@@ -10,9 +11,19 @@ class BookingIndex extends React.Component{
         this.props.fetchBookings(this.props.currentUserId);
     }
     render(){
-        let nums_booking = <div>
+        let nums_booking;
+        if(this.props.bookings.length === 0){
+            nums_booking = <div>
+            <div className="no-bookings"> <span style={{color:"GrayText"}}>You don't have any booking.</span>  
+            <div><Link to="/spots" className="link">Let's get you outside!</Link></div>
+            </div>
+        </div>;
+        }else{
+            nums_booking = <div>
             <div>{this.props.bookings.length} bookings</div>
         </div>;
+        
+        }
         
         return (
             <div className="booking_index_div">

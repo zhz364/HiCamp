@@ -44,7 +44,7 @@ class SpotShow extends React.Component{
 
                                 <div className="user-infor-div">
                                     <div className="user-img">
-                                        <img src="https://imgsa.baidu.com/forum/w%3D580/sign=78c00c8c59fbb2fb342b581a7f4b2043/259eb212c8fcc3cee2d3cde29e45d688d53f2059.jpg" />
+                                        <img src="https://hicamp-seed.s3-us-west-1.amazonaws.com/uzi.jpg" />
                                     </div>
                                     <div className="user-name">
                                         <h5>Hosted by</h5>

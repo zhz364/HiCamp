@@ -4,7 +4,15 @@ import { Link } from 'react-router-dom';
 export default ({ currentUser, logout }) => {
 const display = currentUser ? (
     <div className="inner-right-div">
-      <h3>Welcome {currentUser.username}!</h3>
+      <div style={{width:"40px"}}><h3>Welcome {currentUser.username}!</h3></div>
+      <div className="user-dropdown">
+        <img className="user-icon" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/user_icon.png"></img>
+        <div className="user-dropdown-content">
+            <Link className="link" to={`/users/${currentUser.id}/bookings`}><div className="user-dropdown-item">
+              Bookings
+            </div></Link>
+        </div>
+      </div>
       <button onClick={logout}>Logout</button>
     </div>
   ) : (
