@@ -13,7 +13,7 @@ const display = currentUser ? (
             </div></Link>
         </div>
       </div>
-      <button onClick={logout}>Logout</button>
+      <button className="logout-btn" onClick={logout}>Logout</button>
     </div>
   ) : (
     <div className="inner-right-div">
