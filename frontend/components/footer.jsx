@@ -8,16 +8,16 @@ const Footer = ()=>{
                 <div className="about">
                     <div className="about-about">
                         <span className="bold">About</span>
-                        <a href="https://github.com/zhz364" className="link"><div className="each-i">
-                            <i class="fab fa-github"></i> 
+                        <a href="https://github.com/zhz364" className="link" target="_blank"><div className="each-i">
+                            <i className="fab fa-github"></i> 
                             <div>Github</div>
                         </div></a>
-                        <a href="https://www.linkedin.com/in/zhang-zhang-0911/" className="link"><div className="each-i">
-                            <i class="fab fa-linkedin-in"></i>
+                        <a href="https://www.linkedin.com/in/zhang-zhang-0911/" className="link" target="_blank"><div className="each-i">
+                            <i className="fab fa-linkedin-in"></i>
                             <div>LinkedIn</div>
                         </div></a>
-                        <a href="https://www.facebook.com/profile.php?id=100005263395009" className="link"><div className="each-i">
-                            <i class="fab fa-facebook"></i>
+                        <a href="https://www.facebook.com/profile.php?id=100005263395009" className="link" target="_blank"><div className="each-i">
+                            <i className="fab fa-facebook"></i>
                             <div>facebook</div>
                         </div></a>
                     </div>
