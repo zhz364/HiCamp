@@ -2003,13 +2003,13 @@ var SpotIndexItem = /*#__PURE__*/function (_React$Component) {
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "navigation-manual"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "radio".concat(this.props.idx, "1"),
+        htmlFor: "radio".concat(this.props.idx, "1"),
         className: "manual-btn"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "radio".concat(this.props.idx, "2"),
+        htmlFor: "radio".concat(this.props.idx, "2"),
         className: "manual-btn"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "radio".concat(this.props.idx, "3"),
+        htmlFor: "radio".concat(this.props.idx, "3"),
         className: "manual-btn"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "link",

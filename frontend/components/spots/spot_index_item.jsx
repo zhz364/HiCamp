@@ -27,9 +27,9 @@ class SpotIndexItem extends React.Component{
                     </div>
                 </div>
                 <div className="navigation-manual">
-                    <label for={`radio${this.props.idx}1`} className="manual-btn"></label>
-                    <label for={`radio${this.props.idx}2`} className="manual-btn"></label>
-                    <label for={`radio${this.props.idx}3`} className="manual-btn"></label>
+                    <label htmlFor={`radio${this.props.idx}1`} className="manual-btn"></label>
+                    <label htmlFor={`radio${this.props.idx}2`} className="manual-btn"></label>
+                    <label htmlFor={`radio${this.props.idx}3`} className="manual-btn"></label>
                 </div>
             </div>
             
