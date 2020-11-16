@@ -125,6 +125,7 @@ class BookingForm extends React.Component{
                         <div>
                             <button className="decrease" onClick={this.handleGuest("decrease")}><i>-</i></button>
                             <span>{this.state.nums_guest}</span>
+                
                             <button className="increase" onClick={this.handleGuest("increase")}><i>+</i></button>
                         </div>
                     </div>
