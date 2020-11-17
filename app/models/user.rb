@@ -4,9 +4,9 @@ class User < ApplicationRecord
     validates :password, length: {minimum: 6}, allow_nil: true
 
     has_many :bookings,
-            foreign_key: :user_id,
-            class_name: :Booking,
-            dependent: :destroy
+        foreign_key: :user_id,
+        class_name: :Booking,
+        dependent: :destroy
 
     before_validation :ensure_session_token
 

@@ -7,6 +7,10 @@ class Spot < ApplicationRecord
         class_name: :Booking,
         dependent: :destroy
 
+    belongs_to :campsite,
+        foreign_key: :campsite_id,
+        class_name: :Campsite
+
     has_many_attached :photos
     
     
