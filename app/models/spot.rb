@@ -13,7 +13,9 @@ class Spot < ApplicationRecord
 
     has_many_attached :photos
     
-    
+    def self.find_by_campsiteId(campsiteId)
+        spots = Spot.find_by(campsite_id: campsiteId)
+    end
         
         
 end

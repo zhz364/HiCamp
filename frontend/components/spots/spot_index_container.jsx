@@ -6,6 +6,7 @@ const mstp = (state, ownProps) => {
     // debugger
     return {
         spots: Object.values(state.spots),
+        campsiteId: ownProps.match.params.campsiteId
     }
     
 }

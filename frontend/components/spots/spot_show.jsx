@@ -14,7 +14,7 @@ class SpotShow extends React.Component{
     render(){
         if (this.props.spot){
             return (
-                <body>
+                // <body>
                     <div className="spot-show-div">
                         <div className="spot-show-img-div">
                             <div>
@@ -102,7 +102,7 @@ class SpotShow extends React.Component{
                         </div>
 
                     </div>
-                </body>
+                // </body>
             )
 
         }else{

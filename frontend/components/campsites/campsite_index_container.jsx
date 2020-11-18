@@ -4,7 +4,7 @@ import CampsiteIndex from "./campsite_index"
 
 const mstp = function(state,ownProps) {
     return{
-    campsites: Object.values(state.campsites)
+        campsites: Object.values(state.campsites)
     }
 }
 
