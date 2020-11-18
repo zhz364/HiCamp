@@ -9,7 +9,7 @@ class CampsiteIndexItem extends React.Component{
 
     render(){
         return(
-        <Link className="link" to="/spots"><div className="campsite-item"> 
+        <Link className="link" to={`/campsites/${this.props.campsite.id}`}><div className="campsite-item"> 
             <div className="campsite-item-image-div">
                 <img src={this.props.campsite.photoUrl}></img>
             </div>
