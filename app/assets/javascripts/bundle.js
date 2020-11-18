@@ -1261,6 +1261,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _main_body__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main_body */ "./frontend/components/main_body/main_body.jsx");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+/* harmony import */ var _actions_campsite_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/campsite_actions */ "./frontend/actions/campsite_actions.js");
+
+
 
 
 
@@ -1271,7 +1275,18 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, null)(_main_body__WEBPACK_IMPORTED_MODULE_2__["default"]));
+var mdtp = function mdtp(dispatch) {
+  return {
+    fetchSpots: function fetchSpots() {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__["fetchSpots"])());
+    },
+    fetchCampsite: function fetchCampsite(id) {
+      return dispatch(Object(_actions_campsite_actions__WEBPACK_IMPORTED_MODULE_4__["fetchCampsite"])(id));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mdtp)(_main_body__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
