@@ -13,7 +13,6 @@ class SpotIndex extends React.Component{
     }
 
     compareValues(n1,n2){
-        debugger
         return parseInt(n1) === parseInt(n2)
     }
 
@@ -21,7 +20,9 @@ class SpotIndex extends React.Component{
         if (this.props.spots.length ===0 ){
             return null
         }
-        const campId = this.props.campsiteId
+        const campId = this.props.campsiteId;
+        let count = 0;
+        let newSpots = []
         return(
             <div className="main-body">
                 <div className="spots-index">
@@ -47,12 +48,16 @@ class SpotIndex extends React.Component{
                                 // debugger
                                 if(this.compareValues(spot.campsite_id,parseInt(campId))){
                                     // debugger
+                                    count++;
+                                    newSpots.push(spot)
                                     return <SpotIndexItem key={spot.id} spot={spot} idx={idx+1}/>
                                 }
+
                             })}
                         </div>
+                        {count === 0 ? <div>sorry</div> : null}
                         <div className="spots-index-map-div">
-                            <SpotsMap spots={this.props.spots}/>
+                            <SpotsMap spots={newSpots}/>
                         </div>
                     </div>
                 </div>

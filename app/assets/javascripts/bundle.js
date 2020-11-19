@@ -1859,7 +1859,6 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "compareValues",
     value: function compareValues(n1, n2) {
-      debugger;
       return parseInt(n1) === parseInt(n2);
     }
   }, {
@@ -1872,6 +1871,8 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
       }
 
       var campId = this.props.campsiteId;
+      var count = 0;
+      var newSpots = [];
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "main-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -1894,16 +1895,18 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
         // debugger
         if (_this2.compareValues(spot.campsite_id, parseInt(campId))) {
           // debugger
+          count++;
+          newSpots.push(spot);
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_spot_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
             key: spot.id,
             spot: spot,
             idx: idx + 1
           });
         }
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      })), count === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "sorry") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spots-index-map-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_spots_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        spots: this.props.spots
+        spots: newSpots
       })))));
     }
   }]);
@@ -1996,7 +1999,6 @@ var SpotIndexItem = /*#__PURE__*/function (_React$Component) {
   function SpotIndexItem(props) {
     _classCallCheck(this, SpotIndexItem);
 
-    debugger;
     return _super.call(this, props);
   }
 
