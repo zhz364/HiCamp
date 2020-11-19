@@ -1842,9 +1842,13 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(SpotIndex);
 
   function SpotIndex(props) {
+    var _this;
+
     _classCallCheck(this, SpotIndex);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.compareValues = _this.compareValues.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(SpotIndex, [{
@@ -1853,12 +1857,21 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
       this.props.fetchSpots();
     }
   }, {
+    key: "compareValues",
+    value: function compareValues(n1, n2) {
+      debugger;
+      return parseInt(n1) === parseInt(n2);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       if (this.props.spots.length === 0) {
         return null;
       }
 
+      var campId = this.props.campsiteId;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "main-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -1878,11 +1891,15 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-div"
       }, this.props.spots.map(function (spot, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_spot_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
-          key: spot.id,
-          spot: spot,
-          idx: idx + 1
-        });
+        // debugger
+        if (_this2.compareValues(spot.campsite_id, parseInt(campId))) {
+          // debugger
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_spot_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
+            key: spot.id,
+            spot: spot,
+            idx: idx + 1
+          });
+        }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spots-index-map-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_spots_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1979,13 +1996,13 @@ var SpotIndexItem = /*#__PURE__*/function (_React$Component) {
   function SpotIndexItem(props) {
     _classCallCheck(this, SpotIndexItem);
 
+    debugger;
     return _super.call(this, props);
   }
 
   _createClass(SpotIndexItem, [{
     key: "render",
     value: function render() {
-      // debugger
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-index-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
