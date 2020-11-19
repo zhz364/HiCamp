@@ -9,6 +9,9 @@ class MainBody extends React.Component{
     super(props)
   }
 
+  componentDidMount(){
+    this.props.fetchCampsites();
+  }
 
   render(){
     return (
@@ -23,7 +26,7 @@ class MainBody extends React.Component{
                     <p>parks to blueberry farms.</p>
                   </div>
               </div>
-              <SearchContainer campsites={this.props.campsites}/>
+              <SearchContainer/>
             </div>
             
             <div className="campsites-index-div">

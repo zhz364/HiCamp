@@ -20,7 +20,7 @@ const App =() =>{
             <Route exact path="/" component={mainBodyContainer}/>
             <Route exact path="/spots/:spotId" component={SpotShowContainer} />
             <Route exact path="/campsites/:campsiteId" component={SpotIndexContainer}/>
-            {/* <Route exact path="/spots" component={SpotIndexContainer}/> */}
+            <Route exact path="/spots" component={SpotIndexContainer}/>
             <AuthRoute path="/signup" component={SignupContainer} />
             <AuthRoute path="/login" component={LoginContainer} />
             <Footer/>

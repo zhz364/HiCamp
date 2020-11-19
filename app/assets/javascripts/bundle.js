@@ -381,6 +381,10 @@ var App = function App() {
     exact: true,
     path: "/campsites/:campsiteId",
     component: _spots_spot_index_container__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    exact: true,
+    path: "/spots",
+    component: _spots_spot_index_container__WEBPACK_IMPORTED_MODULE_7__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
     path: "/signup",
     component: _session_signup_container__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -931,14 +935,12 @@ var CampsiteIndex = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, CampsiteIndex);
 
     return _super.call(this, props);
-  }
+  } // componentDidMount(){
+  //     this.props.fetchCampsites();
+  // }
+
 
   _createClass(CampsiteIndex, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchCampsites();
-    }
-  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h4", null, "Find your next getaway"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -1193,6 +1195,11 @@ var MainBody = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(MainBody, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchCampsites();
+    }
+  }, {
     key: "render",
     value: function render() {
       return (
@@ -1206,9 +1213,7 @@ var MainBody = /*#__PURE__*/function (_React$Component) {
           className: "content-above"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Find yourself outside."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "intro"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Discover and book tent camping, RV parks, cabins,"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "treehouses, and glamping\u2014everywhere from national"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "parks to blueberry farms."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          campsites: this.props.campsites
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Discover and book tent camping, RV parks, cabins,"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "treehouses, and glamping\u2014everywhere from national"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "parks to blueberry farms."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "campsites-index-div"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_campsites_campsite_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], null))) // </body>
 
@@ -1443,14 +1448,34 @@ var Search = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Search);
 
   function Search(props) {
+    var _this;
+
     _classCallCheck(this, Search);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.allCampsites = {};
+    _this.state = {
+      campsite: "/spots",
+      type: "",
+      date: null,
+      dropdown: false
+    };
+    return _this;
   }
 
   _createClass(Search, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
+      if (Object.values(this.props.campsites) != null) {
+        Object.values(this.props.campsites).map(function (campsite) {
+          _this2.allCampsites[campsite.address] = campsite.id;
+        });
+      }
+
+      console.log(this.allCampsites); // debugger
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1459,7 +1484,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
         className: "search-input"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "Try Yosemite, Napa, Moab..."
+        placeholder: "Try California, New York, Texas..."
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "date-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1500,34 +1525,26 @@ var Search = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search */ "./frontend/components/search/search.jsx");
+/* harmony import */ var _actions_campsite_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/campsite_actions */ "./frontend/actions/campsite_actions.js");
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
+
+var mstp = function mstp(state) {
   return {
-    campsites: state.campsites
+    campsites: Object.values(state.campsites)
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    fetchCampsites: function (_fetchCampsites) {
-      function fetchCampsites() {
-        return _fetchCampsites.apply(this, arguments);
-      }
-
-      fetchCampsites.toString = function () {
-        return _fetchCampsites.toString();
-      };
-
-      return fetchCampsites;
-    }(function () {
-      return dispatch(fetchCampsites());
-    })
+    fetchCampsites: function fetchCampsites() {
+      return dispatch(Object(_actions_campsite_actions__WEBPACK_IMPORTED_MODULE_2__["fetchCampsites"])());
+    }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_search__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mapDispatchToProps)(_search__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 

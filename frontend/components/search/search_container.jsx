@@ -1,13 +1,15 @@
 import {connect} from 'react-redux';
 import Search from './search';
+import {fetchCampsites} from "../../actions/campsite_actions"
 
-
-const mapStateToProps = (state) => ({
-    campsites: state.campsites
-});
+const mstp = function(state) {
+    return{
+        campsites: Object.values(state.campsites)
+    }
+}
 
 const mapDispatchToProps = (dispatch) => ({
     fetchCampsites: () => dispatch(fetchCampsites())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default connect(mstp, mapDispatchToProps)(Search);

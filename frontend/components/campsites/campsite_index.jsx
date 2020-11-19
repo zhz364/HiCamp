@@ -9,9 +9,9 @@ class CampsiteIndex extends React.Component{
         super(props)
     }
 
-    componentDidMount(){
-        this.props.fetchCampsites();
-    }
+    // componentDidMount(){
+    //     this.props.fetchCampsites();
+    // }
 
     render(){
         return(
