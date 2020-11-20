@@ -41,9 +41,16 @@ class Login extends React.Component {
   }
 
   render() {
+    var sectionStyle = {
+      width: "100%",
+      height: "inherit",
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      backgroundImage: `url(${"https://hicamp-seed.s3-us-west-1.amazonaws.com/background_img.jpg"})`
+    };
     return (
-      <div className="login-form">
-        <img className="log-sign-img" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/loginbackground.jpg"></img>
+      <div className="login-form" style={sectionStyle}>
+        {/* <img className="log-sign-img" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/loginbackground.jpg"></img> */}
         <h2>Welcome back!</h2>
         <p>Let's get you outside.</p>
         <form>

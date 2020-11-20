@@ -43,9 +43,16 @@ class Signup extends React.Component{
     }
 
     render(){
+        var sectionStyle = {
+            width: "100%",
+            height: "inherit",
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            backgroundImage: `url(${"https://hicamp-seed.s3-us-west-1.amazonaws.com/background_img.jpg"})`
+          };
         return (
-            <div className="signup-form">
-                <img className="log-sign-img" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/loginbackground.jpg"></img>
+            <div className="signup-form" style={sectionStyle}>
+                {/* <img className="log-sign-img" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/loginbackground.jpg"></img> */}
                 <h2>Join Hicamp</h2>
                 <p>Discover the best camping near me</p>
                 {this.renderErrors()}
