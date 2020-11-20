@@ -1461,12 +1461,13 @@ var Search = /*#__PURE__*/function (_React$Component) {
       type: "",
       date: null,
       dropdown: false,
-      result: "",
+      id: null,
       address: [],
       text: ""
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1477,21 +1478,27 @@ var Search = /*#__PURE__*/function (_React$Component) {
 
       e.preventDefault();
       var value = e.currentTarget.value;
-      var results = [];
       var currAddress = [];
       var stateNames = Object.keys(this.allCampsites);
 
       if (value !== "") {
-        stateNames.map(function (name) {
+        stateNames.forEach(function (name) {
           if (name.toLowerCase().startsWith(value.toLowerCase())) {
-            results.push(_this2.allCampsites[name]);
             currAddress.push(name);
+          }
+        });
+        stateNames.forEach(function (name) {
+          if (name.toLowerCase() === value.toLowerCase()) {
+            _this2.setState(function () {
+              return {
+                id: _this2.allCampsites[name]
+              };
+            });
           }
         });
         this.setState(function () {
           return {
             address: currAddress,
-            result: results[0],
             text: value,
             dropdown: true
           };
@@ -1508,6 +1515,17 @@ var Search = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleClick",
     value: function handleClick(value) {
+      var _this3 = this;
+
+      Object.keys(this.allCampsites).forEach(function (name) {
+        if (name.toLowerCase() === value.toLowerCase()) {
+          _this3.setState(function () {
+            return {
+              id: _this3.allCampsites[name]
+            };
+          });
+        }
+      });
       this.setState(function () {
         return {
           text: value,
@@ -1516,13 +1534,24 @@ var Search = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+
+      if (this.state.id !== null) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/campsites/".concat(this.state.id)
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       if (Object.values(this.props.campsites) != null) {
-        Object.values(this.props.campsites).map(function (campsite) {
-          _this3.allCampsites[campsite.address] = campsite.id;
+        Object.values(this.props.campsites).forEach(function (campsite) {
+          _this4.allCampsites[campsite.address] = campsite.id;
         });
       }
 
@@ -1541,7 +1570,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: idx,
           onClick: function onClick() {
-            return _this3.handleClick(item);
+            return _this4.handleClick(item);
           }
         }, item);
       })) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1560,8 +1589,8 @@ var Search = /*#__PURE__*/function (_React$Component) {
       }, "Glamping"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "RV_sites"
       }, "RV sites"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/spots",
-        className: "link"
+        className: "link",
+        to: "/campsites/".concat(this.state.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Search")))));
     }
   }]);

@@ -12,30 +12,35 @@ class Search extends React.Component{
       type:"",
       date:null,
       dropdown: false,
-      result:"",
+      id:null,
       address:[],
       text: ""
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e){
     e.preventDefault()
     const value = e.currentTarget.value
-    let results = []
     let currAddress = []
     const stateNames = Object.keys(this.allCampsites)
     if(value !== ""){
-      stateNames.map(name =>{
+      stateNames.forEach(name =>{
         if(name.toLowerCase().startsWith(value.toLowerCase())){
-          results.push(this.allCampsites[name]);
           currAddress.push(name)
+        }
+      })
+      stateNames.forEach(name =>{
+        if(name.toLowerCase() === value.toLowerCase()){
+          this.setState(()=>({
+            id: this.allCampsites[name]
+          }))
         }
       })
       this.setState(()=>({
         address: currAddress,
-        result: results[0],
         text: value,
         dropdown:true
       }))
@@ -48,15 +53,30 @@ class Search extends React.Component{
   }
 
   handleClick(value){
+    Object.keys(this.allCampsites).forEach(name =>{
+      if(name.toLowerCase() === value.toLowerCase()){
+        this.setState(()=>({
+          id: this.allCampsites[name]
+        }))
+      }
+    })
     this.setState(()=>({
       text: value,
       address: []
     }))
   }
 
+  handleSubmit(e){
+    e.preventDefault();
+    if(this.state.id !== null){
+      return <Link to={`/campsites/${this.state.id}`}></Link>
+    }
+    
+  }
+
   render(){
     if(Object.values(this.props.campsites) != null){
-      Object.values(this.props.campsites).map(campsite=>{
+      Object.values(this.props.campsites).forEach(campsite=>{
         this.allCampsites[campsite.address] = campsite.id
       })
     }
@@ -83,7 +103,7 @@ class Search extends React.Component{
                 <option value="RV_sites">RV sites</option>
               </select>
             </div>
-            <Link to="/spots" className="link"><button>Search</button></Link>
+            <Link className="link" to={`/campsites/${this.state.id}`}><button>Search</button></Link>
           </div>
         </form>
       </div>
