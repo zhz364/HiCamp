@@ -18,7 +18,6 @@ class Search extends React.Component{
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e){
@@ -42,14 +41,14 @@ class Search extends React.Component{
       this.setState(()=>({
         address: currAddress,
         text: value,
-        dropdown:true
+        dropdown:true,
+        id:null
       }))
     }else{
       this.setState(()=>({
         dropdown:false,
         text:""
     }))}
-    
   }
 
   handleClick(value){
@@ -66,13 +65,6 @@ class Search extends React.Component{
     }))
   }
 
-  handleSubmit(e){
-    e.preventDefault();
-    if(this.state.id !== null){
-      return <Link to={`/campsites/${this.state.id}`}></Link>
-    }
-    
-  }
 
   render(){
     if(Object.values(this.props.campsites) != null){
@@ -85,12 +77,15 @@ class Search extends React.Component{
         <form >
           <div className="search-form">
             <div className="search-input">
-              <input type="text" value={this.state.text} onChange={this.handleChange} placeholder="Try California, New York, Texas..."></input>
-                {this.state.dropdown ? <ul>
-                  {this.state.address.map((item,idx)=>
-                    <li key={idx} onClick={()=> this.handleClick(item)}>{item}</li>
-                    )}
-                </ul> : null}
+              <i className="fas fa-search fa-lg"></i>
+              <div className="search-input-div">
+                <input type="text" value={this.state.text} onChange={this.handleChange} placeholder="Try California, New York, Texas..."></input>
+                  {this.state.dropdown ? <ul>
+                    {this.state.address.map((item,idx)=>
+                      <li key={idx} onClick={()=> this.handleClick(item)}>{item}</li>
+                      )}
+                  </ul> : null}
+              </div>
             </div>
             <div className="date-div">
               <input type="date" placeholder="Enter dates"></input>

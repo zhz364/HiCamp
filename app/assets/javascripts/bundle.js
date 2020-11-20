@@ -1467,7 +1467,6 @@ var Search = /*#__PURE__*/function (_React$Component) {
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1500,7 +1499,8 @@ var Search = /*#__PURE__*/function (_React$Component) {
           return {
             address: currAddress,
             text: value,
-            dropdown: true
+            dropdown: true,
+            id: null
           };
         });
       } else {
@@ -1534,17 +1534,6 @@ var Search = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
-      e.preventDefault();
-
-      if (this.state.id !== null) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          to: "/campsites/".concat(this.state.id)
-        });
-      }
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this4 = this;
@@ -1561,6 +1550,10 @@ var Search = /*#__PURE__*/function (_React$Component) {
         className: "search-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-input"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-search fa-lg"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "search-input-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.text,
@@ -1573,7 +1566,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
             return _this4.handleClick(item);
           }
         }, item);
-      })) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })) : null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "date-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "date",
