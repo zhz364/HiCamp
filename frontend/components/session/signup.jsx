@@ -45,7 +45,7 @@ class Signup extends React.Component{
     render(){
         var sectionStyle = {
             width: "100%",
-            height: "inherit",
+            height: "i100%",
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             backgroundImage: `url(${"https://hicamp-seed.s3-us-west-1.amazonaws.com/background_img.jpg"})`

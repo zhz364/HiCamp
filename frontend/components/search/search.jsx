@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
+// import DayPickerInput from 'react-day-picker/DayPickerInput';
 // import "react-day-picker/lib/style.css";
 
 class Search extends React.Component{
@@ -90,8 +90,8 @@ class Search extends React.Component{
               </div>
             </div>
             <div className="date-div">
-              {/* <input type="date" placeholder="Enter dates"></input> */}
-              <DayPickerInput/>
+              <input type="date" placeholder="Enter dates"></input>
+              {/* <DayPickerInput/> */}
             </div>
             <div className="type-div"> 
               <select>

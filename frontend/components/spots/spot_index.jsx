@@ -1,6 +1,7 @@
 import SpotIndexItem from "./spot_index_item"
 import React from "react"
 import SpotsMap from "./spots_map"
+import { Link } from 'react-router-dom';
 
 class SpotIndex extends React.Component{
     constructor(props){
@@ -55,7 +56,7 @@ class SpotIndex extends React.Component{
 
                             })}
                         </div>
-                        {count === 0 ? <div>sorry</div> : null}
+                        {count === 0 ? <div className="no-result-div">Looks like there were no search results. <Link to={`/`} >Try again</Link>.</div> : null}
                         <div className="spots-index-map-div">
                             <SpotsMap spots={newSpots}/>
                         </div>
