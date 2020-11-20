@@ -1453,39 +1453,98 @@ var Search = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Search);
 
     _this = _super.call(this, props);
-    _this.allCampsites = {};
+    _this.allCampsites = {}; // this.result = "";
+    // this.address = [];
+
     _this.state = {
       campsite: "/spots",
       type: "",
       date: null,
-      dropdown: false
+      dropdown: false,
+      result: "",
+      address: [],
+      text: ""
     };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Search, [{
+    key: "handleChange",
+    value: function handleChange(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      var value = e.currentTarget.value;
+      var results = [];
+      var currAddress = [];
+      var stateNames = Object.keys(this.allCampsites);
+
+      if (value !== "") {
+        stateNames.map(function (name) {
+          if (name.toLowerCase().startsWith(value.toLowerCase())) {
+            results.push(_this2.allCampsites[name]);
+            currAddress.push(name);
+          }
+        });
+        this.setState(function () {
+          return {
+            address: currAddress,
+            result: results[0],
+            text: value,
+            dropdown: true
+          };
+        });
+      } else {
+        this.setState(function () {
+          return {
+            dropdown: false,
+            text: ""
+          };
+        });
+      }
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick(value) {
+      this.setState(function () {
+        return {
+          text: value,
+          address: []
+        };
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (Object.values(this.props.campsites) != null) {
         Object.values(this.props.campsites).map(function (campsite) {
-          _this2.allCampsites[campsite.address] = campsite.id;
+          _this3.allCampsites[campsite.address] = campsite.id;
         });
       }
-
-      console.log(this.allCampsites); // debugger
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-form"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-input"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
+        value: this.state.text,
+        onChange: this.handleChange,
         placeholder: "Try California, New York, Texas..."
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), this.state.dropdown ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.address.map(function (item, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: idx,
+          onClick: function onClick() {
+            return _this3.handleClick(item);
+          }
+        }, item);
+      })) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "date-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "date",
