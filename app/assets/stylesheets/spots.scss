@@ -341,7 +341,7 @@
         box-shadow: 1px 2px 5px 2px rgba(0,0,0,0.1);
 
     }
-    div{
+    .inner-div{
         display: flex;
         width: 100px;
         height: 50px;
@@ -357,6 +357,10 @@
             // border: 1px solid red;
 
         }
+    }
+    .inner-div:focus{
+        color: red;
+        z-index: 10;
     }
 
 }

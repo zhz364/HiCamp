@@ -9,11 +9,15 @@ class SpotIndex extends React.Component{
         this.state={
             camping:false,
             rvsite:false,
-            glamping:false
+            glamping:false,
+            campingBorder: "1px solid rgba(0,0,0,0.1)",
+            rvsiteBorder: "1px solid rgba(0,0,0,0.1)",
+            glampingBorder: "1px solid rgba(0,0,0,0.1)"
         }
         this.results = []
-        this.compareValues = this.compareValues.bind(this)
-        this.handleChange = this.handleChange.bind(this)
+        this.compareValues = this.compareValues.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.spotFilter = this.spotFilter.bind(this);
     }
 
     componentDidMount(){
@@ -25,16 +29,50 @@ class SpotIndex extends React.Component{
     }
 
     handleChange(type){
+        let border = "";
+        if(type === "camping"){
+            border = "campingBorder"
+        }else if(type === "rvsite"){
+            border = "rvsiteBorder"
+        }else{
+            border = "glampingBorder"
+        }
+
+        
         if(this.state[type]){
             return() =>{
-                this.setState({[type]:false})
+                this.setState({[type]:false,
+                [border]: "1px solid rgba(0,0,0,0.1)"})
             }
         }else{
             return() =>{
-                this.setState({[type]:true})
+                this.setState({[type]:true,
+                    [border]: "1px solid red"})
             }
         }
+        
     }
+
+
+
+    spotFilter(type){
+        if(this.state[type]){
+            this.props.spots.forEach((spot)=>{
+                if(spot.camp_type === type){
+                    this.results.push(spot)
+                }
+            })
+        }else{
+            this.results.forEach((spot,idx)=>{
+                if(spot.camp_type === type){
+                    this.results.splice(idx, 1)
+                }
+            })
+        }
+        console.log(this.results)
+    }
+
+
 
     render(){
         if (this.props.spots.length ===0 ){
@@ -48,15 +86,15 @@ class SpotIndex extends React.Component{
                 <div className="spots-index">
                     <div className="spot-search-div">
                         <div className="spot-searchbar">
-                            <div className="inner-div" onClick={this.handleChange("camping")}>
+                            <div className="inner-div" style={{border: this.state.campingBorder}} onClick={this.handleChange("camping")}>
                                 <span>Camping</span>
                             </div>
-                            <div className="inner-div" onClick={this.handleChange("rvsite")}>
+                            <div className="inner-div" style={{border: this.state.rvsiteBorder}} onClick={this.handleChange("rvsite")}>
                                 <span>VR sites</span>
                             </div>
-                            <div className="inner-div" onClick={this.handleChange("glamping")}>
+                            <div className="inner-div" style={{border: this.state.glampingBorder}} onClick={this.handleChange("glamping")}>
                                 <span>Glamping</span>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                     <div className="spot-index-div"> 
@@ -64,7 +102,6 @@ class SpotIndex extends React.Component{
                             {this.props.spots.map( (spot,idx) => {
                                 // debugger
                                 if(this.compareValues(spot.campsite_id,parseInt(campId))){
-                                    // debugger
                                     count++;
                                     newSpots.push(spot)
                                     return <SpotIndexItem key={spot.id} spot={spot} idx={idx+1}/>

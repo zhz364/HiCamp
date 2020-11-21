@@ -2073,11 +2073,15 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       camping: false,
       rvsite: false,
-      glamping: false
+      glamping: false,
+      campingBorder: "1px solid rgba(0,0,0,0.1)",
+      rvsiteBorder: "1px solid rgba(0,0,0,0.1)",
+      glampingBorder: "1px solid rgba(0,0,0,0.1)"
     };
     _this.results = [];
     _this.compareValues = _this.compareValues.bind(_assertThisInitialized(_this));
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.spotFilter = _this.spotFilter.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2096,20 +2100,55 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
     value: function handleChange(type) {
       var _this2 = this;
 
+      var border = "";
+
+      if (type === "camping") {
+        border = "campingBorder";
+      } else if (type === "rvsite") {
+        border = "rvsiteBorder";
+      } else {
+        border = "glampingBorder";
+      }
+
       if (this.state[type]) {
         return function () {
-          _this2.setState(_defineProperty({}, type, false));
+          var _this2$setState;
+
+          _this2.setState((_this2$setState = {}, _defineProperty(_this2$setState, type, false), _defineProperty(_this2$setState, border, "1px solid rgba(0,0,0,0.1)"), _this2$setState));
         };
       } else {
         return function () {
-          _this2.setState(_defineProperty({}, type, true));
+          var _this2$setState2;
+
+          _this2.setState((_this2$setState2 = {}, _defineProperty(_this2$setState2, type, true), _defineProperty(_this2$setState2, border, "1px solid red"), _this2$setState2));
         };
       }
     }
   }, {
+    key: "spotFilter",
+    value: function spotFilter(type) {
+      var _this3 = this;
+
+      if (this.state[type]) {
+        this.props.spots.forEach(function (spot) {
+          if (spot.camp_type === type) {
+            _this3.results.push(spot);
+          }
+        });
+      } else {
+        this.results.forEach(function (spot, idx) {
+          if (spot.camp_type === type) {
+            _this3.results.splice(idx, 1);
+          }
+        });
+      }
+
+      console.log(this.results);
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       if (this.props.spots.length === 0) {
         return null;
@@ -2128,12 +2167,21 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
         className: "spot-searchbar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "inner-div",
+        style: {
+          border: this.state.campingBorder
+        },
         onClick: this.handleChange("camping")
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Camping")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "inner-div",
+        style: {
+          border: this.state.rvsiteBorder
+        },
         onClick: this.handleChange("rvsite")
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "VR sites")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "inner-div",
+        style: {
+          border: this.state.glampingBorder
+        },
         onClick: this.handleChange("glamping")
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Glamping")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-index-div"
@@ -2141,8 +2189,7 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
         className: "spot-div"
       }, this.props.spots.map(function (spot, idx) {
         // debugger
-        if (_this3.compareValues(spot.campsite_id, parseInt(campId))) {
-          // debugger
+        if (_this4.compareValues(spot.campsite_id, parseInt(campId))) {
           count++;
           newSpots.push(spot);
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_spot_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
