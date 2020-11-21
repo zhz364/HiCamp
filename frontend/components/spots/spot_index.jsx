@@ -6,7 +6,14 @@ import { Link } from 'react-router-dom';
 class SpotIndex extends React.Component{
     constructor(props){
         super(props)
+        this.state={
+            camping:false,
+            rvsite:false,
+            glamping:false
+        }
+        this.results = []
         this.compareValues = this.compareValues.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     componentDidMount(){
@@ -15,6 +22,18 @@ class SpotIndex extends React.Component{
 
     compareValues(n1,n2){
         return parseInt(n1) === parseInt(n2)
+    }
+
+    handleChange(type){
+        if(this.state[type]){
+            return() =>{
+                this.setState({[type]:false})
+            }
+        }else{
+            return() =>{
+                this.setState({[type]:true})
+            }
+        }
     }
 
     render(){
@@ -27,18 +46,15 @@ class SpotIndex extends React.Component{
         return(
             <div className="main-body">
                 <div className="spots-index">
-                    <div>
-                        
-                    </div>
                     <div className="spot-search-div">
                         <div className="spot-searchbar">
-                            <div className="inner-div">
+                            <div className="inner-div" onClick={this.handleChange("camping")}>
                                 <span>Camping</span>
                             </div>
-                            <div className="inner-div">
+                            <div className="inner-div" onClick={this.handleChange("rvsite")}>
                                 <span>VR sites</span>
                             </div>
-                            <div className="inner-div">
+                            <div className="inner-div" onClick={this.handleChange("glamping")}>
                                 <span>Glamping</span>
                             </div>
                         </div>

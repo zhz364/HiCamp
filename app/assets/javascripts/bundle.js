@@ -2032,6 +2032,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2068,7 +2070,14 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, SpotIndex);
 
     _this = _super.call(this, props);
+    _this.state = {
+      camping: false,
+      rvsite: false,
+      glamping: false
+    };
+    _this.results = [];
     _this.compareValues = _this.compareValues.bind(_assertThisInitialized(_this));
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2083,9 +2092,24 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
       return parseInt(n1) === parseInt(n2);
     }
   }, {
+    key: "handleChange",
+    value: function handleChange(type) {
+      var _this2 = this;
+
+      if (this.state[type]) {
+        return function () {
+          _this2.setState(_defineProperty({}, type, false));
+        };
+      } else {
+        return function () {
+          _this2.setState(_defineProperty({}, type, true));
+        };
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (this.props.spots.length === 0) {
         return null;
@@ -2098,23 +2122,26 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
         className: "main-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spots-index"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-search-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-searchbar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "inner-div"
+        className: "inner-div",
+        onClick: this.handleChange("camping")
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Camping")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "inner-div"
+        className: "inner-div",
+        onClick: this.handleChange("rvsite")
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "VR sites")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "inner-div"
+        className: "inner-div",
+        onClick: this.handleChange("glamping")
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Glamping")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-index-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-div"
       }, this.props.spots.map(function (spot, idx) {
         // debugger
-        if (_this2.compareValues(spot.campsite_id, parseInt(campId))) {
+        if (_this3.compareValues(spot.campsite_id, parseInt(campId))) {
           // debugger
           count++;
           newSpots.push(spot);
