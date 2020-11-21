@@ -13,7 +13,7 @@ Booking.destroy_all
 demoUser = User.create(first_name:"zihao", last_name:"jian", username:"uzi", password:"123456", zip:1, email:"uzi@lpl.com" )
 user1 = User.create(first_name:"zhang", last_name:"zhang", username:"z", password:"123456", zip:1, email:"z" )
 
-campsite1 = Campsite.create(title:"Rocky Mountain",img_url:"ss", latitude:44.46, longitude:-110.83, address:"Carlorado", description:"With more than 100 peaks, 
+campsite1 = Campsite.create(title:"Rocky Mountain",img_url:"ss", latitude:44.46, longitude:-110.83, address:"Colorado", description:"With more than 100 peaks, 
                             this corner of the Rockies is chock-full of jaw-dropping vistas. Over 350 miles of hiking trails and 147 lakes are just begging to be explored. It earns bonus points for being open 24/7. Imagine catching a mountain sunrise 
                             next to bighorn sheep and bugling elk herds.Camping in the Rocky Mountains never disappoints. There are five scenic campgrounds, some with sites you can book up to six months in advance. Just keep in mind there are no RV hook-ups. You can find group sites 
                             at Glacier Basin Campground.", state:"Colorado")
@@ -51,13 +51,18 @@ campsite6.photo.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/
 
 
 spot1 = Spot.create(name:"Creekside Paradise", camp_type:"camping",img_url:"amazon", state_location:"Colorado",host_id:demoUser.id,campsite_id:campsite1.id,price:50,capacity:5,longitude:-105.6836,latitude:40.3428, description:"42 acres of land with a creek running through it surrounded by National Forest 20 minutes from Boulder or Nederland, 30 minutes from Estes Park and Rocky Mountain National park.")
-spot2 = Spot.create(name:"Quiet Mountain Forest Near Boulder", camp_type:"camping",img_url:"amazon", state_location:"California",host_id:demoUser.id,campsite_id:campsite2.id,price:72,capacity:3,longitude:-118.007027,latitude: 37.021469,description:"Enjoy a beautiful, peaceful, quiet 40 acres in the mountains just 20 minutes from Boulder. The land includes grassy meadows, rock outcroppings, cliffs (with rock climbing),
+spot2 = Spot.create(name:"Quiet Mountain Forest Near Boulder", camp_type:"camping",img_url:"amazon", state_location:"California",host_id:demoUser.id,campsite_id:campsite3.id,price:72,capacity:3,longitude:-118.007027,latitude: 37.021469,description:"Enjoy a beautiful, peaceful, quiet 40 acres in the mountains just 20 minutes from Boulder. The land includes grassy meadows, rock outcroppings, cliffs (with rock climbing),
                     breathtaking views, seasonal creeks, mature forests, and many opportunities for peace and seclusion.")
-spot3 = Spot.create(name:"Folly Farm", camp_type:"camping",img_url:"amazon", state_location:"Oregon",host_id:demoUser.id,campsite_id:campsite3.id,price:106,capacity:4,longitude:-76.8808,latitude:39.4340,description:"WELCOME TO FOLLY FARM... Boulder County's finest glamping experience!
+spot3 = Spot.create(name:"Folly Farm", camp_type:"glamping",img_url:"amazon", state_location:"New Hampshire",host_id:demoUser.id,campsite_id:campsite2.id,price:106,capacity:4,longitude:-76.8808,latitude:39.4340,description:"WELCOME TO FOLLY FARM... Boulder County's finest glamping experience!
                     Located just 25 miles from world famous Rocky Mountain National Park, 16 miles from #1 ranked town Boulder, and a quick three minute drive from quaint Lyons, home to two world famous music festivals: Rocky Grass and Rocky Mountain Folk Festival. Don't forget to bring your fly rod's and grab a tube.")
-spot4 = Spot.create(name:"Cute Renovated Camper", camp_type:"camping",img_url:"amazon", state_location:"California",host_id:demoUser.id,campsite_id:campsite4.id,price:65,capacity:2,longitude:-110.5885,latitude:44.4280,description:"This recently renovated camper will be the perfect spot to escape the city, rest and camp out while still 
+spot4 = Spot.create(name:"Cute Renovated Camper", camp_type:"camping",img_url:"amazon", state_location:"California",host_id:demoUser.id,campsite_id:campsite3.id,price:65,capacity:2,longitude:-110.5885,latitude:44.4280,description:"This recently renovated camper will be the perfect spot to escape the city, rest and camp out while still 
                     being close to accessible roads, restaurants, gas stations, coffee shops, etc. 15 minutes from Gross Reservoir, where you can paddle board (available for small rental fee from owners), kayak, canoe, fish and soak up the sun. 10 minutes from the amazing Walker ranch trail.")
-
+spot5 = Spot.create(name:"A Little Red Cottage in the Woods", camp_type:"glamping",img_url:"amazon", state_location:"Colorado",host_id:demoUser.id,campsite_id:campsite1.id,price:90,capacity:5,longitude:-105.5936124,latitude:40.3999838, description:"Looking ahead, you can reserve Christmas/New Years and remember you'll be using the wood stove for heat ...and snuggle in for the holidays.")
+spot6 = Spot.create(name:"Creekside Rock Haven", camp_type:"rvsite",img_url:"amazon", state_location:"Colorado",host_id:demoUser.id,campsite_id:campsite1.id,price:90,capacity:5,longitude:-105.6336124,latitude:40.3699838, description:"3 acres across road from Tarryall creek. Fishing access, Nice picnic area next to creek. ")
+spot7 = Spot.create(name:"Vintage Rainbow Garden", camp_type:"rvsite",img_url:"amazon", state_location:"California",host_id:demoUser.id,campsite_id:campsite3.id,price:72,capacity:3,longitude:-118.895416,latitude: 36.440617,description:"Greetings Nature Lovers! We had an amazing 1st season, filled with amazing peeps who all contributed to making us lucky #12 in Cali!")
+spot8 = Spot.create(name:"Full Circle Farm", camp_type:"glamping",img_url:"amazon", state_location:"California",host_id:demoUser.id,campsite_id:campsite3.id,price:85,capacity:3,longitude:-119.538330,latitude: 37.865101,description:"Brand new cedar 1 room rustic cabin with queen bed. Beatiful blue pine pitched ceiling with recessed lighting...very homey! Electicity.")
+spot9 = Spot.create(name:"Meadow Camping at D Acres Farm", camp_type:"camping",img_url:"amazon", state_location:"New Hampshire",host_id:demoUser.id,campsite_id:campsite2.id,price:106,capacity:4,longitude:-71.500000,latitude:44.000000,description:"Located in rural Dorchester, NH, our four season camping consists of beautiful meadow space and 200 acre forest and farm.")
+spot10 = Spot.create(name:"Wolf Swamp", camp_type:"rvsite",img_url:"amazon", state_location:"New Hampshire",host_id:demoUser.id,campsite_id:campsite2.id,price:89,capacity:4,longitude:-71.454391,latitude:43.008663,description:"Located in rural Dorchester, NH, our four season camping consists of beautiful meadow space and 200 acre forest and farm.")
 
 spot1.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot11.jpg"), filename:"spot11.jpg")
 spot1.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot12.jpg"), filename:"spot12.jpg")
@@ -74,6 +79,30 @@ spot3.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spo
 spot4.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot41.jpg"), filename:"spot41.jpg")
 spot4.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot42.jpg"), filename:"spot42.jpg")
 spot4.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot43.jpg"), filename:"spot43.jpg")
+
+spot5.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot51.jpg"), filename:"spot51.jpg")
+spot5.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot52.jpg"), filename:"spot52.jpg")
+spot5.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot53.jpg"), filename:"spot53.jpg")
+
+spot6.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot61.jpg"), filename:"spot61.jpg")
+spot6.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot62.jpg"), filename:"spot62.jpg")
+spot6.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot63.jpg"), filename:"spot63.jpg")
+
+spot7.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot71.jpg"), filename:"spot71.jpg")
+spot7.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot72.jpg"), filename:"spot72.jpg")
+spot7.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot73.jpg"), filename:"spot73.jpg")
+
+spot8.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot81.jpg"), filename:"spot81.jpg")
+spot8.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot82.jpg"), filename:"spot82.jpg")
+spot8.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot83.jpg"), filename:"spot83.jpg")
+
+spot9.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot91.jpg"), filename:"spot91.jpg")
+spot9.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot92.jpg"), filename:"spot92.jpg")
+spot9.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot93.jpg"), filename:"spot93.jpg")
+
+spot10.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot101.jpg"), filename:"spot101.jpg")
+spot10.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot102.jpg"), filename:"spot102.jpg")
+spot10.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot103.jpg"), filename:"spot103.jpg")
 
 checkin = DateTime.new(2020,7,27)
 checkout = DateTime.new(2020,7,28)
