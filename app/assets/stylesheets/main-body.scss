@@ -67,7 +67,7 @@
         i{
           position: relative;
           // top: 1.2em;
-          left: .4em;
+          left: -3.6em;
 
         }
         input{
@@ -77,20 +77,27 @@
             min-height: 40px;
             border-style: none;
             // border: 1px solid red;
+            left: -16em;
         }
         ul{
+          display: flex;
+          flex-direction: column;
           position: absolute;
           // border: 1px solid red;
           top: 3.34em;
           padding-left: 0;
-          width:21.3em;
+          width:42.9em;
+          left: 6em;
         }
         li{
           list-style:none;
+          display: flex;
+          align-items: center;
           padding-left: 1em;
           border: 1px solid rgba(0,0,0,0.1);
           z-index: 10;
           background-color: white;
+          height: 2.5em;
         }
         li:hover{
           background-color: lightgray;

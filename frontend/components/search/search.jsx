@@ -80,18 +80,17 @@ class Search extends React.Component{
           <div className="search-form">
             <div className="search-input">
               <i className="fas fa-search fa-lg"></i>
-              <div className="search-input-div">
+              <div className="search-input-div">  
                 <input type="text" value={this.state.text} onChange={this.handleChange} placeholder="Try California, New York, Texas..."></input>
                   {this.state.dropdown ? <ul>
                     {this.state.address.map((item,idx)=>
-                      <li key={idx} onClick={()=> this.handleClick(item)}>{item}</li>
+                      <li key={idx} onClick={()=> this.handleClick(item)}><i className="fas fa-map-marker-alt fa-lg" style={{left:"-9px"}}></i><div>{item}</div></li>
                       )}
                   </ul> : null}
               </div>
             </div>
-            <div className="date-div">
+            {/* <div className="date-div">
               <input type="date" placeholder="Enter dates"></input>
-              {/* <DayPickerInput/> */}
             </div>
             <div className="type-div"> 
               <select>
@@ -100,7 +99,7 @@ class Search extends React.Component{
                 <option value="glamping">Glamping</option>
                 <option value="RV_sites">RV sites</option>
               </select>
-            </div>
+            </div> */}
             <Link className="link" to={`/campsites/${this.state.id}`}><button>Search</button></Link>
           </div>
         </form>
