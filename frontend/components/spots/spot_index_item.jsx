@@ -36,7 +36,8 @@ class SpotIndexItem extends React.Component{
                 <div className="spot-foot-div"> 
                     <div className="name-type-div">
                         <div className="spot-name"><span>{this.props.spot.name}</span></div>
-                        <div><img className="spot-icon" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/spot-icon.png"></img></div>
+                        <div><img className="spot-icon" src={`https://hicamp-seed.s3-us-west-1.amazonaws.com/${this.props.spot.camp_type}.png`}></img></div>
+
                     </div>
                     <div className="thumb-price-div">
                         <div className="thumb">

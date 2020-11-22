@@ -2187,7 +2187,35 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
         className: "spot-index-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-div"
-      }, this.props.spots.map(function (spot, idx) {
+      }, this.state.camping ? this.props.spots.forEach(function (spot) {
+        if (spot.camp_type === "camping") {
+          _this4.results.push(spot);
+        }
+      }) : this.results.forEach(function (spot, idx) {
+        if (spot.camp_type === "camping") {
+          debugger;
+
+          _this4.results.splice(idx, 1);
+        }
+      }), this.state.rvsite ? this.props.spots.forEach(function (spot) {
+        if (spot.camp_type === "rvsite") {
+          _this4.results.push(spot);
+        }
+      }) : this.results.forEach(function (spot, idx) {
+        if (spot.camp_type === "rvsite") {
+          _this4.results.splice(idx, 1);
+        }
+      }), this.state.glamping ? this.props.spots.forEach(function (spot) {
+        if (spot.camp_type === "glamping") {
+          _this4.results.push(spot);
+        }
+      }) : this.results.forEach(function (spot, idx) {
+        if (spot.camp_type === "glamping") {
+          _this4.results.splice(idx, 1);
+        }
+      }), this.state.glamping === false && this.state.rvsite === false && this.state.camping === false ? this.props.spots.forEach(function (spot) {
+        _this4.results.push(spot);
+      }) : null, this.results.map(function (spot, idx) {
         // debugger
         if (_this4.compareValues(spot.campsite_id, parseInt(campId))) {
           count++;
@@ -2356,7 +2384,7 @@ var SpotIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "spot-name"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.spot.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "spot-icon",
-        src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/spot-icon.png"
+        src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/".concat(this.props.spot.camp_type, ".png")
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "thumb-price-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
