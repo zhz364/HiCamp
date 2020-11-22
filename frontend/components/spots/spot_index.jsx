@@ -18,6 +18,7 @@ class SpotIndex extends React.Component{
         this.compareValues = this.compareValues.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.spotFilter = this.spotFilter.bind(this);
+        this.renderAll = this.renderAll.bind(this);
     }
 
     componentDidMount(){
@@ -39,11 +40,13 @@ class SpotIndex extends React.Component{
         }
 
         if(this.state[type]){
+            this.spotFilter(type)
             return() =>{
                 this.setState({[type]:false,
                     [border]: "1px solid rgba(0,0,0,0.1)"})
             }
         }else{
+            this.spotFilter(type)
             return() =>{
                 this.setState({[type]:true,
                     [border]: "1px solid red"})
@@ -51,8 +54,6 @@ class SpotIndex extends React.Component{
         }
         
     }
-
-
 
     spotFilter(type){
         if(this.state[type]){
@@ -68,18 +69,26 @@ class SpotIndex extends React.Component{
                 }
             })
         }
-        console.log(this.results)
+        // console.log(this.results)
+    }
+
+    renderAll(){
+        this.results = [];
+        this.props.spots.forEach((spot)=>{
+            this.results.push(spot)
+        })
     }
 
 
-
     render(){
+        
         if (this.props.spots.length ===0 ){
             return null
         }
         const campId = this.props.campsiteId;
         let count = 0;
         let newSpots = []
+        this.results = []
         return(
             <div className="main-body">
                 <div className="spots-index">
@@ -99,7 +108,7 @@ class SpotIndex extends React.Component{
                     <div className="spot-index-div"> 
                         <div className="spot-div">
                             
-                            {this.state.camping ? this.props.spots.forEach((spot)=>{
+                            {/* {this.state.camping ? this.props.spots.forEach((spot)=>{
                                 if(spot.camp_type === "camping"){
                                     this.results.push(spot)
                                 }
@@ -129,12 +138,10 @@ class SpotIndex extends React.Component{
                                 if(spot.camp_type === "glamping"){
                                     this.results.splice(idx, 1)
                                 }
-                            })}
+                            })} */}
                             
-                            {(this.state.glamping === false && this.state.rvsite=== false && this.state.camping === false) ? 
-                                this.props.spots.forEach((spot)=>{
-                                    this.results.push(spot)
-                                })  : null
+                            {(this.state.glamping === false && this.state.rvsite === false && this.state.camping === false) ?
+                                this.renderAll() : null
                             }
                             
                             {this.results.map((spot,idx) => {

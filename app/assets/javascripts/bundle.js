@@ -2082,6 +2082,7 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
     _this.compareValues = _this.compareValues.bind(_assertThisInitialized(_this));
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.spotFilter = _this.spotFilter.bind(_assertThisInitialized(_this));
+    _this.renderAll = _this.renderAll.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2111,12 +2112,14 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
       }
 
       if (this.state[type]) {
+        this.spotFilter(type);
         return function () {
           var _this2$setState;
 
           _this2.setState((_this2$setState = {}, _defineProperty(_this2$setState, type, false), _defineProperty(_this2$setState, border, "1px solid rgba(0,0,0,0.1)"), _this2$setState));
         };
       } else {
+        this.spotFilter(type);
         return function () {
           var _this2$setState2;
 
@@ -2141,14 +2144,23 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
             _this3.results.splice(idx, 1);
           }
         });
-      }
+      } // console.log(this.results)
 
-      console.log(this.results);
+    }
+  }, {
+    key: "renderAll",
+    value: function renderAll() {
+      var _this4 = this;
+
+      this.results = [];
+      this.props.spots.forEach(function (spot) {
+        _this4.results.push(spot);
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this5 = this;
 
       if (this.props.spots.length === 0) {
         return null;
@@ -2157,6 +2169,7 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
       var campId = this.props.campsiteId;
       var count = 0;
       var newSpots = [];
+      this.results = [];
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "main-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -2187,37 +2200,9 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
         className: "spot-index-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-div"
-      }, this.state.camping ? this.props.spots.forEach(function (spot) {
-        if (spot.camp_type === "camping") {
-          _this4.results.push(spot);
-        }
-      }) : this.results.forEach(function (spot, idx) {
-        if (spot.camp_type === "camping") {
-          debugger;
-
-          _this4.results.splice(idx, 1);
-        }
-      }), this.state.rvsite ? this.props.spots.forEach(function (spot) {
-        if (spot.camp_type === "rvsite") {
-          _this4.results.push(spot);
-        }
-      }) : this.results.forEach(function (spot, idx) {
-        if (spot.camp_type === "rvsite") {
-          _this4.results.splice(idx, 1);
-        }
-      }), this.state.glamping ? this.props.spots.forEach(function (spot) {
-        if (spot.camp_type === "glamping") {
-          _this4.results.push(spot);
-        }
-      }) : this.results.forEach(function (spot, idx) {
-        if (spot.camp_type === "glamping") {
-          _this4.results.splice(idx, 1);
-        }
-      }), this.state.glamping === false && this.state.rvsite === false && this.state.camping === false ? this.props.spots.forEach(function (spot) {
-        _this4.results.push(spot);
-      }) : null, this.results.map(function (spot, idx) {
+      }, this.state.glamping === false && this.state.rvsite === false && this.state.camping === false ? this.renderAll() : null, this.results.map(function (spot, idx) {
         // debugger
-        if (_this4.compareValues(spot.campsite_id, parseInt(campId))) {
+        if (_this5.compareValues(spot.campsite_id, parseInt(campId))) {
           count++;
           newSpots.push(spot);
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_spot_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
