@@ -49,7 +49,7 @@ class SpotIndex extends React.Component{
             this.spotFilter(type)
             return() =>{
                 this.setState({[type]:true,
-                    [border]: "1px solid red"})
+                    [border]: "2px solid #40d9ac"})
             }
         }
         

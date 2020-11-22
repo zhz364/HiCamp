@@ -2123,7 +2123,7 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
         return function () {
           var _this2$setState2;
 
-          _this2.setState((_this2$setState2 = {}, _defineProperty(_this2$setState2, type, true), _defineProperty(_this2$setState2, border, "1px solid red"), _this2$setState2));
+          _this2.setState((_this2$setState2 = {}, _defineProperty(_this2$setState2, type, true), _defineProperty(_this2$setState2, border, "2px solid #40d9ac"), _this2$setState2));
         };
       }
     }
