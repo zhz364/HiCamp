@@ -1,5 +1,6 @@
 import React from "react";
-import DayPickerInput from "react-day-picker/DayPickerInput"
+import DatePicker from "react-datepicker"
+// import "react-datepicker/dist/react-datepicker.css";
 // import 'react-day-picker/lib/style.css';
 
 
@@ -55,7 +56,8 @@ class BookingForm extends React.Component{
         if(this.props.currentUserId === undefined){
             this.props.history.push("/login")
         }else{
-            if( this.state.checkin_date && this.state.checkout_date){
+            if( (this.state.checkin_date && this.state.checkout_date) && ((Number(this.state.checkout_date.split("-").join("")) - Number(this.state.checkin_date.split("-").join(""))) > 0) 
+                && this.state.checkout_date !== this.state.checkin_date){
                 let start = this.state.checkin_date.split("-")
                 let end = this.state.checkout_date.split("-")
                 const temp = this.calDays(end,start) * this.props.spot.price
@@ -64,6 +66,8 @@ class BookingForm extends React.Component{
                 const newState = Object.assign({},this.state)
                 this.props.createBooking(newState)
                     .then(()=> this.props.history.push(`/users/${this.props.currentUserId}/bookings`))
+            }else{
+                console.log(this.state.checkin_date)
             }
         }
     }
@@ -111,7 +115,7 @@ class BookingForm extends React.Component{
                     <div className="price"><h4>${this.props.spot.price}</h4></div>
                     <div className="per-night">per night</div>
                 </div>
-
+                {/* <DatePicker/> */}
                 <div className="booking-infor-div">
                     <div className="checkin-div">
                         <input type="date" className="day-input" min={0} onChange={this.handleDate("checkin_date")}/>
