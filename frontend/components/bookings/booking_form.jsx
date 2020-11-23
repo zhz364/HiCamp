@@ -66,8 +66,6 @@ class BookingForm extends React.Component{
                 const newState = Object.assign({},this.state)
                 this.props.createBooking(newState)
                     .then(()=> this.props.history.push(`/users/${this.props.currentUserId}/bookings`))
-            }else{
-                console.log(this.state.checkin_date)
             }
         }
     }

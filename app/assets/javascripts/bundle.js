@@ -523,8 +523,6 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
           this.props.createBooking(newState).then(function () {
             return _this4.props.history.push("/users/".concat(_this4.props.currentUserId, "/bookings"));
           });
-        } else {
-          console.log(this.state.checkin_date);
         }
       }
     }
@@ -716,7 +714,7 @@ var BookingIndex = /*#__PURE__*/function (_React$Component) {
             color: "GrayText"
           }
         }, "You don't have any booking."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          to: "/spots",
+          to: "/",
           className: "link"
         }, "Let's get you outside!"))));
       } else {

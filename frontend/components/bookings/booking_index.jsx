@@ -15,7 +15,7 @@ class BookingIndex extends React.Component{
         if(this.props.bookings.length === 0){
             nums_booking = <div>
             <div className="no-bookings"> <span style={{color:"GrayText"}}>You don't have any booking.</span>  
-            <div><Link to="/spots" className="link">Let's get you outside!</Link></div>
+            <div><Link to="/" className="link">Let's get you outside!</Link></div>
             </div>
         </div>;
         }else{
