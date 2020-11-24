@@ -467,7 +467,9 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
     };
     _this.handleDate = _this.handleDate.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.calDays = _this.calDays.bind(_assertThisInitialized(_this)); // this.today = this.today.bind(this)
+    _this.calDays = _this.calDays.bind(_assertThisInitialized(_this));
+    _this.changeCheckinDate = _this.changeCheckinDate.bind(_assertThisInitialized(_this));
+    _this.changeCheckoutDate = _this.changeCheckoutDate.bind(_assertThisInitialized(_this)); // this.today = this.today.bind(this)
 
     return _this;
   }
@@ -478,9 +480,30 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
-        _this2.setState(_defineProperty({}, type, e.currentTarget.value)); // console.log(Number(e.currentTarget.value.split("-").join("")))
+        _this2.setState(_defineProperty({}, type, e.currentTarget.value));
 
+        console.log(Number(e.currentTarget.value.split("-").join("")));
       };
+    }
+  }, {
+    key: "changeCheckinDate",
+    value: function changeCheckinDate(day) {
+      if (day !== undefined) {
+        this.setState({
+          checkin_date: day
+        }); // ["m","d","y"]
+        // console.log(day.formatDate())
+      }
+    }
+  }, {
+    key: "changeCheckoutDate",
+    value: function changeCheckoutDate(day) {
+      if (day !== undefined) {
+        this.setState({
+          checkout_date: day
+        }); // ["m","d","y"]
+        // console.log(Number(day.toLocaleDateString().split("/")[1]))
+      }
     }
   }, {
     key: "handleGuest",
@@ -504,9 +527,9 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "calDays",
     value: function calDays(arr1, arr2) {
-      var y = arr1[0] - arr2[0];
-      var m = arr1[1] - arr2[1];
-      var d = arr1[2] - arr2[2];
+      var y = arr1[2] - arr2[2];
+      var m = arr1[0] - arr2[0];
+      var d = arr1[1] - arr2[1];
       return y * 365 + m * 30 + d;
     }
   }, {
@@ -519,9 +542,9 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       if (this.props.currentUserId === undefined) {
         this.props.history.push("/login");
       } else {
-        if (this.state.checkin_date && this.state.checkout_date && Number(this.state.checkout_date.split("-").join("")) - Number(this.state.checkin_date.split("-").join("")) > 0 && this.state.checkout_date !== this.state.checkin_date) {
-          var start = this.state.checkin_date.split("-");
-          var end = this.state.checkout_date.split("-");
+        if (this.state.checkin_date && this.state.checkout_date && Number(this.state.checkout_date.toLocaleDateString().split("/").join("")) - Number(this.state.checkin_date.toLocaleDateString().split("/").join("")) > 0 && this.state.checkout_date !== this.state.checkin_date) {
+          var start = this.state.checkin_date.toLocaleDateString().split("/");
+          var end = this.state.checkout_date.toLocaleDateString().split("/");
           var temp = this.calDays(end, start) * this.props.spot.price;
           this.setState({
             total_price: temp
@@ -545,13 +568,13 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       this.error = null;
 
       if (this.state.checkin_date && this.state.checkout_date) {
-        if (Number(this.state.checkout_date.split("-").join("")) - Number(this.state.checkin_date.split("-").join("")) < 0 || this.state.checkout_date === this.state.checkin_date) {
+        if (Number(this.state.checkout_date.toLocaleDateString().split("/").join("")) - Number(this.state.checkin_date.toLocaleDateString().split("/").join("")) < 0 || this.state.checkout_date === this.state.checkin_date) {
           this.error = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             id: "error"
           }, "Please select valid checkout date");
         } else {
-          var start = this.state.checkin_date.split("-");
-          var end = this.state.checkout_date.split("-");
+          var start = this.state.checkin_date.toLocaleDateString().split("/");
+          var end = this.state.checkout_date.toLocaleDateString().split("/");
           var subTotal = this.calDays(end, start) * this.props.spot.price;
           currPrice = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             id: "currPrice"
@@ -569,25 +592,23 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
         className: "price"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "$", this.props.spot.price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "per-night"
-      }, "per night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_1___default.a, {
-        placeholder: "Select date",
-        onChange: this.handleDate("checkin_date")
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "per night")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "booking-infor-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "checkin-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "date",
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        dayPickerProps: {
+          todayButton: 'Today'
+        },
         className: "day-input",
-        min: 0,
-        onChange: this.handleDate("checkin_date")
+        placeholder: "Select date",
+        onDayChange: this.changeCheckinDate
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "checkout-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "date",
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_1___default.a, {
         className: "day-input",
-        placeholder: "Check out",
-        onChange: this.handleDate("checkout_date")
+        placeholder: "Select date",
+        onDayChange: this.changeCheckoutDate
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "guests-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Guests"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {

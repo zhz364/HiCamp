@@ -1,7 +1,7 @@
 import React from "react";
 // import DatePicker from "react-datepicker"
 // import "react-datepicker/dist/react-datepicker.css";
-import DayPickerInput from 'react-day-picker/DayPickerInput';
+import DayPicker from 'react-day-picker/DayPickerInput';
 // import 'react-datepicker/dist/react-datepicker.css';
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 // import '/node_modules/react-day-picker/lib/style.css';
@@ -26,13 +26,32 @@ class BookingForm extends React.Component{
         this.handleDate = this.handleDate.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.calDays = this.calDays.bind(this);
+        this.changeCheckinDate = this.changeCheckinDate.bind(this)
+        this.changeCheckoutDate = this.changeCheckoutDate.bind(this)
+
         // this.today = this.today.bind(this)
     }
 
     handleDate(type){
         return(e) =>{
             this.setState({[type]:e.currentTarget.value})
-            // console.log(Number(e.currentTarget.value.split("-").join("")))
+            console.log(Number(e.currentTarget.value.split("-").join("")))
+        }
+    }
+
+    changeCheckinDate(day){
+        if (day !== undefined){
+            this.setState({checkin_date:day})
+            // ["m","d","y"]
+            // console.log(day.formatDate())
+        }
+    }
+
+    changeCheckoutDate(day){
+        if (day !== undefined){
+            this.setState({checkout_date:day})
+            // ["m","d","y"]
+            // console.log(Number(day.toLocaleDateString().split("/")[1]))
         }
     }
 
@@ -51,9 +70,9 @@ class BookingForm extends React.Component{
     }
 
     calDays(arr1,arr2){
-        let y = arr1[0] - arr2[0];
-        let m = arr1[1] - arr2[1];
-        let d = arr1[2] - arr2[2];
+        let y = arr1[2] - arr2[2];
+        let m = arr1[0] - arr2[0];
+        let d = arr1[1] - arr2[1];
         return y*365 + m*30 + d
         
     }
@@ -64,10 +83,10 @@ class BookingForm extends React.Component{
         if(this.props.currentUserId === undefined){
             this.props.history.push("/login")
         }else{
-            if( (this.state.checkin_date && this.state.checkout_date) && ((Number(this.state.checkout_date.split("-").join("")) - Number(this.state.checkin_date.split("-").join(""))) > 0) 
+            if( (this.state.checkin_date && this.state.checkout_date) && ((Number(this.state.checkout_date.toLocaleDateString().split("/").join("")) - Number(this.state.checkin_date.toLocaleDateString().split("/").join(""))) > 0) 
                 && this.state.checkout_date !== this.state.checkin_date){
-                let start = this.state.checkin_date.split("-")
-                let end = this.state.checkout_date.split("-")
+                let start = this.state.checkin_date.toLocaleDateString().split("/")
+                let end = this.state.checkout_date.toLocaleDateString().split("/")
                 const temp = this.calDays(end,start) * this.props.spot.price
                 this.setState({total_price: temp})
             
@@ -88,7 +107,7 @@ class BookingForm extends React.Component{
         let currPrice = null;
         this.error = null
         if (this.state.checkin_date && this.state.checkout_date){
-            if((Number(this.state.checkout_date.split("-").join("")) - Number(this.state.checkin_date.split("-").join(""))) < 0
+            if((Number(this.state.checkout_date.toLocaleDateString().split("/").join("")) - Number(this.state.checkin_date.toLocaleDateString().split("/").join(""))) < 0
                 || this.state.checkout_date === this.state.checkin_date){
                 this.error = (
                     <div id="error">
@@ -96,8 +115,8 @@ class BookingForm extends React.Component{
                     </div>
                 )
             }else{
-                let start = this.state.checkin_date.split("-")
-                let end = this.state.checkout_date.split("-")
+                let start = this.state.checkin_date.toLocaleDateString().split("/")
+                let end = this.state.checkout_date.toLocaleDateString().split("/")
                 const subTotal = this.calDays(end,start) * this.props.spot.price
                 currPrice = (
                     <div id="currPrice">
@@ -119,15 +138,17 @@ class BookingForm extends React.Component{
                 <div className="price-div">
                     <div className="price"><h4>${this.props.spot.price}</h4></div>
                     <div className="per-night">per night</div>
-                    <DayPickerInput placeholder="Select date" onChange={this.handleDate("checkin_date")}/>
+                    {/* <DayPickerInput placeholder="Select date" onChange={this.handleDate("checkin_date")}/> */}
                 </div>
 
                 <div className="booking-infor-div">
                     <div className="checkin-div">
-                        <input type="date" className="day-input" min={0} onChange={this.handleDate("checkin_date")}/>
+                        {/* <input type="date" className="day-input" min={0} onChange={this.handleDate("checkin_date")}/> */}
+                        <DayPicker dayPickerProps={{ todayButton: 'Today'}} className="day-input" placeholder="Select date" onDayChange={this.changeCheckinDate}/>
                     </div>
                     <div className="checkout-div">
-                        <input type="date" className="day-input" placeholder="Check out" onChange={this.handleDate("checkout_date")}/>
+                        <DayPicker className="day-input" placeholder="Select date" onDayChange={this.changeCheckoutDate}/>
+                        {/* <input type="date" className="day-input" placeholder="Check out" onChange={this.handleDate("checkout_date")}/> */}
                     </div>
 
                     <div className="guests-div">
