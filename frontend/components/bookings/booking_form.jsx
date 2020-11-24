@@ -1,7 +1,7 @@
 import React from "react";
 // import DatePicker from "react-datepicker"
 // import "react-datepicker/dist/react-datepicker.css";
-import DayPicker from 'react-day-picker/DayPickerInput';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
 // import 'react-datepicker/dist/react-datepicker.css';
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 // import '/node_modules/react-day-picker/lib/style.css';
@@ -42,16 +42,12 @@ class BookingForm extends React.Component{
     changeCheckinDate(day){
         if (day !== undefined){
             this.setState({checkin_date:day})
-            // ["m","d","y"]
-            // console.log(day.formatDate())
         }
     }
 
     changeCheckoutDate(day){
         if (day !== undefined){
             this.setState({checkout_date:day})
-            // ["m","d","y"]
-            // console.log(Number(day.toLocaleDateString().split("/")[1]))
         }
     }
 
@@ -106,8 +102,9 @@ class BookingForm extends React.Component{
     render(){
         let currPrice = null;
         this.error = null
+        const today = new Date();
         if (this.state.checkin_date && this.state.checkout_date){
-            if((Number(this.state.checkout_date.toLocaleDateString().split("/").join("")) - Number(this.state.checkin_date.toLocaleDateString().split("/").join(""))) < 0
+            if((Number(this.state.checkout_date.toLocaleDateString().split("/").join("")) - Number(this.state.checkin_date.toLocaleDateString().split("/").join(""))) <= 0
                 || this.state.checkout_date === this.state.checkin_date){
                 this.error = (
                     <div id="error">
@@ -138,16 +135,17 @@ class BookingForm extends React.Component{
                 <div className="price-div">
                     <div className="price"><h4>${this.props.spot.price}</h4></div>
                     <div className="per-night">per night</div>
-                    {/* <DayPickerInput placeholder="Select date" onChange={this.handleDate("checkin_date")}/> */}
                 </div>
 
                 <div className="booking-infor-div">
                     <div className="checkin-div">
                         {/* <input type="date" className="day-input" min={0} onChange={this.handleDate("checkin_date")}/> */}
-                        <DayPicker dayPickerProps={{ todayButton: 'Today'}} className="day-input" placeholder="Select date" onDayChange={this.changeCheckinDate}/>
+                        <div className="check">Check In</div>
+                        <DayPickerInput inputProps={{ style: { width: 99, height: 40, border: "none",outline: 'none'} }}  dayPickerProps={{disabledDays: { before: new Date() }}} className="day-input" placeholder="Select date" onDayChange={this.changeCheckinDate}/>
                     </div>
                     <div className="checkout-div">
-                        <DayPicker className="day-input" placeholder="Select date" onDayChange={this.changeCheckoutDate}/>
+                        <div className="check">Check Out</div>
+                        <DayPickerInput inputProps={{ style: { width: 99, height: 40, border: "none",outline: 'none'} }} dayPickerProps={{ disabledDays: { before: this.state.checkin_date }}} className="day-input" placeholder="Select date" onDayChange={this.changeCheckoutDate}/>
                         {/* <input type="date" className="day-input" placeholder="Check out" onChange={this.handleDate("checkout_date")}/> */}
                     </div>
 

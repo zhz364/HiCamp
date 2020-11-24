@@ -491,8 +491,7 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       if (day !== undefined) {
         this.setState({
           checkin_date: day
-        }); // ["m","d","y"]
-        // console.log(day.formatDate())
+        });
       }
     }
   }, {
@@ -501,8 +500,7 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       if (day !== undefined) {
         this.setState({
           checkout_date: day
-        }); // ["m","d","y"]
-        // console.log(Number(day.toLocaleDateString().split("/")[1]))
+        });
       }
     }
   }, {
@@ -566,9 +564,10 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var currPrice = null;
       this.error = null;
+      var today = new Date();
 
       if (this.state.checkin_date && this.state.checkout_date) {
-        if (Number(this.state.checkout_date.toLocaleDateString().split("/").join("")) - Number(this.state.checkin_date.toLocaleDateString().split("/").join("")) < 0 || this.state.checkout_date === this.state.checkin_date) {
+        if (Number(this.state.checkout_date.toLocaleDateString().split("/").join("")) - Number(this.state.checkin_date.toLocaleDateString().split("/").join("")) <= 0 || this.state.checkout_date === this.state.checkin_date) {
           this.error = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             id: "error"
           }, "Please select valid checkout date");
@@ -596,16 +595,43 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
         className: "booking-infor-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "checkin-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "check"
+      }, "Check In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        inputProps: {
+          style: {
+            width: 99,
+            height: 40,
+            border: "none",
+            outline: 'none'
+          }
+        },
         dayPickerProps: {
-          todayButton: 'Today'
+          disabledDays: {
+            before: new Date()
+          }
         },
         className: "day-input",
         placeholder: "Select date",
         onDayChange: this.changeCheckinDate
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "checkout-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "check"
+      }, "Check Out"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        inputProps: {
+          style: {
+            width: 99,
+            height: 40,
+            border: "none",
+            outline: 'none'
+          }
+        },
+        dayPickerProps: {
+          disabledDays: {
+            before: this.state.checkin_date
+          }
+        },
         className: "day-input",
         placeholder: "Select date",
         onDayChange: this.changeCheckoutDate
