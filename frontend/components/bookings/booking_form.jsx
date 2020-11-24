@@ -1,7 +1,15 @@
 import React from "react";
 // import DatePicker from "react-datepicker"
 // import "react-datepicker/dist/react-datepicker.css";
-// import 'react-day-picker/lib/style.css';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+// import 'react-datepicker/dist/react-datepicker.css';
+// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+// import '/node_modules/react-day-picker/lib/style.css';
+import 'react-day-picker/lib/style.css';
+
+
+// "css-loader": "^5.0.1",
+// "style-loader": "^2.0.0"
 
 
 class BookingForm extends React.Component{
@@ -77,7 +85,6 @@ class BookingForm extends React.Component{
     }
   
     render(){
-        
         let currPrice = null;
         this.error = null
         if (this.state.checkin_date && this.state.checkout_date){
@@ -112,8 +119,9 @@ class BookingForm extends React.Component{
                 <div className="price-div">
                     <div className="price"><h4>${this.props.spot.price}</h4></div>
                     <div className="per-night">per night</div>
+                    <DayPickerInput placeholder="Select date" onChange={this.handleDate("checkin_date")}/>
                 </div>
-                {/* <DatePicker/> */}
+
                 <div className="booking-infor-div">
                     <div className="checkin-div">
                         <input type="date" className="day-input" min={0} onChange={this.handleDate("checkin_date")}/>

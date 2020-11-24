@@ -7,6 +7,7 @@
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
     "react": "^16.13.1",
+    "react-day-picker": "^7.4.8",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^4.3.1",
@@ -16,8 +17,8 @@
     "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
-    "css-loader": "^5.0.1",
     "redux-logger": "^3.0.6",
+    "css-loader": "^5.0.1",
     "style-loader": "^2.0.0"
   },
   "scripts": {

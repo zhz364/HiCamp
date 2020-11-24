@@ -22,6 +22,20 @@ module.exports = {
                     },
                 },
             },
+            {
+                include:/(node_modules)/,
+                test: /\.css$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" }
+                ]
+            },
+            // {
+            //     test: /\.css$/i,
+            //     use: ["handlebars-loader", 
+            //     "extract-loader",
+            //     "css-loader",],
+            // },
         ],
     },
     devtool: "source-map",
