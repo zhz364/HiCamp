@@ -500,7 +500,7 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       if (day !== undefined) {
         this.setState({
           checkout_date: day
-        });
+        }); // console.log(day.toLocaleDateString().split("/"))
       }
     }
   }, {
@@ -540,7 +540,7 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       if (this.props.currentUserId === undefined) {
         this.props.history.push("/login");
       } else {
-        if (this.state.checkin_date && this.state.checkout_date && Number(this.state.checkout_date.toLocaleDateString().split("/").join("")) - Number(this.state.checkin_date.toLocaleDateString().split("/").join("")) > 0 && this.state.checkout_date !== this.state.checkin_date) {
+        if (this.state.checkin_date && this.state.checkout_date && this.calDays(this.state.checkout_date.toLocaleDateString().split("/"), this.state.checkin_date.toLocaleDateString().split("/")) > 0 && this.state.checkout_date !== this.state.checkin_date) {
           var start = this.state.checkin_date.toLocaleDateString().split("/");
           var end = this.state.checkout_date.toLocaleDateString().split("/");
           var temp = this.calDays(end, start) * this.props.spot.price;
@@ -555,6 +555,12 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "validDates",
+    value: function validDates() {
+      var co = this.state.checkout_date.toLocaleDateString().split("/");
+      var ci = this.state.checkin_date.toLocaleDateString().split("/");
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.error = null;
@@ -567,7 +573,8 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       var today = new Date();
 
       if (this.state.checkin_date && this.state.checkout_date) {
-        if (Number(this.state.checkout_date.toLocaleDateString().split("/").join("")) - Number(this.state.checkin_date.toLocaleDateString().split("/").join("")) <= 0 || this.state.checkout_date === this.state.checkin_date) {
+        if (this.state.checkout_date.toLocaleDateString() === this.state.checkin_date.toLocaleDateString()) {
+          // console.log(this.calDays(this.state.checkout_date.toLocaleDateString().split("/"),this.state.checkin_date.toLocaleDateString().split("/")))
           this.error = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             id: "error"
           }, "Please select valid checkout date");
@@ -611,8 +618,7 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
             before: new Date()
           }
         },
-        className: "day-input",
-        placeholder: "Select date",
+        placeholder: "Select Date",
         onDayChange: this.changeCheckinDate
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "checkout-div"
@@ -632,8 +638,7 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
             before: this.state.checkin_date
           }
         },
-        className: "day-input",
-        placeholder: "Select date",
+        placeholder: "Select Date",
         onDayChange: this.changeCheckoutDate
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "guests-div"

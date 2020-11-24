@@ -42,12 +42,14 @@ class BookingForm extends React.Component{
     changeCheckinDate(day){
         if (day !== undefined){
             this.setState({checkin_date:day})
+            
         }
     }
 
     changeCheckoutDate(day){
         if (day !== undefined){
             this.setState({checkout_date:day})
+            // console.log(day.toLocaleDateString().split("/"))
         }
     }
 
@@ -70,7 +72,6 @@ class BookingForm extends React.Component{
         let m = arr1[0] - arr2[0];
         let d = arr1[1] - arr2[1];
         return y*365 + m*30 + d
-        
     }
 
     handleSubmit(e){
@@ -79,7 +80,7 @@ class BookingForm extends React.Component{
         if(this.props.currentUserId === undefined){
             this.props.history.push("/login")
         }else{
-            if( (this.state.checkin_date && this.state.checkout_date) && ((Number(this.state.checkout_date.toLocaleDateString().split("/").join("")) - Number(this.state.checkin_date.toLocaleDateString().split("/").join(""))) > 0) 
+            if( (this.state.checkin_date && this.state.checkout_date) && (this.calDays(this.state.checkout_date.toLocaleDateString().split("/"),this.state.checkin_date.toLocaleDateString().split("/"))>0) 
                 && this.state.checkout_date !== this.state.checkin_date){
                 let start = this.state.checkin_date.toLocaleDateString().split("/")
                 let end = this.state.checkout_date.toLocaleDateString().split("/")
@@ -93,7 +94,11 @@ class BookingForm extends React.Component{
         }
     }
 
-    
+    validDates(){
+        const co = this.state.checkout_date.toLocaleDateString().split("/");
+        const ci = this.state.checkin_date.toLocaleDateString().split("/")
+
+    }
     
     componentDidMount(){
         this.error = null
@@ -104,8 +109,8 @@ class BookingForm extends React.Component{
         this.error = null
         const today = new Date();
         if (this.state.checkin_date && this.state.checkout_date){
-            if((Number(this.state.checkout_date.toLocaleDateString().split("/").join("")) - Number(this.state.checkin_date.toLocaleDateString().split("/").join(""))) <= 0
-                || this.state.checkout_date === this.state.checkin_date){
+            if(this.state.checkout_date.toLocaleDateString() === this.state.checkin_date.toLocaleDateString()){
+                    // console.log(this.calDays(this.state.checkout_date.toLocaleDateString().split("/"),this.state.checkin_date.toLocaleDateString().split("/")))
                 this.error = (
                     <div id="error">
                         Please select valid checkout date
@@ -141,11 +146,11 @@ class BookingForm extends React.Component{
                     <div className="checkin-div">
                         {/* <input type="date" className="day-input" min={0} onChange={this.handleDate("checkin_date")}/> */}
                         <div className="check">Check In</div>
-                        <DayPickerInput inputProps={{ style: { width: 99, height: 40, border: "none",outline: 'none'} }}  dayPickerProps={{disabledDays: { before: new Date() }}} className="day-input" placeholder="Select date" onDayChange={this.changeCheckinDate}/>
+                        <DayPickerInput inputProps={{ style: { width: 99, height: 40, border: "none",outline: 'none'} }}  dayPickerProps={{disabledDays: { before: new Date() }}} placeholder="Select Date" onDayChange={this.changeCheckinDate}/>
                     </div>
                     <div className="checkout-div">
                         <div className="check">Check Out</div>
-                        <DayPickerInput inputProps={{ style: { width: 99, height: 40, border: "none",outline: 'none'} }} dayPickerProps={{ disabledDays: { before: this.state.checkin_date }}} className="day-input" placeholder="Select date" onDayChange={this.changeCheckoutDate}/>
+                        <DayPickerInput inputProps={{ style: { width: 99, height: 40, border: "none",outline: 'none'} }} dayPickerProps={{ disabledDays: { before: this.state.checkin_date }}} placeholder="Select Date" onDayChange={this.changeCheckoutDate}/>
                         {/* <input type="date" className="day-input" placeholder="Check out" onChange={this.handleDate("checkout_date")}/> */}
                     </div>
 
