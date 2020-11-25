@@ -12,7 +12,7 @@ import Footer from "./footer"
 import ReactGA from 'react-ga';
 
 function initializeReactGA() {
-    ReactGA.initialize('G-CHQT4SX1X4');
+    ReactGA.initialize('G-ZXTHH46PHB');
     ReactGA.pageview('/');
 }
 

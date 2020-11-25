@@ -364,7 +364,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function initializeReactGA() {
-  react_ga__WEBPACK_IMPORTED_MODULE_11__["default"].initialize('G-CHQT4SX1X4');
+  react_ga__WEBPACK_IMPORTED_MODULE_11__["default"].initialize('G-ZXTHH46PHB');
   react_ga__WEBPACK_IMPORTED_MODULE_11__["default"].pageview('/');
 }
 
@@ -2852,15 +2852,40 @@ var SpotsMap = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
+      var totalLat = 40.3428;
+      var totalLng = -95.6836;
+
+      if (this.props.spots.length > 0) {
+        totalLat = 0;
+        totalLng = 0;
+        this.props.spots.forEach(function (spot) {
+          totalLat += spot.latitude;
+          totalLng += spot.longitude;
+        });
+        totalLat = totalLat / this.props.spots.length;
+        totalLng = totalLng / this.props.spots.length;
+      }
+
       var center = {
-        lat: 40.3428,
-        lng: -95.6836
+        lat: totalLat,
+        lng: totalLng
       };
-      var mapOptions = {
-        center: center,
-        mapTypeId: 'terrain',
-        zoom: 3
-      };
+      var mapOptions = {};
+
+      if (totalLat === 40.370922533333335 && totalLng === -105.6369416) {
+        mapOptions = {
+          center: center,
+          mapTypeId: 'terrain',
+          zoom: 10
+        };
+      } else {
+        mapOptions = {
+          center: center,
+          mapTypeId: 'terrain',
+          zoom: 4
+        };
+      }
+
       this.map = new google.maps.Map(this.mapNode, mapOptions);
       this.centerSpot();
     }

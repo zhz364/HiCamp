@@ -44,16 +44,37 @@ class SpotsMap extends React.Component{
     }
 
     componentDidMount(){
-        let center = {
-            lat: 40.3428,
-            lng: -95.6836
+        let totalLat = 40.3428
+        let totalLng = -95.6836
+        if (this.props.spots.length > 0){
+            totalLat = 0
+            totalLng = 0
+            this.props.spots.forEach(spot => {
+                totalLat += spot.latitude
+                totalLng += spot.longitude
+            });
+            totalLat = totalLat / this.props.spots.length
+            totalLng = totalLng / this.props.spots.length
         }
 
-        const mapOptions = {
-            center,
-            mapTypeId: 'terrain',
-            zoom:3
-        };
+        let center = {
+            lat: totalLat,
+            lng: totalLng
+        }
+        let mapOptions={}
+        if(totalLat === 40.370922533333335 && totalLng === -105.6369416){
+            mapOptions = {
+                center,
+                mapTypeId: 'terrain',
+                zoom:10
+            };
+        }else{
+            mapOptions = {
+                center,
+                mapTypeId: 'terrain',
+                zoom:4
+            };
+        }
         this.map = new google.maps.Map(this.mapNode, mapOptions);
 
         
