@@ -10,14 +10,12 @@ class SpotMap extends React.Component{
             lat: this.props.spot.latitude,
             lng: this.props.spot.longitude
         }
-
-        // const map = this.refs.map;
+        
         const mapOptions = {
             center,
             mapTypeId: 'terrain',
             zoom:13
         };
-        // this.map = new google.maps.Map(map, mapOptions);
         this.map = new google.maps.Map(this.mapNode, mapOptions);
      
         let point = new google.maps.Circle({

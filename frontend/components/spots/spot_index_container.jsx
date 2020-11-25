@@ -3,7 +3,6 @@ import {fetchSpots} from "../../actions/spot_actions"
 import SpotIndex from "./spot_index"
 
 const mstp = (state, ownProps) => {
-    // debugger
     return {
         spots: Object.values(state.spots),
         campsiteId: ownProps.match.params.campsiteId

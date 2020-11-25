@@ -251,10 +251,8 @@ var clearErrors = function clearErrors() {
 var login = function login(user) {
   return function (dispatch) {
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["login"](user).then(function (payload) {
-      // debugger;
       return dispatch(receiveCurrentUser(payload));
     }).fail(function (payload) {
-      // debugger
       return dispatch(receiveError(payload));
     });
   };
@@ -444,15 +442,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
- // import DatePicker from "react-datepicker"
-// import "react-datepicker/dist/react-datepicker.css";
 
- // import 'react-datepicker/dist/react-datepicker.css';
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-// import '/node_modules/react-day-picker/lib/style.css';
 
- // "css-loader": "^5.0.1",
-// "style-loader": "^2.0.0"
+
 
 var BookingForm = /*#__PURE__*/function (_React$Component) {
   _inherits(BookingForm, _React$Component);
@@ -477,8 +469,7 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.calDays = _this.calDays.bind(_assertThisInitialized(_this));
     _this.changeCheckinDate = _this.changeCheckinDate.bind(_assertThisInitialized(_this));
-    _this.changeCheckoutDate = _this.changeCheckoutDate.bind(_assertThisInitialized(_this)); // this.today = this.today.bind(this)
-
+    _this.changeCheckoutDate = _this.changeCheckoutDate.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -489,8 +480,6 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
 
       return function (e) {
         _this2.setState(_defineProperty({}, type, e.currentTarget.value));
-
-        console.log(Number(e.currentTarget.value.split("-").join("")));
       };
     }
   }, {
@@ -508,7 +497,7 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       if (day !== undefined) {
         this.setState({
           checkout_date: day
-        }); // console.log(day.toLocaleDateString().split("/"))
+        });
       }
     }
   }, {
@@ -582,7 +571,6 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
 
       if (this.state.checkin_date && this.state.checkout_date) {
         if (this.state.checkout_date.toLocaleDateString() === this.state.checkin_date.toLocaleDateString()) {
-          // console.log(this.calDays(this.state.checkout_date.toLocaleDateString().split("/"),this.state.checkin_date.toLocaleDateString().split("/")))
           this.error = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             id: "error"
           }, "Please select valid checkout date");
@@ -1006,10 +994,7 @@ var CampsiteIndex = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, CampsiteIndex);
 
     return _super.call(this, props);
-  } // componentDidMount(){
-  //     this.props.fetchCampsites();
-  // }
-
+  }
 
   _createClass(CampsiteIndex, [{
     key: "render",
@@ -1273,22 +1258,17 @@ var MainBody = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return (
-        /*#__PURE__*/
-        // <body>
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "main-body"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "search-bar"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "content-above"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Find yourself outside."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "intro"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Discover and book tent camping, RV parks, cabins,"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "treehouses, and glamping\u2014everywhere from national"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "parks to blueberry farms."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "campsites-index-div"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_campsites_campsite_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], null))) // </body>
-
-      );
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "search-bar"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "content-above"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Find yourself outside."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "intro"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Discover and book tent camping, RV parks, cabins,"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "treehouses, and glamping\u2014everywhere from national"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "parks to blueberry farms."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "campsites-index-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_campsites_campsite_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
     }
   }]);
 
@@ -1511,8 +1491,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
- // import DayPickerInput from 'react-day-picker/DayPickerInput';
-// import "react-day-picker/lib/style.css";
+
 
 var Search = /*#__PURE__*/function (_React$Component) {
   _inherits(Search, _React$Component);
@@ -2206,8 +2185,7 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
             _this3.results.splice(idx, 1);
           }
         });
-      } // console.log(this.results)
-
+      }
     }
   }, {
     key: "renderAll",
@@ -2263,7 +2241,6 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "spot-div"
       }, this.state.glamping === false && this.state.rvsite === false && this.state.camping === false ? this.renderAll() : null, this.results.map(function (spot, idx) {
-        // debugger
         if (_this5.compareValues(spot.campsite_id, parseInt(campId))) {
           count++;
           newSpots.push(spot);
@@ -2309,7 +2286,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mstp = function mstp(state, ownProps) {
-  // debugger
   return {
     spots: Object.values(state.spots),
     campsiteId: ownProps.match.params.campsiteId
@@ -2363,7 +2339,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
- // style={{background: 'url("https://hipcamp-res.cloudinary.com/images/c_fill,f_auto,g_auto:subject,h_400,q_60,w_780/v1602804457/campground-photos/jdvjqakeams4jmpacpvv/caterra-c-s-land-1-paraiso-pavo-real-site-2.jpg")'}}
+
 
 var SpotIndexItem = /*#__PURE__*/function (_React$Component) {
   _inherits(SpotIndexItem, _React$Component);
@@ -2510,14 +2486,12 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
       var center = {
         lat: this.props.spot.latitude,
         lng: this.props.spot.longitude
-      }; // const map = this.refs.map;
-
+      };
       var mapOptions = {
         center: center,
         mapTypeId: 'terrain',
         zoom: 13
-      }; // this.map = new google.maps.Map(map, mapOptions);
-
+      };
       this.map = new google.maps.Map(this.mapNode, mapOptions);
       var point = new google.maps.Circle({
         center: center,
@@ -2625,92 +2599,87 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       if (this.props.spot) {
-        return (
-          /*#__PURE__*/
-          // <body>
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "spot-show-div"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "spot-show-img-div"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            className: "first_pic",
-            src: this.props.spot.photoUrl[0].photo
-          })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "second-img-div"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            className: "sec-first",
-            src: this.props.spot.photoUrl[1].photo
-          })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            className: "sec-sec",
-            src: this.props.spot.photoUrl[2].photo
-          })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "div-after-img"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "left-div"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "spot-infor-div"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "spot-name-div"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.spot.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "thumb-div"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-            className: "thumbs-likes"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            className: "thumbs-up-icon-div",
-            src: "https://cabins-seeds.s3.amazonaws.com/thumbs-up-green.svg"
-          }), "   ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-            className: "percentage"
-          }, "100%"), " - 777 Reviews")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "user-infor-div"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "user-img"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/uzi.jpg"
-          })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "user-name"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Hosted by"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "Uzi")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "spot-about"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.spot.description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "spot-check-table"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Campsite area")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/byo.png"
-          }), "Bring your own tent"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/vtc.png"
-          }), "vans and truck camper"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/sit.png"
-          }), "1 sit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/gps.png"
-          }), "Up to 7 guests per site"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/gps.png"
-          }), "Park at listin"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Essentials")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/cf.png"
-          }), "Campfires allowed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/toiletpaper.png"
-          }), "Toilet available"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/pet.png"
-          }), "Pets allowed"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Amenities")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/kitchen.png"
-          }), "Kitchen available"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/shower_a.png"
-          }), "Showers available"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/bins_a.png"
-          }), "Bins available"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/no_potable_w.png"
-          }), "No potable water"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/no_wifi.png"
-          }), "No wifi")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "spot-reviews-div"
-          })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "side-booking-div"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_bookings_booking_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            spot: this.props.spot
-          }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "spot-map-div"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
-            spot: this.props.spot
-          }))) // </body>
-
-        );
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "spot-show-div"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "spot-show-img-div"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "first_pic",
+          src: this.props.spot.photoUrl[0].photo
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "second-img-div"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "sec-first",
+          src: this.props.spot.photoUrl[1].photo
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "sec-sec",
+          src: this.props.spot.photoUrl[2].photo
+        })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "div-after-img"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "left-div"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "spot-infor-div"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "spot-name-div"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.spot.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "thumb-div"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "thumbs-likes"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "thumbs-up-icon-div",
+          src: "https://cabins-seeds.s3.amazonaws.com/thumbs-up-green.svg"
+        }), "   ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "percentage"
+        }, "100%"), " - 777 Reviews")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-infor-div"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-img"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/uzi.jpg"
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-name"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Hosted by"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "Uzi")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "spot-about"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.spot.description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "spot-check-table"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Campsite area")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/byo.png"
+        }), "Bring your own tent"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/vtc.png"
+        }), "vans and truck camper"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/sit.png"
+        }), "1 sit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/gps.png"
+        }), "Up to 7 guests per site"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/gps.png"
+        }), "Park at listin"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Essentials")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/cf.png"
+        }), "Campfires allowed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/toiletpaper.png"
+        }), "Toilet available"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/pet.png"
+        }), "Pets allowed"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Amenities")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/kitchen.png"
+        }), "Kitchen available"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/shower_a.png"
+        }), "Showers available"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/bins_a.png"
+        }), "Bins available"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/no_potable_w.png"
+        }), "No potable water"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://hicamp-seed.s3-us-west-1.amazonaws.com/no_wifi.png"
+        }), "No wifi")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "spot-reviews-div"
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "side-booking-div"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_bookings_booking_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          spot: this.props.spot
+        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "spot-map-div"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          spot: this.props.spot
+        })));
       } else {
         return null;
       }
@@ -2932,7 +2901,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // test import
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById("root");
@@ -2949,8 +2917,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var store = Object(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])(preloadedState);
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
-  }), root); // Test Section
-
+  }), root);
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.signUp = _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["signUp"];
@@ -3261,7 +3228,6 @@ __webpack_require__.r(__webpack_exports__);
 var middlewares = [redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"]];
 
 if (true) {
-  // must use 'require' (import only allowed at top of file)
   var _require = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js"),
       logger = _require.logger;
 

@@ -8,7 +8,6 @@ const mstp = function(state, ownProps){
     }
 }
 
-
 const mdtp = dispath =>({
     fetchSpot: spotId =>dispath(fetchSpot(spotId))
 })

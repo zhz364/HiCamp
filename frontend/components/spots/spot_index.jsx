@@ -70,7 +70,6 @@ class SpotIndex extends React.Component{
                 }
             })
         }
-        // console.log(this.results)
     }
 
     renderAll(){
@@ -108,45 +107,11 @@ class SpotIndex extends React.Component{
                     </div>
                     <div className="spot-index-div"> 
                         <div className="spot-div">
-                            
-                            {/* {this.state.camping ? this.props.spots.forEach((spot)=>{
-                                if(spot.camp_type === "camping"){
-                                    this.results.push(spot)
-                                }
-                            }) : this.results.forEach((spot,idx)=>{
-                                if(spot.camp_type === "camping"){
-                                    debugger
-                                    this.results.splice(idx, 1)
-                                }
-                            })}
-
-
-                            {this.state.rvsite ? this.props.spots.forEach((spot)=>{
-                                if(spot.camp_type === "rvsite"){
-                                    this.results.push(spot)
-                                }
-                            }) : this.results.forEach((spot,idx)=>{
-                                if(spot.camp_type === "rvsite"){
-                                    this.results.splice(idx, 1)
-                                }
-                            })}
-
-                            {this.state.glamping ? this.props.spots.forEach((spot)=>{
-                                if(spot.camp_type === "glamping"){
-                                    this.results.push(spot)
-                                }
-                            }) : this.results.forEach((spot,idx)=>{
-                                if(spot.camp_type === "glamping"){
-                                    this.results.splice(idx, 1)
-                                }
-                            })} */}
-                            
                             {(this.state.glamping === false && this.state.rvsite === false && this.state.camping === false) ?
                                 this.renderAll() : null
                             }
                             
                             {this.results.map((spot,idx) => {
-                                // debugger
                                 if(this.compareValues(spot.campsite_id,parseInt(campId))){
                                     count++;
                                     newSpots.push(spot)

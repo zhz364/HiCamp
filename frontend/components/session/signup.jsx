@@ -52,7 +52,6 @@ class Signup extends React.Component{
           };
         return (
             <div className="signup-form" style={sectionStyle}>
-                {/* <img className="log-sign-img" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/loginbackground.jpg"></img> */}
                 <h2>Join Hicamp</h2>
                 <p>Discover the best camping near me</p>
                 {this.renderErrors()}

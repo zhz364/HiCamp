@@ -1,15 +1,7 @@
 import React from "react";
-// import DatePicker from "react-datepicker"
-// import "react-datepicker/dist/react-datepicker.css";
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-// import 'react-datepicker/dist/react-datepicker.css';
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-// import '/node_modules/react-day-picker/lib/style.css';
 import 'react-day-picker/lib/style.css';
 
-
-// "css-loader": "^5.0.1",
-// "style-loader": "^2.0.0"
 
 
 class BookingForm extends React.Component{
@@ -28,14 +20,11 @@ class BookingForm extends React.Component{
         this.calDays = this.calDays.bind(this);
         this.changeCheckinDate = this.changeCheckinDate.bind(this)
         this.changeCheckoutDate = this.changeCheckoutDate.bind(this)
-
-        // this.today = this.today.bind(this)
     }
 
     handleDate(type){
         return(e) =>{
             this.setState({[type]:e.currentTarget.value})
-            console.log(Number(e.currentTarget.value.split("-").join("")))
         }
     }
 
@@ -49,7 +38,6 @@ class BookingForm extends React.Component{
     changeCheckoutDate(day){
         if (day !== undefined){
             this.setState({checkout_date:day})
-            // console.log(day.toLocaleDateString().split("/"))
         }
     }
 
@@ -86,7 +74,6 @@ class BookingForm extends React.Component{
                 let end = this.state.checkout_date.toLocaleDateString().split("/")
                 const temp = this.calDays(end,start) * this.props.spot.price
                 this.setState({total_price: temp})
-            
                 const newState = Object.assign({},this.state)
                 this.props.createBooking(newState)
                     .then(()=> this.props.history.push(`/users/${this.props.currentUserId}/bookings`))
@@ -110,7 +97,6 @@ class BookingForm extends React.Component{
         const today = new Date();
         if (this.state.checkin_date && this.state.checkout_date){
             if(this.state.checkout_date.toLocaleDateString() === this.state.checkin_date.toLocaleDateString()){
-                    // console.log(this.calDays(this.state.checkout_date.toLocaleDateString().split("/"),this.state.checkin_date.toLocaleDateString().split("/")))
                 this.error = (
                     <div id="error">
                         Please select valid checkout date
@@ -144,14 +130,12 @@ class BookingForm extends React.Component{
 
                 <div className="booking-infor-div">
                     <div className="checkin-div">
-                        {/* <input type="date" className="day-input" min={0} onChange={this.handleDate("checkin_date")}/> */}
                         <div className="check">Check In</div>
                         <DayPickerInput inputProps={{ style: { width: 99, height: 40, border: "none",outline: 'none'} }}  dayPickerProps={{disabledDays: { before: new Date() }}} placeholder="Select Date" onDayChange={this.changeCheckinDate}/>
                     </div>
                     <div className="checkout-div">
                         <div className="check">Check Out</div>
                         <DayPickerInput inputProps={{ style: { width: 99, height: 40, border: "none",outline: 'none'} }} dayPickerProps={{ disabledDays: { before: this.state.checkin_date }}} placeholder="Select Date" onDayChange={this.changeCheckoutDate}/>
-                        {/* <input type="date" className="day-input" placeholder="Check out" onChange={this.handleDate("checkout_date")}/> */}
                     </div>
 
                     <div className="guests-div">
@@ -163,7 +147,6 @@ class BookingForm extends React.Component{
                             <button className="increase" onClick={this.handleGuest("increase")}><i>+</i></button>
                         </div>
                     </div>
-                    
                 </div>
                 {currPrice}
                 <div className="sub-button-div"><button className="sub-button" onClick={this.handleSubmit}>Book</button></div>

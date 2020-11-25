@@ -4,10 +4,6 @@ import configureStore from "./store/store";
 import Root from './components/root';
 import { login, logout, signUp } from "./actions/session_actions";
 
-// test import
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
     let preloadedState = undefined;
@@ -22,8 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const store = configureStore(preloadedState);
 
     ReactDOM.render(<Root store={store}/>, root);
-
-    // Test Section
+    
     window.getState = store.getState;
     window.dispatch = store.dispatch;
     window.signUp = signUp;

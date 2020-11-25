@@ -15,26 +15,23 @@ class MainBody extends React.Component{
 
   render(){
     return (
-      // <body>
-          <div className="main-body">
-            <div className="search-bar">
-              <div className="content-above">
-                  <h1>Find yourself outside.</h1>
-                  <div className="intro"> 
-                    <p>Discover and book tent camping, RV parks, cabins,</p>
-                    <p>treehouses, and glamping—everywhere from national</p>
-                    <p>parks to blueberry farms.</p>
-                  </div>
+      <div className="main-body">
+        <div className="search-bar">
+          <div className="content-above">
+              <h1>Find yourself outside.</h1>
+              <div className="intro"> 
+                <p>Discover and book tent camping, RV parks, cabins,</p>
+                <p>treehouses, and glamping—everywhere from national</p>
+                <p>parks to blueberry farms.</p>
               </div>
-              <SearchContainer/>
-            </div>
-            
-            <div className="campsites-index-div">
-              <CampsiteIndexContainer />
-            </div>
-            {/* <Footer/> */}
           </div>
-      // </body>
+          <SearchContainer/>
+        </div>
+        
+        <div className="campsites-index-div">
+          <CampsiteIndexContainer />
+        </div>
+      </div>
     )
   }
 }

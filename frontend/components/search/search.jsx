@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import DayPickerInput from 'react-day-picker/DayPickerInput';
-// import "react-day-picker/lib/style.css";
 
 class Search extends React.Component{
   constructor(props){
@@ -67,7 +65,6 @@ class Search extends React.Component{
     }))
   }
 
-
   render(){
     if(Object.values(this.props.campsites) != null){
       Object.values(this.props.campsites).forEach(campsite=>{
@@ -89,17 +86,6 @@ class Search extends React.Component{
                   </ul> : null}
               </div>
             </div>
-            {/* <div className="date-div">
-              <input type="date" placeholder="Enter dates"></input>
-            </div>
-            <div className="type-div"> 
-              <select>
-                <option value="ALL LISTINGS">ALL LISTINGS</option>
-                <option value="camping">Camping</option>
-                <option value="glamping">Glamping</option>
-                <option value="RV_sites">RV sites</option>
-              </select>
-            </div> */}
             <Link className="link" to={`/campsites/${this.state.id}`}><button>Search</button></Link>
           </div>
         </form>

@@ -50,7 +50,6 @@ class Login extends React.Component {
     };
     return (
       <div className="login-form" style={sectionStyle}>
-        {/* <img className="log-sign-img" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/loginbackground.jpg"></img> */}
         <h2>Welcome back!</h2>
         <p>Let's get you outside.</p>
         <form>

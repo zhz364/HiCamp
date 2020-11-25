@@ -33,11 +33,9 @@ export const clearErrors = () =>{
 export const login = (user) => (dispatch) => {
     return SessionUtil.login(user)
         .then((payload) => {
-            // debugger;
             return dispatch(receiveCurrentUser(payload));
         })
         .fail((payload) => {
-            // debugger
             return dispatch(receiveError(payload));
         });
 };
