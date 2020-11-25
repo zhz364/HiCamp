@@ -9,10 +9,15 @@ import SpotIndexContainer from "./spots/spot_index_container";
 import SpotShowContainer from "./spots/spot_show_container"
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Footer from "./footer"
+import ReactGA from 'react-ga';
 
-
+function initializeReactGA() {
+    ReactGA.initialize('G-CHQT4SX1X4');
+    ReactGA.pageview('/');
+}
 
 const App =() =>{
+    initializeReactGA()
     return(
         <div>
             <Route path="/" component={NavBarContainer}/>
