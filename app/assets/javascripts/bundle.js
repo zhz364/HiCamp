@@ -463,7 +463,7 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       checkin_date: undefined,
       checkout_date: undefined,
       nums_guest: 1,
-      total_price: _this.props.spot.price
+      total_price: undefined
     };
     _this.handleDate = _this.handleDate.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -537,16 +537,18 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
       if (this.props.currentUserId === undefined) {
         this.props.history.push("/login");
       } else {
-        if (this.state.checkin_date && this.state.checkout_date && this.calDays(this.state.checkout_date.toLocaleDateString().split("/"), this.state.checkin_date.toLocaleDateString().split("/")) > 0 && this.state.checkout_date !== this.state.checkin_date) {
+        if (this.state.checkin_date && this.state.checkout_date && this.state.checkout_date !== this.state.checkin_date) {
           var start = this.state.checkin_date.toLocaleDateString().split("/");
           var end = this.state.checkout_date.toLocaleDateString().split("/");
-          var temp = this.calDays(end, start) * this.props.spot.price;
+          var totalPrice = this.calDays(end, start) * this.props.spot.price;
           this.setState({
-            total_price: temp
-          });
-          var newState = Object.assign({}, this.state);
-          this.props.createBooking(newState).then(function () {
-            return _this4.props.history.push("/users/".concat(_this4.props.currentUserId, "/bookings"));
+            total_price: totalPrice
+          }, function () {
+            var newState = Object.assign({}, _this4.state);
+
+            _this4.props.createBooking(newState).then(function () {
+              return _this4.props.history.push("/users/".concat(_this4.props.currentUserId, "/bookings"));
+            });
           });
         }
       }
@@ -567,7 +569,6 @@ var BookingForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var currPrice = null;
       this.error = null;
-      var today = new Date();
 
       if (this.state.checkin_date && this.state.checkout_date) {
         if (this.state.checkout_date.toLocaleDateString() === this.state.checkin_date.toLocaleDateString()) {

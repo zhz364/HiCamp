@@ -13,13 +13,13 @@ class BookingForm extends React.Component{
             checkin_date: undefined,
             checkout_date: undefined,
             nums_guest: 1,
-            total_price: this.props.spot.price
+            total_price: undefined 
         }
         this.handleDate = this.handleDate.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.calDays = this.calDays.bind(this);
-        this.changeCheckinDate = this.changeCheckinDate.bind(this)
-        this.changeCheckoutDate = this.changeCheckoutDate.bind(this)
+        this.changeCheckinDate = this.changeCheckinDate.bind(this);
+        this.changeCheckoutDate = this.changeCheckoutDate.bind(this);
     }
 
     handleDate(type){
@@ -42,7 +42,6 @@ class BookingForm extends React.Component{
     }
 
     handleGuest(type){
-        
         return()=>{
             if (type === "decrease" && this.state.nums_guest > 1){
                 this.setState({nums_guest: this.state.nums_guest -1})
@@ -51,7 +50,6 @@ class BookingForm extends React.Component{
             if (type === "increase" && this.state.nums_guest < this.props.spot.capacity){
                 this.setState({nums_guest: this.state.nums_guest + 1})
             }
-
         }
     }
 
@@ -68,15 +66,17 @@ class BookingForm extends React.Component{
         if(this.props.currentUserId === undefined){
             this.props.history.push("/login")
         }else{
-            if( (this.state.checkin_date && this.state.checkout_date) && (this.calDays(this.state.checkout_date.toLocaleDateString().split("/"),this.state.checkin_date.toLocaleDateString().split("/"))>0) 
+            if( (this.state.checkin_date && this.state.checkout_date) 
                 && this.state.checkout_date !== this.state.checkin_date){
                 let start = this.state.checkin_date.toLocaleDateString().split("/")
                 let end = this.state.checkout_date.toLocaleDateString().split("/")
-                const temp = this.calDays(end,start) * this.props.spot.price
-                this.setState({total_price: temp})
-                const newState = Object.assign({},this.state)
-                this.props.createBooking(newState)
-                    .then(()=> this.props.history.push(`/users/${this.props.currentUserId}/bookings`))
+                const totalPrice = this.calDays(end,start) * this.props.spot.price
+                this.setState({total_price: totalPrice}, () => {
+                    const newState = Object.assign({},this.state)
+                    this.props.createBooking(newState)
+                        .then(()=> this.props.history.push(`/users/${this.props.currentUserId}/bookings`))
+                })
+                
             }
         }
     }
@@ -84,7 +84,6 @@ class BookingForm extends React.Component{
     validDates(){
         const co = this.state.checkout_date.toLocaleDateString().split("/");
         const ci = this.state.checkin_date.toLocaleDateString().split("/")
-
     }
     
     componentDidMount(){
@@ -94,7 +93,6 @@ class BookingForm extends React.Component{
     render(){
         let currPrice = null;
         this.error = null
-        const today = new Date();
         if (this.state.checkin_date && this.state.checkout_date){
             if(this.state.checkout_date.toLocaleDateString() === this.state.checkin_date.toLocaleDateString()){
                 this.error = (
