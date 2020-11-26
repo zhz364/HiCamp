@@ -31,7 +31,7 @@ export const clearErrors = () => ({
 });
 
 export const fetchReviews = (spotId) => (dispatch)=> {
-    return reviewAPIUtil.fetchReviews(spotId)
+    return reviewUtil.fetchReviews(spotId)
         .then((reviews) => dispatch(receiveAllReviews(reviews)), (errors) => dispatch(receiveErrors(errors.responseJSON)));
 }
 

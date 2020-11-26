@@ -262,7 +262,7 @@ var clearErrors = function clearErrors() {
 };
 var fetchReviews = function fetchReviews(spotId) {
   return function (dispatch) {
-    return reviewAPIUtil.fetchReviews(spotId).then(function (reviews) {
+    return _util_review_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchReviews"](spotId).then(function (reviews) {
       return dispatch(receiveAllReviews(reviews));
     }, function (errors) {
       return dispatch(receiveErrors(errors.responseJSON));
@@ -1569,17 +1569,19 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
   function ReviewIndex(props) {
     _classCallCheck(this, ReviewIndex);
 
-    return _super.call(this, props); // console.log(this.props.spot.id)
+    return _super.call(this, props);
   }
 
   _createClass(ReviewIndex, [{
     key: "componentDidMount",
-    value: function componentDidMount() {// this.props.fetchReviews(this.props.match.params.spotId);
+    value: function componentDidMount() {
+      this.props.fetchReviews(this.props.spot.id);
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "reviewindex");
+      console.log(this.props);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "reviewindex", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null));
     }
   }]);
 
