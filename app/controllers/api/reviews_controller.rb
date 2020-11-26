@@ -2,7 +2,7 @@ class Api::ReviewsController < ApplicationController
     def index
         @reviews = Review.where(spot_id: params[:spot_id])
         if @reviews.length > 0
-            render :index
+            render "api/reviews/index"
         else 
             render json: {}
         end 
@@ -11,7 +11,7 @@ class Api::ReviewsController < ApplicationController
     def create
         @review = Review.new(reviewParams)
         if @review.save
-            render :show
+            render "api/reviews/show"
         else 
             render json: @review.errors.full_messages, status: 400
         end 
@@ -20,7 +20,7 @@ class Api::ReviewsController < ApplicationController
     def update
         @review = Review.find(params[:id])
         if @review.update_attributes(reviewParams)
-            render :show
+            render "api/reviews/show"
         else 
             render json: @review.errors.full_messages, status: 400
         end 
@@ -29,7 +29,7 @@ class Api::ReviewsController < ApplicationController
     def destroy
         @review = Review.find(params[:id]) 
         if @review.destroy
-            render :show
+            render "api/reviews/show"
         else
             render json: @review.errors.full_messages, status: 404
         end

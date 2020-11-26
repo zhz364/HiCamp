@@ -108,3 +108,4 @@ checkin = DateTime.new(2020,7,27)
 checkout = DateTime.new(2020,7,28)
 
 Booking.create(user_id: demoUser.id, spot_id: spot1.id, checkin_date: checkin, checkout_date: checkout, nums_guest: 1, total_price: 20)
+Review.create(user_id: demoUser.id, spot_id: spot1.id,title:"test1",body:"this is a review")
