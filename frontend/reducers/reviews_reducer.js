@@ -15,8 +15,6 @@ const reviewsReducer = (oldState = {}, action) => {
             return action.errors;
         case CLEAR_REVIEW_ERRORS:
             return [];
-        default: 
-            return state; 
         default:
             return oldState;
     }
