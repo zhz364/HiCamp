@@ -7,6 +7,10 @@ class Spot < ApplicationRecord
         class_name: :Booking,
         dependent: :destroy
 
+    has_many :reviews,
+        foreign_key: :spot_id, 
+        class_name: :Review
+
     belongs_to :campsite,
         foreign_key: :campsite_id,
         class_name: :Campsite

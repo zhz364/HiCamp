@@ -8,6 +8,10 @@ class User < ApplicationRecord
         class_name: :Booking,
         dependent: :destroy
 
+    has_many :reviews,
+        foreign_key: :user_id,
+        class_name: :Review
+
     before_validation :ensure_session_token
 
     attr_reader :password
