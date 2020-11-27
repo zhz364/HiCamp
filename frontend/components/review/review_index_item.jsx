@@ -3,14 +3,22 @@ import React from "react";
 class ReviewIndexItem extends React.Component{
     constructor(props){
         super(props)
-        debugger
     }
     render(){
-        // console.log(this.props.review)
+        console.log(this.props)
+        let userIcon = undefined
         return(
             <div>
-                <div>{this.props.review.title}</div>
-                <div>{this.props.review.body}</div>
+                {this.props.users.forEach(user => {
+                    if (user.id === this.props.review.user_id){
+                        userIcon = <div> {user.email}</div>
+                    }
+                })}
+                <div>
+                    {userIcon}
+                    <div>{this.props.review.title}</div>
+                    <div>{this.props.review.body}</div>
+                </div>
             </div>
         )
     }

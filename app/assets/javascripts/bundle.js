@@ -1624,10 +1624,14 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "reviewindex", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.reviews.map(function (review, idx) {
+      var _this = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.reviews.map(function (review, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: idx,
-          review: review
+          review: review,
+          users: Object.values(_this.props.users),
+          currentUser: _this.props.currentUser
         });
       })));
     }
@@ -1722,20 +1726,23 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(ReviewIndexItem);
 
   function ReviewIndexItem(props) {
-    var _this;
-
     _classCallCheck(this, ReviewIndexItem);
 
-    _this = _super.call(this, props);
-    debugger;
-    return _this;
+    return _super.call(this, props);
   }
 
   _createClass(ReviewIndexItem, [{
     key: "render",
     value: function render() {
-      // console.log(this.props.review)
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.review.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.review.body));
+      var _this = this;
+
+      console.log(this.props);
+      var userIcon = undefined;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.users.forEach(function (user) {
+        if (user.id === _this.props.review.user_id) {
+          userIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", user.email);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, userIcon, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.review.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.review.body)));
     }
   }]);
 
@@ -2080,7 +2087,7 @@ var Login = /*#__PURE__*/function (_React$Component) {
 
       e.preventDefault();
       var demoUser = {
-        username: "uzi",
+        username: "test1",
         password: "123456"
       };
       this.props.login(demoUser).then(function () {

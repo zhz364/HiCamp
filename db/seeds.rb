@@ -10,8 +10,9 @@ Campsite.destroy_all
 Spot.destroy_all
 Booking.destroy_all
 
-demoUser = User.create(first_name:"zihao", last_name:"jian", username:"uzi", password:"123456", zip:1, email:"uzi@lpl.com" )
+demoUser = User.create(first_name:"zihao", last_name:"jian", username:"uzi", password:"123456", zip:1, email:"https://hicamp-seed.s3-us-west-1.amazonaws.com/uzi.jpg" )
 user1 = User.create(first_name:"zhang", last_name:"zhang", username:"z", password:"123456", zip:1, email:"z" )
+user2 = User.create(first_name:"z", last_name:"z", username:"test1", password:"123456", zip:1, email:"https://hicamp-seed.s3-us-west-1.amazonaws.com/userIcon.png" )
 
 campsite1 = Campsite.create(title:"Rocky Mountain",img_url:"ss", latitude:44.46, longitude:-110.83, address:"Colorado", description:"With more than 100 peaks, 
                             this corner of the Rockies is chock-full of jaw-dropping vistas. Over 350 miles of hiking trails and 147 lakes are just begging to be explored. It earns bonus points for being open 24/7. Imagine catching a mountain sunrise 

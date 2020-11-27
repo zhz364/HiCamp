@@ -32,7 +32,7 @@ class Login extends React.Component {
   handleDemo(e){
     e.preventDefault();
     let demoUser = {
-      username: "uzi",
+      username: "test1",
       password: "123456"
     }
 
