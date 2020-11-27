@@ -1,0 +1,33 @@
+.reviews-index-div{
+    display: flex;
+    border: 1px solid rgba(0,0,0,0.1);
+    align-items: center;
+    .review-div{
+        display: flex;
+        flex-direction: column;
+        padding-left: 2em;
+    }
+    .body-time-div{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1em;
+        width: 57.2em;
+        // border: 1px solid  red;
+    }
+    .time{
+        margin-top: 2em;
+    }
+    .auth-icon{
+        display: flex;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 1px solid  rgba(0,0,0,0.1);
+        img{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            // border: 1px solid red;
+        }
+    }
+}
