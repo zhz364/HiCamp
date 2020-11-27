@@ -425,6 +425,47 @@ var fetchSpot = function fetchSpot(id) {
 
 /***/ }),
 
+/***/ "./frontend/actions/user_action.js":
+/*!*****************************************!*\
+  !*** ./frontend/actions/user_action.js ***!
+  \*****************************************/
+/*! exports provided: RECEIVE_ALL_USERS, RECEIVE_USER, fetchAllUsers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_USERS", function() { return RECEIVE_ALL_USERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USER", function() { return RECEIVE_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllUsers", function() { return fetchAllUsers; });
+/* harmony import */ var _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/user_api_util */ "./frontend/util/user_api_util.js");
+
+var RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
+var RECEIVE_USER = 'RECEIVE_USER';
+
+var receiveAllUsers = function receiveAllUsers(users) {
+  return {
+    type: RECEIVE_ALL_USERS,
+    users: users
+  };
+};
+
+var receiveUser = function receiveUser(user) {
+  return {
+    type: RECEIVE_USER,
+    user: user
+  };
+};
+
+var fetchAllUsers = function fetchAllUsers() {
+  return function (dispatch) {
+    return _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllUsers"]().then(function (users) {
+      return dispatch(receiveAllUsers(users));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/components/app.jsx":
 /*!*************************************!*\
   !*** ./frontend/components/app.jsx ***!
@@ -1578,6 +1619,7 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchReviews(this.props.spot.id);
+      this.props.fetchAllUsers();
     }
   }, {
     key: "render",
@@ -1610,6 +1652,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _review_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./review_index */ "./frontend/components/review/review_index.jsx");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var _actions_user_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/user_action */ "./frontend/actions/user_action.js");
+
 
 
 
@@ -1626,6 +1670,9 @@ var mdtp = function mdtp(dispatch) {
   return {
     fetchReviews: function fetchReviews(spotId) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["fetchReviews"])(spotId));
+    },
+    fetchAllUsers: function fetchAllUsers() {
+      return dispatch(Object(_actions_user_action__WEBPACK_IMPORTED_MODULE_3__["fetchAllUsers"])());
     }
   };
 };
@@ -3517,6 +3564,8 @@ var spotsReducer = function spotsReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_user_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/user_action */ "./frontend/actions/user_action.js");
+
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -3528,6 +3577,12 @@ __webpack_require__.r(__webpack_exports__);
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       nextState[action.payload.id] = action.payload;
       return nextState;
+
+    case _actions_user_action__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_USERS"]:
+      return action.users;
+
+    case _actions_user_action__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USER"]:
+      return nextState[action.payload.id] = action.payload;
 
     default:
       return state;
@@ -3794,6 +3849,24 @@ var fetchSpot = function fetchSpot(spotId) {
   return $.ajax({
     method: 'GET',
     url: "api/spots/".concat(spotId)
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/user_api_util.js":
+/*!****************************************!*\
+  !*** ./frontend/util/user_api_util.js ***!
+  \****************************************/
+/*! exports provided: fetchAllUsers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllUsers", function() { return fetchAllUsers; });
+var fetchAllUsers = function fetchAllUsers() {
+  return $.ajax({
+    url: '/api/users'
   });
 };
 

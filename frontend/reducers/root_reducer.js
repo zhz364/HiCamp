@@ -12,8 +12,6 @@ const rootReducer = combineReducers({
     errors: errorsReducer,
     campsites: campsitesReducer,
     spots: spotsReducer,
-
-
 });
 
 export default rootReducer;
