@@ -1621,7 +1621,7 @@ var CreateReviewForm = /*#__PURE__*/function (_React$Component) {
       user_id: _this.props.currentUserId,
       spot_id: _this.props.match.params.spotId,
       title: "",
-      body: " "
+      body: ""
     };
     _this.handleInput = _this.handleInput.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -1640,18 +1640,15 @@ var CreateReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(event) {
-      var _this3 = this;
-
       if (this.props.currentUserId === undefined) {
         this.props.history.push("/login");
       } else {
         event.preventDefault();
         var newState = Object.assign({}, this.state);
-        this.props.createReview(newState).then(function () {
-          _this3.setState({
-            title: "",
-            body: ""
-          });
+        this.props.createReview(newState);
+        this.setState({
+          title: "",
+          body: ''
         });
       }
     }
@@ -1662,17 +1659,10 @@ var CreateReviewForm = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
-      var error = undefined;
-
-      if (this.state.body === "") {
-        error = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Review body can not be empty");
-      } else {
-        error = null;
-      }
-
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-review-div"
-      }, error, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Post an review"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "create-review",
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleInput('title'),
@@ -1684,6 +1674,7 @@ var CreateReviewForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "Leave a review for this spot",
         value: this.state.body
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        disabled: !this.state.body,
         type: "submit"
       }, "Submit")));
     }
@@ -1912,6 +1903,12 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
       console.log(this.props);
       var userIcon = undefined;
       var option = undefined;
+      var dateOptions = {
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+      };
+      var date = new Date(this.props.review.created_at).toLocaleDateString("en-US", dateOptions);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviews-index-div"
       }, this.props.users.forEach(function (user) {
@@ -1932,7 +1929,7 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.review.body)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "time"
-      }, "Create at: ", this.props.review.created_at.slice(0, 10)))));
+      }, "On ", date))));
     }
   }]);
 

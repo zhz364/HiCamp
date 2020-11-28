@@ -1,6 +1,6 @@
 .reviews-index-div{
     display: flex;
-    border: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     align-items: center;
     .review-div{
         display: flex;
@@ -12,10 +12,10 @@
         justify-content: space-between;
         margin-top: 1em;
         width: 57.2em;
-        // border: 1px solid  red;
     }
     .time{
-        margin-top: 2em;
+        width: 270px;
+        color: grey;
     }
     .auth-icon{
         display: flex;
@@ -28,6 +28,22 @@
             height: 70px;
             border-radius: 50%;
             // border: 1px solid red;
+        }
+    }
+    .body{
+        display: flex;
+        position: relative;
+        // border: 1px solid  blue;
+        width: inherit;
+        overflow-wrap: break-word;
+        p{
+            position: absolute;
+            margin: 0;
+            // border: 1px solid  red;
+            width: 100%;
+            height: inherit;
+            
+            
         }
     }
 }

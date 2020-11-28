@@ -8,10 +8,8 @@ class CreateReviewForm extends React.Component{
             user_id: this.props.currentUserId,
             spot_id: this.props.match.params.spotId,
             title: "",
-            body: " "
+            body: ""
         }
-       
-    
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -26,11 +24,9 @@ class CreateReviewForm extends React.Component{
             event.preventDefault();
             const newState = Object.assign({}, this.state);
             this.props.createReview(newState)
-                .then(() => {
-                this.setState({
-                    title: "",
-                    body: "", 
-                });
+            this.setState({
+                title: "",
+                body: '', 
             });
         }
     }
@@ -38,16 +34,11 @@ class CreateReviewForm extends React.Component{
         if (!this.props.currentUserId){
             return null
         }
-        let error = undefined
-        if (this.state.body === ""){
-            error = <div>Review body can not be empty</div>
-        }else{
-            error = null
-        }
+    
         return(
             <div className="create-review-div">
-                {error}
-                <form onSubmit={this.handleSubmit}>
+                <h3>Post an review</h3>
+                <form className="create-review" onSubmit={this.handleSubmit}>
                     <input
                         onChange={this.handleInput('title')}
                         type="text"
@@ -60,7 +51,7 @@ class CreateReviewForm extends React.Component{
                         placeholder="Leave a review for this spot"
                         value={this.state.body}
                     />
-                    <button type="submit">Submit</button>
+                    <button disabled={!this.state.body} type="submit">Submit</button>
                 </form>
             </div>
         )

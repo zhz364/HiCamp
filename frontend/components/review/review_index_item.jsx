@@ -8,6 +8,8 @@ class ReviewIndexItem extends React.Component{
         console.log(this.props)
         let userIcon = undefined
         let option = undefined
+        const dateOptions = { month: "long", day: "numeric", year: "numeric" };
+        const date = new Date(this.props.review.created_at).toLocaleDateString("en-US", dateOptions); 
         
         return(
             <div className="reviews-index-div">
@@ -24,7 +26,7 @@ class ReviewIndexItem extends React.Component{
                     <div className="body-time-div">
                         <div className="body" ><p>{this.props.review.body}</p></div>
                         <div className="time">
-                            Create at: {this.props.review.created_at.slice(0,10)}
+                            On {date}
                         </div>  
                     </div>
                 </div>
