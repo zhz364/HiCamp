@@ -1,5 +1,6 @@
 import React from "react";
 import ReviewIndexItem from "./review_index_item"
+import CreateReviewFormContainer from "./create_review_form_container"
 
 class ReviewIndex extends React.Component{
     constructor(props){
@@ -20,6 +21,7 @@ class ReviewIndex extends React.Component{
                         <ReviewIndexItem key={idx} review={review} users={Object.values(this.props.users)} currentUser={this.props.currentUser}/>
                     ))}
                 </ul>
+                <CreateReviewFormContainer/>
             </div>
         )
     }
