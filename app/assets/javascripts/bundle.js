@@ -1795,7 +1795,8 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
           key: idx,
           review: review,
           users: Object.values(_this.props.users),
-          currentUser: _this.props.currentUser
+          currentUser: _this.props.currentUser,
+          deleteReview: _this.props.deleteReview
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_create_review_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
@@ -1841,6 +1842,9 @@ var mdtp = function mdtp(dispatch) {
     },
     fetchAllUsers: function fetchAllUsers() {
       return dispatch(Object(_actions_user_action__WEBPACK_IMPORTED_MODULE_3__["fetchAllUsers"])());
+    },
+    deleteReview: function deleteReview(reviewId) {
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["deleteReview"])(reviewId));
     }
   };
 };
@@ -1902,13 +1906,22 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
 
       // console.log(this.props)
       var userIcon = undefined;
-      var option = undefined;
+      var delBtn = null;
       var dateOptions = {
         month: "long",
         day: "numeric",
         year: "numeric"
       };
       var date = new Date(this.props.review.created_at).toLocaleDateString("en-US", dateOptions);
+
+      if (this.props.currentUser.id === this.props.review.user_id) {
+        delBtn = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this.props.deleteReview(_this.props.review.id);
+          }
+        }, "Delete");
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviews-index-div"
       }, this.props.users.forEach(function (user) {
@@ -1928,8 +1941,10 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.review.body)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "time-and-btns"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "time"
-      }, "On ", date))));
+      }, "On ", date), delBtn))));
     }
   }]);
 

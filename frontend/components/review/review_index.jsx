@@ -18,7 +18,11 @@ class ReviewIndex extends React.Component{
                 <h2>Reviews</h2>
                 <ul>
                     {this.props.reviews.map((review,idx)=>(
-                        <ReviewIndexItem key={idx} review={review} users={Object.values(this.props.users)} currentUser={this.props.currentUser}/>
+                        <ReviewIndexItem key={idx} 
+                            review={review} 
+                            users={Object.values(this.props.users)} 
+                            currentUser={this.props.currentUser}
+                            deleteReview={this.props.deleteReview}/>
                     ))}
                 </ul>
                 <CreateReviewFormContainer/>
