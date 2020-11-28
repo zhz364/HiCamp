@@ -1900,7 +1900,7 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      console.log(this.props);
+      // console.log(this.props)
       var userIcon = undefined;
       var option = undefined;
       var dateOptions = {

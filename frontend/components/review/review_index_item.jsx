@@ -5,7 +5,7 @@ class ReviewIndexItem extends React.Component{
         super(props)
     }
     render(){
-        console.log(this.props)
+        // console.log(this.props)
         let userIcon = undefined
         let option = undefined
         const dateOptions = { month: "long", day: "numeric", year: "numeric" };
