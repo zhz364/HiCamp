@@ -3004,7 +3004,9 @@ var SpotIndex = /*#__PURE__*/function (_React$Component) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_spot_index_item__WEBPACK_IMPORTED_MODULE_0__["default"], {
             key: spot.id,
             spot: spot,
-            idx: idx + 1
+            idx: idx + 1,
+            fetchReviews: _this5.props.fetchReviews,
+            reviews: _this5.props.reviews
           });
         }
       })), count === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -3038,6 +3040,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
 /* harmony import */ var _spot_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_index */ "./frontend/components/spots/spot_index.jsx");
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+
 
 
 
@@ -3045,7 +3049,8 @@ __webpack_require__.r(__webpack_exports__);
 var mstp = function mstp(state, ownProps) {
   return {
     spots: Object.values(state.spots),
-    campsiteId: ownProps.match.params.campsiteId
+    campsiteId: ownProps.match.params.campsiteId,
+    reviews: Object.values(state.entities.reviews)
   };
 };
 
@@ -3053,6 +3058,9 @@ var mdtp = function mdtp(dispatch) {
   return {
     fetchSpots: function fetchSpots() {
       return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpots"])());
+    },
+    fetchReviews: function fetchReviews(spotId) {
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_3__["fetchReviews"])(spotId));
     }
   };
 };
@@ -3110,8 +3118,25 @@ var SpotIndexItem = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(SpotIndexItem, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchReviews(this.props.spot.id);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
+      var numReviews = 0;
+
+      if (this.props.reviews.length > 0) {
+        this.props.reviews.forEach(function (review) {
+          if (review.spot_id === _this.props.spot.id) {
+            numReviews += 1;
+          }
+        });
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-index-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3178,7 +3203,7 @@ var SpotIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "percentage"
       }, "100% "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviews"
-      }, "777 Reviews "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, numReviews, " Reviews "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-price"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "$", this.props.spot.price, " / Night"))))));
     }

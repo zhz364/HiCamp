@@ -115,7 +115,7 @@ class SpotIndex extends React.Component{
                                 if(this.compareValues(spot.campsite_id,parseInt(campId))){
                                     count++;
                                     newSpots.push(spot)
-                                    return <SpotIndexItem key={spot.id} spot={spot} idx={idx+1}/>
+                                    return <SpotIndexItem key={spot.id} spot={spot} idx={idx+1} fetchReviews={this.props.fetchReviews} reviews={this.props.reviews}/>
                                 }
                             })}
                         </div>

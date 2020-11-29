@@ -6,7 +6,19 @@ class SpotIndexItem extends React.Component{
         super(props)
     }
 
+    componentDidMount(){
+        this.props.fetchReviews(this.props.spot.id)
+    }
+
     render(){
+        let numReviews = 0
+        if(this.props.reviews.length > 0){
+            this.props.reviews.forEach(review => {
+                if(review.spot_id === this.props.spot.id){
+                    numReviews +=1
+                }
+            });
+        }
         return(
         <div className="spot-index-item" > 
             <div className="spot-img-div">
@@ -43,7 +55,7 @@ class SpotIndexItem extends React.Component{
                             <div className="thumbs-likes">
                                 <img className="thumbs-up-icon-div" src="https://cabins-seeds.s3.amazonaws.com/thumbs-up-green.svg" />   
                                 <div className="percentage">100% </div> 
-                                <div className="reviews">777 Reviews </div>
+                                <div className="reviews">{numReviews} Reviews </div>
                             </div>
                         </div>
                         <div className="spot-price"><span>${this.props.spot.price} / Night</span></div>
