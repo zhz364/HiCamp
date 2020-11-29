@@ -22,7 +22,9 @@ class ReviewIndex extends React.Component{
                             review={review} 
                             users={Object.values(this.props.users)} 
                             currentUser={this.props.currentUser}
-                            deleteReview={this.props.deleteReview}/>
+                            deleteReview={this.props.deleteReview}
+                            spotId={this.props.spot.id}
+                            updateReview={this.props.updateReview}/>
                     ))}
                 </ul>
                 <CreateReviewFormContainer/>
