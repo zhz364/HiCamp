@@ -10,9 +10,18 @@ class SpotShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchSpot(this.props.match.params.spotId)
+        this.props.fetchReviews(this.props.match.params.spotId)
     }
 
     render(){
+        let numReviews = 0
+        if(this.props.reviews.length > 0){
+            this.props.reviews.forEach(review => {
+                if(review.spot_id === this.props.spot.id){
+                    numReviews +=1
+                }
+            });
+        }
         if (this.props.spot){
             return (
                 <div className="spot-show-div">
@@ -37,7 +46,7 @@ class SpotShow extends React.Component{
                                 </div>
                                 <div className="thumb-div">
                                     <div>
-                                        <p className="thumbs-likes"><img className="thumbs-up-icon-div" src="https://cabins-seeds.s3.amazonaws.com/thumbs-up-green.svg" />   <span className="percentage">100%</span> - 777 Reviews</p>
+                                        <p className="thumbs-likes"><img className="thumbs-up-icon-div" src="https://cabins-seeds.s3.amazonaws.com/thumbs-up-green.svg" />   <span className="percentage">100%</span> - {numReviews} Reviews</p>
                                     </div>
                                 </div>
                             </div>

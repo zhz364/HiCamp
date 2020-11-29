@@ -3378,10 +3378,23 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchSpot(this.props.match.params.spotId);
+      this.props.fetchReviews(this.props.match.params.spotId);
     }
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
+      var numReviews = 0;
+
+      if (this.props.reviews.length > 0) {
+        this.props.reviews.forEach(function (review) {
+          if (review.spot_id === _this.props.spot.id) {
+            numReviews += 1;
+          }
+        });
+      }
+
       if (this.props.spot) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "spot-show-div"
@@ -3415,7 +3428,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
           src: "https://cabins-seeds.s3.amazonaws.com/thumbs-up-green.svg"
         }), "   ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "percentage"
-        }, "100%"), " - 777 Reviews")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "100%"), " - ", numReviews, " Reviews")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-infor-div"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-img"
@@ -3491,13 +3504,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
 /* harmony import */ var _spot_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_show */ "./frontend/components/spots/spot_show.jsx");
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+
 
 
 
 
 var mstp = function mstp(state, ownProps) {
   return {
-    spot: state.spots[ownProps.match.params.spotId]
+    spot: state.spots[ownProps.match.params.spotId],
+    reviews: Object.values(state.entities.reviews)
   };
 };
 
@@ -3505,6 +3521,9 @@ var mdtp = function mdtp(dispath) {
   return {
     fetchSpot: function fetchSpot(spotId) {
       return dispath(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpot"])(spotId));
+    },
+    fetchReviews: function fetchReviews(spotId) {
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_3__["fetchReviews"])(spotId));
     }
   };
 };
