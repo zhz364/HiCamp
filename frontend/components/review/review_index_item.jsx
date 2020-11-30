@@ -3,13 +3,17 @@ import UpdateReviewFormContainer from "./update_review_form_container"
 class ReviewIndexItem extends React.Component{
     constructor(props){
         super(props)
-        this.state={
-            update:false,
-            id: this.props.review.id,
-            user_id: this.props.currentUser.id,
-            spot_id: this.props.spotId,
-            title: this.props.review.title,
-            body: this.props.review.body
+        if(this.props.currentUser === null){
+            this.state = {}
+        }else{
+            this.state={
+                update:false,
+                id: this.props.review.id,
+                user_id: this.props.currentUser.id,
+                spot_id: this.props.spotId,
+                title: this.props.review.title,
+                body: this.props.review.body
+            }
         }
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,10 +50,13 @@ class ReviewIndexItem extends React.Component{
         let cancelBtn =  null
         const dateOptions = { month: "long", day: "numeric", year: "numeric" };
         const date = new Date(this.props.review.created_at).toLocaleDateString("en-US", dateOptions); 
-        if(this.props.currentUser.id === this.props.review.user_id){
-            delBtn = (<button onClick={() => this.props.deleteReview(this.props.review.id)}>Delete</button>)
-            updateBtn = (<button onClick={this.handleUpdate}>Update</button>) 
+        if(this.props.currentUser){
+            if(this.props.currentUser.id === this.props.review.user_id){
+                delBtn = (<button onClick={() => this.props.deleteReview(this.props.review.id)}>Delete</button>)
+                updateBtn = (<button onClick={this.handleUpdate}>Update</button>) 
+            }
         }
+            
         if(this.state.update){
             cancelBtn = <button onClick={this.handleUpdate}>Cancel</button>
             update = (<div>

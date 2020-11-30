@@ -94,7 +94,7 @@ class SpotShow extends React.Component{
                                     </ul>
                                 </div>
                             </div>
-
+                
                             <div className="spot-reviews-div">
                                 <ReviewIndexContainer spot={this.props.spot}/>
                             </div>

@@ -1908,14 +1908,20 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ReviewIndexItem);
 
     _this = _super.call(this, props);
-    _this.state = {
-      update: false,
-      id: _this.props.review.id,
-      user_id: _this.props.currentUser.id,
-      spot_id: _this.props.spotId,
-      title: _this.props.review.title,
-      body: _this.props.review.body
-    };
+
+    if (_this.props.currentUser === null) {
+      _this.state = {};
+    } else {
+      _this.state = {
+        update: false,
+        id: _this.props.review.id,
+        user_id: _this.props.currentUser.id,
+        spot_id: _this.props.spotId,
+        title: _this.props.review.title,
+        body: _this.props.review.body
+      };
+    }
+
     _this.handleInput = _this.handleInput.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleUpdate = _this.handleUpdate.bind(_assertThisInitialized(_this));
@@ -1971,15 +1977,17 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
       };
       var date = new Date(this.props.review.created_at).toLocaleDateString("en-US", dateOptions);
 
-      if (this.props.currentUser.id === this.props.review.user_id) {
-        delBtn = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: function onClick() {
-            return _this3.props.deleteReview(_this3.props.review.id);
-          }
-        }, "Delete");
-        updateBtn = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: this.handleUpdate
-        }, "Update");
+      if (this.props.currentUser) {
+        if (this.props.currentUser.id === this.props.review.user_id) {
+          delBtn = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            onClick: function onClick() {
+              return _this3.props.deleteReview(_this3.props.review.id);
+            }
+          }, "Delete");
+          updateBtn = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            onClick: this.handleUpdate
+          }, "Update");
+        }
       }
 
       if (this.state.update) {
@@ -3511,6 +3519,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mstp = function mstp(state, ownProps) {
+  console.log(state);
   return {
     spot: state.spots[ownProps.match.params.spotId],
     reviews: Object.values(state.entities.reviews)
@@ -3523,7 +3532,7 @@ var mdtp = function mdtp(dispath) {
       return dispath(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpot"])(spotId));
     },
     fetchReviews: function fetchReviews(spotId) {
-      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_3__["fetchReviews"])(spotId));
+      return dispath(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_3__["fetchReviews"])(spotId));
     }
   };
 };
