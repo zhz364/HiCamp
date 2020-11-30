@@ -4,7 +4,7 @@ import SpotShow from "./spot_show"
 import { fetchReviews } from '../../actions/review_actions';
 
 const mstp = function(state, ownProps){
-    console.log(state)
+    // console.log(state)
     return{
         spot: state.spots[ownProps.match.params.spotId],
         reviews: Object.values(state.entities.reviews),

@@ -3519,7 +3519,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mstp = function mstp(state, ownProps) {
-  console.log(state);
+  // console.log(state)
   return {
     spot: state.spots[ownProps.match.params.spotId],
     reviews: Object.values(state.entities.reviews)
