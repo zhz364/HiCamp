@@ -74,8 +74,11 @@ class Login extends React.Component {
           </div>
             <button onClick={this.handleSubmit}>Log In!</button>
             <button onClick={this.handleDemo}>Demo user</button>
-        </form>
             <div className="foot-signup">Don't have a Hicamp account? <Link to="signup">Sign up!</Link></div>
+        </form>
+        <div className="empty">
+          
+        </div>
       </div>
     );
   }
