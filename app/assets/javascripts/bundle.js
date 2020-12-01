@@ -2775,7 +2775,9 @@ var Signup = /*#__PURE__*/function (_React$Component) {
         className: "link-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/login"
-      }, "Sign in!")))));
+      }, "Sign in!")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "empty"
+      }));
     }
   }]);
 
