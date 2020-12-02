@@ -31,7 +31,7 @@ class BookingIndex extends React.Component{
                 <div className="nums_booking">
                     {nums_booking}
                 </div>
-                <div className="booking_index_div">
+                <div className="booking_index">
                     {this.props.bookings.map((booking,idx)=>(
                         <BookingIndexItem key={idx} booking={booking} fetchSpot={this.props.fetchSpot} spots={this.props.spots} deleteBooking={this.props.deleteBooking}/>
                     ))}
