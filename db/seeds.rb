@@ -64,6 +64,12 @@ spot7 = Spot.create(name:"Vintage Rainbow Garden", camp_type:"rvsite",img_url:"a
 spot8 = Spot.create(name:"Full Circle Farm", camp_type:"glamping",img_url:"amazon", state_location:"California",host_id:demoUser.id,campsite_id:campsite3.id,price:85,capacity:3,longitude:-119.538330,latitude: 37.865101,description:"Brand new cedar 1 room rustic cabin with queen bed. Beatiful blue pine pitched ceiling with recessed lighting...very homey! Electicity.")
 spot9 = Spot.create(name:"Meadow Camping at D Acres Farm", camp_type:"camping",img_url:"amazon", state_location:"New Hampshire",host_id:demoUser.id,campsite_id:campsite2.id,price:106,capacity:4,longitude:-71.500000,latitude:44.000000,description:"Located in rural Dorchester, NH, our four season camping consists of beautiful meadow space and 200 acre forest and farm.")
 spot10 = Spot.create(name:"Wolf Swamp", camp_type:"rvsite",img_url:"amazon", state_location:"New Hampshire",host_id:demoUser.id,campsite_id:campsite2.id,price:89,capacity:4,longitude:-71.454391,latitude:43.008663,description:"Located in rural Dorchester, NH, our four season camping consists of beautiful meadow space and 200 acre forest and farm.")
+spot11 = Spot.create(name:"Camping Off The Grid", camp_type:"camping",img_url:"amazon", state_location:"Tennessee",host_id:demoUser.id,campsite_id:campsite4.id,price:29,capacity:3,longitude:-120.538528,latitude:38.067783,description:"Hi folks, Call 1 hr before arrival, if possible.  Our camp at Barbour Farms is approximately 1.5 miles off of US Highway 79 (Dover Rd), and is a quiet peaceful 80 acre setting to take in nature.")
+spot12 = Spot.create(name:"60's Surf Camper in Rockaway Beach!", camp_type:"rvsite",img_url:"amazon", state_location:"New York",host_id:demoUser.id,campsite_id:campsite5.id,price:90,capacity:2,longitude: -73.9902778,latitude:40.7183333,description:"Located in the heart of Rockaway Beach NYC, this vintage 1963 Shasta camper is perfect for a small getaway with a few pals to enjoy the sun and the surf!")
+spot13 = Spot.create(name:"Deer Creek Lakeside", camp_type:"camping",img_url:"amazon", state_location:"Texas",host_id:demoUser.id,campsite_id:campsite6.id,price:69,capacity:2,longitude:-111.5033,latitude:40.4083,description:"Located at the end of an unpaved road and adjacent to a small lake. Two RV Hookups (50 amp and 30 amp) on the same pole just installed.")
+
+
+
 
 spot1.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot11.jpg"), filename:"spot11.jpg")
 spot1.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot12.jpg"), filename:"spot12.jpg")
@@ -104,6 +110,19 @@ spot9.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spo
 spot10.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot101.jpg"), filename:"spot101.jpg")
 spot10.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot102.jpg"), filename:"spot102.jpg")
 spot10.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot103.jpg"), filename:"spot103.jpg")
+
+spot11.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot111.jpg"), filename:"spot111.jpg")
+spot11.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot112.jpg"), filename:"spot112.jpg")
+spot11.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot113.jpg"), filename:"spot113.jpg")
+
+
+spot12.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot121.jpg"), filename:"spot121.jpg")
+spot12.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot122.jpg"), filename:"spot122.jpg")
+spot12.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot123.jpg"), filename:"spot123.jpg")
+
+spot13.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot131.jpg"), filename:"spot131.jpg")
+spot13.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot132.jpg"), filename:"spot132.jpg")
+spot13.photos.attach(io: open("https://hicamp-seed.s3-us-west-1.amazonaws.com/spot133.jpg"), filename:"spot133.jpg")
 
 checkin = DateTime.new(2020,7,27)
 checkout = DateTime.new(2020,7,28)

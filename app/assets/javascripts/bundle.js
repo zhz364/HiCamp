@@ -2540,7 +2540,7 @@ var Login = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var sectionStyle = {
         width: "100%",
-        // height: "74vh",
+        // height: "70vh",
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundImage: "url(".concat("https://hicamp-seed.s3-us-west-1.amazonaws.com/background_img.jpg", ")")
