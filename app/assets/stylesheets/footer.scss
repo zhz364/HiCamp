@@ -3,16 +3,16 @@
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 20px;
-    .logo{
-        width: 150px;
-        margin-top: 2%;
-        margin-left: 6%;
+    .footer-logo{
+        display: flex;
+        width: 11em;
+        
     }
 }
-.footer-logo-div{
-    display: flex;
-    margin-left: 240px;
-}
+// .footer-logo-div{
+//     display: flex;
+//     margin-left: 15%;
+// }
 .about{
     display: flex;
     justify-content: space-around;

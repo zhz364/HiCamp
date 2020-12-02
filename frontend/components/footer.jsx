@@ -2,11 +2,12 @@ import React from "react"
 const Footer = ()=>{
     return (
         <div className="hip-footer">
-            <div className="footer-logo-div"> 
-                <img className="logo" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/hicamp2.PNG"/>
-            </div>
+            {/* <div className="footer-logo-div">  */}
+            {/* </div> */}
+
             <div className="about">
                 <div className="about-about">
+                    <img className="footer-logo" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/hicamp2.PNG"/>
                     <span className="bold">About</span>
                     <a href="https://github.com/zhz364" className="link" target="_blank"><div className="each-i">
                         <i className="fab fa-github"></i> 
