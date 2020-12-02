@@ -8,19 +8,21 @@ const Footer = ()=>{
             <div className="about">
                 <div className="about-about">
                     <img className="footer-logo" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/hicamp2.PNG"/>
-                    <span className="bold">About</span>
-                    <a href="https://github.com/zhz364" className="link" target="_blank"><div className="each-i">
-                        <i className="fab fa-github"></i> 
-                        <div>Github</div>
-                    </div></a>
-                    <a href="https://www.linkedin.com/in/zhang-zhang-0911/" className="link" target="_blank"><div className="each-i">
-                        <i className="fab fa-linkedin-in"></i>
-                        <div>LinkedIn</div>
-                    </div></a>
-                    <a href="https://www.facebook.com/profile.php?id=100005263395009" className="link" target="_blank"><div className="each-i">
-                        <i className="fab fa-facebook"></i>
-                        <div>facebook</div>
-                    </div></a>
+                    <span className="bold" style={{marginLeft: "10%"}}>About</span>
+                    <div className="my-links">
+                        <a href="https://github.com/zhz364" className="link" target="_blank"><div className="each-i">
+                            <i className="fab fa-github"></i> 
+                            <div>Github</div>
+                        </div></a>
+                        <a href="https://www.linkedin.com/in/zhang-zhang-0911/" className="link" target="_blank"><div className="each-i">
+                            <i className="fab fa-linkedin-in"></i>
+                            <div>LinkedIn</div>
+                        </div></a>
+                        <a href="https://www.facebook.com/profile.php?id=100005263395009" className="link" target="_blank"><div className="each-i">
+                            <i className="fab fa-facebook"></i>
+                            <div>facebook</div>
+                        </div></a>
+                    </div>
                 </div>
                 <div className="footer-hip-infor">
                     <div className="bold">Hicamp is the most comprehensive resource for unique outdoor stays.</div>
