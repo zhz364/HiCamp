@@ -2540,7 +2540,7 @@ var Login = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var sectionStyle = {
         width: "100%",
-        height: "100%",
+        // height: "74vh",
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundImage: "url(".concat("https://hicamp-seed.s3-us-west-1.amazonaws.com/background_img.jpg", ")")
@@ -2728,7 +2728,7 @@ var Signup = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var sectionStyle = {
         width: "100%",
-        height: "i100%",
+        // height: "90vh",
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundImage: "url(".concat("https://hicamp-seed.s3-us-west-1.amazonaws.com/background_img.jpg", ")")
