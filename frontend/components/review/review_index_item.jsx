@@ -61,7 +61,7 @@ class ReviewIndexItem extends React.Component{
             cancelBtn = <button onClick={this.handleUpdate}>Cancel</button>
             update = (<div>
                 <h3>Edit an review</h3>
-                <form className="create-review" onSubmit={this.handleSubmit}>
+                <form className="update-review" onSubmit={this.handleSubmit}>
                     <input
                         onChange={this.handleInput('title')}
                         type="text"

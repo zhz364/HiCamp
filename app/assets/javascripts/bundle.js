@@ -1995,7 +1995,7 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
           onClick: this.handleUpdate
         }, "Cancel");
         update = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Edit an review"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-          className: "create-review",
+          className: "update-review",
           onSubmit: this.handleSubmit
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           onChange: this.handleInput('title'),
@@ -3401,7 +3401,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
 
       if (this.props.reviews.length > 0) {
         this.props.reviews.forEach(function (review) {
-          if (review.spot_id === _this.props.spot.id) {
+          if (_this.props.spot && review.spot_id === _this.props.spot.id) {
             numReviews += 1;
           }
         });

@@ -17,7 +17,7 @@ class SpotShow extends React.Component{
         let numReviews = 0
         if(this.props.reviews.length > 0){
             this.props.reviews.forEach(review => {
-                if(review.spot_id === this.props.spot.id){
+                if(this.props.spot && review.spot_id === this.props.spot.id){
                     numReviews +=1
                 }
             });
