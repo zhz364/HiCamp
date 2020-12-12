@@ -57,8 +57,41 @@ Users can search for the name of a state in the search bar, and if there are cam
 <div>
     <img width="75%" src="https://hicamp-seed.s3-us-west-1.amazonaws.com/searching.gif">
 </div>
+ 
+Here's how I implemented real-time search
 
-
+ ```javascript
+handleChange(e){
+    e.preventDefault()
+    const value = e.currentTarget.value
+    let currAddress = []
+    const stateNames = Object.keys(this.allCampsites)
+    if(value !== ""){
+      stateNames.forEach(name =>{
+        if(name.toLowerCase().startsWith(value.toLowerCase())){
+          currAddress.push(name)
+        }
+      })
+      stateNames.forEach(name =>{
+        if(name.toLowerCase() === value.toLowerCase()){
+          this.setState(()=>({
+            id: this.allCampsites[name]
+          }))
+        }
+      })
+      this.setState(()=>({
+        address: currAddress,
+        text: value,
+        dropdown:true,
+        id:null
+      }))
+    }else{
+      this.setState(()=>({
+        dropdown:false,
+        text:""
+    }))}
+  }
+ ```
 ### Maps
 There are two types of maps, the first one will show all the spots in the same map and the user can click the mark, which will bring up the picture and name of the spot. This way the user can visually see where all the spots are in a particular campsite. 
 <div>
