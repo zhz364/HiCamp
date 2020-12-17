@@ -2,7 +2,7 @@
 
 HiCamp is a cool website for people who like camping and exploring a new spot before anyone else. <a href="https://hicamp-zz.herokuapp.com/#/">Click here for live demo.</a>
 
-HiCamp a full stack <a href="https://www.hipcamp.com"> Hipcamp </a> clone. It is using Ruby on Rails backend framework, PostgreSQL as backend database, React-readux for interface and state management. Seeds data by using Amazon web services, and Google Maps API interactive with user.
+HiCamp a full stack <a href="https://www.hipcamp.com"> Hipcamp </a> clone. It is using Ruby on Rails backend framework, PostgreSQL as backend database, React-redux for interface and state management. Seeds data by using Amazon web services, and Google Maps API interactive with user.
 
 ## Table of Contents
 - [Technologies](#technologies)
